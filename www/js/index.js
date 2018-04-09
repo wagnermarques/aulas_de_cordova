@@ -53,25 +53,25 @@ var app = {
 	//FILESYSYEM
 	window.requestFileSystem(
 	    LocalFileSystem.PERSISTENT, 0, this.onFileSystemSuccess, this.onFileSystemFail);
-        window.resolveLocalFileSystemURI("file:///example.txt", this.onResolveSuccess, );	
+        window.resolveLocalFileSystemURI("file:///example.txt", this.onResolveFileSystemURISuccess, );	
     },
 
     //CAMERA
-    CameraOptions: {
-	quality: 100,
-	destinationType: Camera.DestinationType.FILE_URI,
-	sourceType: Camera.PictureSourceType.CAMERA,
-	encodingType: Camera.EncodingType.JPEG,
-	cameraDirection: 1,
-	saveToPhotoAlbum: true
-    },
- 
     onClickBtnShowCamera : function(){
+	let CameraOptions={
+	    quality: 100,
+	    destinationType: navigator.camera.DestinationType.FILE_URI,
+	    sourceType: navigator.camera.PictureSourceType.CAMERA,
+	    encodingType: navigator.camera.EncodingType.JPEG,
+	    cameraDirection: 1,
+	    saveToPhotoAlbum: true
+	};
+ 
 	navigator.camera.getPicture(
 	    this.CameraGetPictureSuccess,
 	    this.CameraGetPictureFail,
 	    CameraOptions
-	});
+	);
     },
     CameraGetPictureSuccess:function(imageURI) {
 	console.log("###CameraGetPictureSuccess:function(imageURI) {...");
@@ -79,9 +79,12 @@ var app = {
         var image = document.getElementById('imagem');
         image.style.display = 'block';
         image.src = imageURI;
+	
     },
 
-    CameraGetPictureSucess_PersistImg:function(){
+    //https://cordova.apache.org/docs/en/2.0.0/cordova/file/fileentry/fileentry.html
+    CameraGetPictureSucess_PersistImg:function(fileUri){
+	console.log("###CameraGetPictureSucess_PersistImg:function(fileUri){...");
 	//from: https://www.joshmorony.com/store-camera-photos-permanently-using-phonegap-ionic-ngcordova/
 	//Grab the file name of the photo in the temporary directory
 	var currentName = imagePath.replace(/^.*[\\\/]/, '');
@@ -89,14 +92,20 @@ var app = {
 	//Create a new name for the photo
 	var d = new Date(),
 	    n = d.getTime(),
-	    newFileName = n + ".jpg";
+	    newFileName = d + ".jpg";
+	console.log("###FileNameToPersist="+newFileName);
+	console.log("###cordova.file.tempDirectory="+cordova.file.tempDirectory);
+	console.log("###currentName="+currentName);
+	console.log("###cordova.file.dataDirectory="+cordova.file.dataDirectory);
+	console.log("###newFileName="+newFileName);
 	//Move the file to permanent storage
-	$cordovaFile.moveFile(
-	    cordova.file.tempDirectory, currentName, cordova.file.dataDirectory, newFileName).then(function(success){
- 
-    //success.nativeURL will contain the path to the photo in permanent storage, do whatever you wish with it, e.g:
-    //createPhoto(success.nativeURL);
- 
+	fileUri.moveFile(
+	    cordova.file.tempDirectory, currentName,
+	    cordova.file.dataDirectory, newFileName).then(function(success){
+		console.log("###onFileMoveSuccess:"+success);
+		//success.nativeURL will contain the path to the photo in permanent storage, do whatever you wish with it, e.g:
+		//createPhoto(success.nativeURL);
+	    });
     },
     
     
@@ -127,12 +136,12 @@ var app = {
     onFileSystemFail : function(fileSystem){
 	console.log("###onFileSystemFail : function(fileSystem){...");
     },
-    onResolveSuccess : function(fileEntry) {
-	console.log("###onResolveSuccess : function(fileEntry) {...");
+    onResolveFileSystemURISuccess : function(fileEntry) {
+	console.log("### onResolveFileSystemURISuccess : function(fileEntry) {...");
         console.log(fileEntry.name);
     },
-    onResolveFail : function(fileEntry){
-	console.log("###onResolveFail : function(fileEntry){...");
+    onResolveFileSystemURIFail : function(fileEntry){
+	console.log("###onResolveFileSystemURIFail : function(fileEntry){...");
     },
 
     createFile: function() {
