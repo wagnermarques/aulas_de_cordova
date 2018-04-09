@@ -1,0 +1,8 @@
+platforms/**/*
+plugins/**/*
+!plugins/android.json
+!plugins/browser.json
+!plugins/fetch.json
+node_modules/*
+
+
