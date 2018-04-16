@@ -1,0 +1,31 @@
+#+Title: Anotacoes
+
+* Alguns arquivos importantes
+  android/project.properties
+  
+
+* Listar seus emulatores
+  emulator -list-avds
+
+  [wagner@voluntariado contatemeantes]$ emulator -list-avds
+  4_WVGA_Nexus_S_API_23
+  Galaxy_Nexus_API_23
+  Nexus_4_API_24
+  Nexus_5X_API_P
+  Nexus_5X_API_P_2
+  Nexus_5_API_25
+
+
+* Rodando um emulador
+  emulator -avd Nexus_4_API_24
+
+
+
+* Limpar projeto
+  cordova clean
+
+* atras de um proxy
+  npm config set proxy http://wagner:nicolas1*@192.168.0.2:3128/
+  npm config set https-proxy http://wagner:nicolas1*@192.168.0.2:3128/
+
+

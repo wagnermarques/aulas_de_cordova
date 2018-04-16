@@ -42,7 +42,23 @@
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
-		<button id="btnShowCamera">Camera</button>
+		<button id="btnShowCamera">Camera</button></br>
+                <button id="btnPickContatcts">Selecionar Contato</button>
+                </br>
+                <div id="contatoSelecionado"></div>
+                </br>
+                <div id="geolocation"></div>
+                </br>
+                <div class="smscontent">
+                    <div class="sms-content-padded">
+                        <button id="btnPickContatctsForSMS">Selecionar Contato Para Envio SMS</button>
+                        <button id="btnGeoCurrLocationForSMS">Obter Localizaçao para SMS</button>
+                        <form>
+                            <input type="text" id="number4sms" placeholder="telefone"><br/>
+                            <textarea id="msg4sms" placeholder="Mensagem"></textarea>                            
+                            <input type="button" class="btn btn-positive btn-block" id="enviaSMS" value="Send Message">
+                        </form>
+                    </div>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>

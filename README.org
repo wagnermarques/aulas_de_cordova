@@ -1,0 +1,17 @@
+* Projeto para Aulas De Cordova
+  Este projeto tem por finalidade prover subsidios as aulas de mobile
+  utilizando o Apache Cordova.
+
+** Rodando o projeto
+
+   cordova run android [--target=???]
+
+   Pra obter o ??? do seu dispositivo faça o seguinte: *adb devices*
+
+** Camera
+   
+
+   
+
+
+

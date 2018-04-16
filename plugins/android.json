@@ -18,6 +18,15 @@
     },
     "cordova-plugin-file": {
       "PACKAGE_NAME": "br.com.teste"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "br.com.teste"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "br.com.teste"
+    },
+    "cordova-plugin-sms": {
+      "PACKAGE_NAME": "br.com.teste"
     }
   },
   "dependent_plugins": {}
