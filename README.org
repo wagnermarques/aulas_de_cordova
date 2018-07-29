@@ -1,14 +1,514 @@
-* Projeto para Aulas De Cordova
-  Este projeto tem por finalidade prover subsidios as aulas de mobile
+
+* noexports                                                       :noexports:
+  # -*- org-export-babel-evaluate: nil -*-
+  #+BEGIN_SRC emacs-lisp
+    (setq rg-export-babel-evaluate nil)
+    (message "desabilita execução dos códigos durante a exportação")
+  #+END_SRC
+
+  #+RESULTS:
+  : desabilita execução dos códigos durante a exportação
+
+* Repositório para Aulas De Cordova
+  Este projeto tem por finalidade prover subsidios àss aulas de mobile
   utilizando o Apache Cordova.
 
-** Rodando o projeto
+** Como utilizar este repositório
+*** faça o checkout
+    git clone https://github.com/wagnermarques/aulas_de_cordova.git
 
-   cordova run android [--target=???]
+*** Apresentação dos projetos existentes
+    A idéia a aprensentar vários pequenos projetos pra ilustrar o
+    funcionamento de cada um.
 
-   Pra obter o ??? do seu dispositivo faça o seguinte: *adb devices*
+**** Criando nosso primeiro projeto Com Jquery Mobile
+     Você vai querer estudar mais sobre jquery mobile porque é muito
+     legal. Use esse site:
+     https://www.quanzhanketang.com/jquerymobile/
+     Essa é a página oficial https://jquerymobile.com/
 
-** Camera
+     Apesar deste projeto jquerymob_menu já vir na clonagem do
+     repositório, vamos mostrar como criar esse projeto do zero.
+     
+     Vá até o diretório onde vc quer criar o projeto e use o comando  cordova create
+     
+     #+Name:create project
+     #+BEGIN_SRC sh :exports both :results output
+     cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos
+     cordova create jquerymob_menu
+     #+END_SRC
+
+     #+RESULTS: create project
+     : Creating a new cordova project.
+
+     #+NAME: conteudo do projeto
+     #+BEGIN_SRC sh :exports bouth :result output :exports bouth :results output
+     cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos
+     ls -l jquerymob_menu
+     #+END_SRC
+
+     #+RESULTS: conteudo do projeto
+     : total 8
+     : -rw-r--r-- 1 wagner wagner 992 jul 27 15:15 config.xml
+     : drwxr-xr-x 2 wagner wagner  23 jul 27 15:15 hooks
+     : -rw-r--r-- 1 wagner wagner 361 jul 27 15:15 package.json
+     : drwxrwxr-x 2 wagner wagner   6 jul 27 15:15 platforms
+     : drwxrwxr-x 2 wagner wagner   6 jul 27 15:15 plugins
+     : drwxr-xr-x 4 wagner wagner  49 jul 27 15:15 res
+     : drwxr-xr-x 5 wagner wagner  56 jul 27 15:15 www
+
+***** Conhecendo a estrutura de um projeto do cordova
+      O arquivo config.xml tem o conteúdo abaixo. Por enquanto a gente
+      não vai precisar mecher nele porque conforme a gente vai utilizando
+      os plugins do cordova o cordova modifica esse arquivo pra gente.
+      
+      #+include:/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/config.xml :src xml
+
+      hooks é um diretório, e server pra customizar, automatizar o
+      cordova. Por enquanto não vamos trabalhar com esse recurso.
+
+      package.json é um arquivo importante. Na verdade ele é utilizado
+pelo node e pelo npm e serve pra inventariar os plugins do seu projeto
+e para instalá-los automaticamente com o comando npm install (tem que
+estar no diretório do projeto)
+
+      esse é o conteúdo do nosso package.json
+      #+include:/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/package.json :src json
+
+     
+      platforms é um diretório. É aqui que vai ficar as plataformas
+      com que seu projeto rodará. Inclusive pra emular o seu projeto
+      vc também precis ainstalar as plataformas.
+
+      Assim que um projeto é criado o diretório fica vazio. 
+      Para instalar plataformas siga esses exemplos abaixo onde as
+      plataformas android e browser são instaladas, depois cofira como
+      ficou esse diretório.
+
+      Não se esqueça que vc tem que estar no diretório do projeto pra
+      dar esses comandos.
+
+
+      #+NAME: platforms add android
+     #+BEGIN_SRC sh :exports bouth :result output :results output
+       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+       cordova platform add android
+     #+END_SRC
+
+     #+RESULTS: platforms add android
+     #+begin_example
+     Using cordova-fetch for cordova-android@~7.0.0
+     Adding android project...
+     Creating Cordova project for the Android platform:
+             Path: platforms/android
+             Package: io.cordova.hellocordova
+             Name: HelloCordova
+             Activity: MainActivity
+             Android target: android-26
+     Subproject Path: CordovaLib
+     Subproject Path: app
+     Android project created with cordova-android@7.0.0
+     Android Studio project detected
+     Android Studio project detected
+     Discovered plugin "cordova-plugin-whitelist" in config.xml. Adding it to the project
+     Installing "cordova-plugin-whitelist" for android
+
+                    This plugin is only applicable for versions of cordova-android greater than 4.0. If you have a previous platform version, you do *not* need this plugin since the whitelist will be built in.
+
+     Adding cordova-plugin-whitelist to package.json
+     Saved plugin info for "cordova-plugin-whitelist" to config.xml
+     --save flag or autosave detected
+     Saving android@~7.0.0 into config.xml file ...
+     #+end_example
+
+      #+NAME: platforms add browser
+     #+BEGIN_SRC sh :exports bouth :result output :results output
+       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+       cordova platform add browser
+     #+END_SRC
+
+     #+RESULTS: platforms add browser
+     : Using cordova-fetch for cordova-browser@~5.0.1
+     : Adding browser project...
+     : Creating Cordova project for cordova-browser:
+     : 	Path: /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/platforms/browser
+     : 	Name: HelloCordova
+     : Installing "cordova-plugin-whitelist" for browser
+     : --save flag or autosave detected
+     : Saving browser@~5.0.3 into config.xml file ...
+
+
+     Agora, depois de adicionar  as plataformas vamos consutar o
+     conteúdo do nosso diretório platforms
+      #+NAME: ls platforms
+     #+BEGIN_SRC sh :exports bouth :result output :results output
+     ls -l /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/platforms
+     #+END_SRC
+
+     #+RESULTS: ls platforms
+     : total 0
+     : drwxrwxr-x 6 wagner wagner 199 jul 28 23:27 android
+     : drwxrwxr-x 5 wagner wagner  90 jul 28 23:27 browser
+    
+     depois, por curiosidade pode dar uma "passeada" por entre esses subdiretórios..
+
+     Agora, sobre os plugins. São os plugins que interagem com o
+     sistema operacional e você interage com o plugin através de
+     javascript.
+     Um plugin bem basicão seria cordova-plugin-dialogs pra usar
+     diálogos nativos da plataforma. Vamos instalá-lo e depois ver o
+     conteúdo da pasta plugin do nosso projeto.
+      #+NAME: plugin add cordova-plugin-dialogs
+     #+BEGIN_SRC sh :exports bouth :result output :results output
+       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+       cordova plugin add cordova-plugin-dialogs
+     #+END_SRC
+
+
+     O diretório plugins segue o mesmo entendimento. Adicionados os
+plugins eles são armazenados aqui. 
+
+     Vamos instalar também o splasscreen
+
+     #+NAME: plugin add  cordova plugin add cordova-plugin-splashscreen
+     #+BEGIN_SRC sh :exports bouth :result output :results output
+       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+       cordova plugin add cordova-plugin-splashscreen
+     #+END_SRC
+
+
+     #+RESULTS: plugin add cordova-plugin-dialogs
+     : Installing "cordova-plugin-splashscreen" for android
+     : Android Studio project detected
+     : Installing "cordova-plugin-splashscreen" for browser
+     : Adding cordova-plugin-splashscreen to package.json
+     : Saved plugin info for "cordova-plugin-splashscreen" to config.xml
+
+
+      #+NAME: ls plugins
+     #+BEGIN_SRC sh :exports bouth :result output :results output
+       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+       ls -l plugins
+     #+END_SRC
+     
+     #+RESULTS: ls plugins
+     : total 12
+     : -rw-rw-r-- 1 wagner wagner 436 jul 28 23:29 android.json
+     : -rw-rw-r-- 1 wagner wagner 436 jul 28 23:29 browser.json
+     : drwxrwxr-x 7 wagner wagner 195 jul 28 23:28 cordova-plugin-dialogs
+     : drwxrwxr-x 7 wagner wagner 195 jul 28 23:29 cordova-plugin-splashscreen
+     : drwxrwxr-x 4 wagner wagner 158 jul 28 23:27 cordova-plugin-whitelist
+     : -rw-rw-r-- 1 wagner wagner 525 jul 28 23:29 fetch.json
+
+     O diretório res é onde vc vai colocar images e demais recursos
+que o seu projeto vai precisar. Por exemplo em
+https://cordova.apache.org/docs/en/3.3.0/config_ref/images.html mostra
+como mudar o ícone da palicação. 
+  
+      #+NAME: ls res
+     #+BEGIN_SRC sh :exports bouth :result output :results output
+       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+       ls -l res
+     #+END_SRC
+
+     #+RESULTS: ls res
+     : total 4
+     : drwxr-xr-x 11 wagner wagner  145 jul 27 15:15 icon
+     : -rw-r--r--  1 wagner wagner 1248 jul 27 15:15 README.md
+     : drwxr-xr-x 11 wagner wagner  145 jul 27 15:15 screen
+
+     Agora sim, o diretório www. Esse é o diretório onde ficarão suas
+     interfaces gráficas que são compostas por tecnologias front end
+     html, javascript e css.
+
+     Vamos dar uma olhada no conteúdo do nosso diretório www
+      #+NAME: ls www
+     #+BEGIN_SRC sh :exports bouth :result output :results output
+       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+       ls -l www
+     #+END_SRC
+
+     #+RESULTS: ls www
+     : total 4
+     : drwxr-xr-x 2 wagner wagner   23 jul 27 15:15 css
+     : drwxr-xr-x 2 wagner wagner   22 jul 27 15:15 img
+     : -rw-r--r-- 1 wagner wagner 2513 jul 27 15:15 index.html
+     : drwxr-xr-x 2 wagner wagner   22 jul 27 15:15 js
+
+     Segue abaixo o conteúdo do nosso index.html pra gente estudar
+     juntos...
+     #+Include: /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/www/index.html :src html
+     
+     Segue também o conteúdo do nosso index.js pra gente estudar
+     juntos... lembrando que nosso index.js fica dentro d pasta js
+     
+     #+Include: /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/www/js/index.js :src js
+
+     Tem que comprendeder bem essa função de callback...
+     #+BEGIN_SRC js
+       onDeviceReady: function() {
+          this.receivedEvent('deviceready');
+       },
+     #+END_SRC
+
+     Só depois que ela roda é que seus plugin podem interagir com o
+     dispositivo. Então já fica o aviso. Seus plugins só funcionam
+     depois que o dispositivo está pronto pra uso.
+
+    
+***** Vamos fazer o build do projeto e depois rodá-lo     
+      
+      Fazer o build significa criar o arquivo .apk que é um instalador
+      do seu projeto mobile. Esse instalador vc pode depois passar pro
+      seu celular e instalá-lo. Quando rodamos no emulador é exatamene
+      a mesma coisa que é feito, ou seja, gerado o apk e depois
+      instalá-lo no aparelho virtual.
+
+      Bom então vc precisa primeiro buidar o seu projeto, vamos fazer
+      isso?
+      
+      #+NAME: cordova build android
+      #+BEGIN_SRC sh :exports both :results output
+       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+       cordova build android
+      #+END_SRC
+
+      #+RESULTS: cordova build android
+      #+begin_example
+      Android Studio project detected
+      ANDROID_HOME=/home/wagner/wagnerdocri@gmail.com3/fzlbpms/fzlStudio/integrated/Android/Sdk
+      JAVA_HOME=/home/wagner/wagnerdocri@gmail.com3/fzlbpms/fzlStudio/integrated/jdks/jdk1.8.0_161
+      studio
+      Subproject Path: CordovaLib
+      Subproject Path: app
+      publishNonDefault is deprecated and has no effect anymore. All variants are now published.
+      The Task.leftShift(Closure) method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use Task.doLast(Action) instead.
+              at build_2tivqh96tqllabw1kyxf4wb85.run(/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/platforms/android/app/build.gradle:143)
+      :CordovaLib:preBuild UP-TO-DATE
+      :CordovaLib:preDebugBuild UP-TO-DATE
+      :CordovaLib:compileDebugAidl UP-TO-DATE
+      :CordovaLib:compileDebugRenderscript UP-TO-DATE
+      :CordovaLib:checkDebugManifest UP-TO-DATE
+      :CordovaLib:generateDebugBuildConfig UP-TO-DATE
+      :CordovaLib:prepareLintJar UP-TO-DATE
+      :CordovaLib:generateDebugResValues UP-TO-DATE
+      :CordovaLib:generateDebugResources UP-TO-DATE
+      :CordovaLib:packageDebugResources UP-TO-DATE
+      :CordovaLib:platformAttrExtractor UP-TO-DATE
+      :CordovaLib:processDebugManifest UP-TO-DATE
+      :CordovaLib:processDebugResources UP-TO-DATE
+      :CordovaLib:generateDebugSources UP-TO-DATE
+      :CordovaLib:javaPreCompileDebug UP-TO-DATE
+      :CordovaLib:compileDebugJavaWithJavac UP-TO-DATE
+      :CordovaLib:processDebugJavaRes NO-SOURCE
+      :CordovaLib:transformClassesAndResourcesWithPrepareIntermediateJarsForDebug UP-TO-DATE
+      :app:preBuild UP-TO-DATE
+      :app:preDebugBuild UP-TO-DATE
+      :app:compileDebugAidl UP-TO-DATE
+      :CordovaLib:packageDebugRenderscript NO-SOURCE
+      :app:compileDebugRenderscript UP-TO-DATE
+      :app:checkDebugManifest UP-TO-DATE
+      :app:generateDebugBuildConfig UP-TO-DATE
+      :app:prepareLintJar UP-TO-DATE
+      :app:generateDebugResValues UP-TO-DATE
+      :app:generateDebugResources UP-TO-DATE
+      :app:mergeDebugResources UP-TO-DATE
+      :app:createDebugCompatibleScreenManifests UP-TO-DATE
+      :app:processDebugManifest UP-TO-DATE
+      :app:splitsDiscoveryTaskDebug UP-TO-DATE
+      :app:processDebugResources UP-TO-DATE
+      :app:generateDebugSources UP-TO-DATE
+      :app:javaPreCompileDebug UP-TO-DATE
+      :app:compileDebugJavaWithJavac UP-TO-DATE
+      :app:compileDebugNdk NO-SOURCE
+      :app:compileDebugSources UP-TO-DATE
+      :CordovaLib:mergeDebugShaders UP-TO-DATE
+      :CordovaLib:compileDebugShaders UP-TO-DATE
+      :CordovaLib:generateDebugAssets UP-TO-DATE
+      :CordovaLib:mergeDebugAssets UP-TO-DATE
+      :app:mergeDebugShaders UP-TO-DATE
+      :app:compileDebugShaders UP-TO-DATE
+      :app:generateDebugAssets UP-TO-DATE
+      :app:mergeDebugAssets UP-TO-DATE
+      :app:extractTryWithResourcesSupportJarDebug UP-TO-DATE
+      :app:transformClassesWithStackFramesFixerForDebug UP-TO-DATE
+      :app:transformClassesWithDesugarForDebug UP-TO-DATE
+      :app:transformClassesWithDexBuilderForDebug UP-TO-DATE
+      :app:transformDexArchiveWithExternalLibsDexMergerForDebug UP-TO-DATE
+      :app:transformDexArchiveWithDexMergerForDebug UP-TO-DATE
+      :CordovaLib:compileDebugNdk NO-SOURCE
+      :CordovaLib:mergeDebugJniLibFolders UP-TO-DATE
+      :CordovaLib:transformNativeLibsWithMergeJniLibsForDebug UP-TO-DATE
+      :CordovaLib:transformNativeLibsWithIntermediateJniLibsForDebug UP-TO-DATE
+      :app:mergeDebugJniLibFolders UP-TO-DATE
+      :app:transformNativeLibsWithMergeJniLibsForDebug UP-TO-DATE
+      :app:processDebugJavaRes NO-SOURCE
+      :app:transformResourcesWithMergeJavaResForDebug UP-TO-DATE
+      :app:validateSigningDebug
+      :app:packageDebug UP-TO-DATE
+      :app:assembleDebug UP-TO-DATE
+      :app:cdvBuildDebug UP-TO-DATE
+
+      BUILD SUCCESSFUL in 1s
+      47 actionable tasks: 1 executed, 46 up-to-date
+      Built the following apk(s): 
+              /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+      #+end_example
+
+      Dá uma olhadinha na saída do comando e veja o build foi um
+      suscesso e que foi gerado o arquivo app-debug.apk
+
+      Agora a gente pode rodar o projeto. Bom mas pera aí, vamos ter
+      que ver se temos um dispositivo virtual disponível pra rodar o
+      nosos projeto.
+      
+      Nas máquinas do nosso lab já tem esses dispositivos virutais
+      configurados mas se não tivesse vc teria que criálos
+      primeiro. Vamos aprender como se faz isso.
+
+      Puts, mas o que é um avd? 
+      Dá uma lida aqui.. https://developer.android.com/studio/run/managing-avds
+
+      É nessa hora que a gente começa a conversar sobre o ambiente
+      android.
+      É bom sempre fazer o update do sdkmanager que é a ferramenta que
+      instala e atualiza os pactoes do android. A maioria dos
+      desenvolvedores utiliza o visual studio pra pra fazer isso, mas
+      por simplicidade vc pode simplesmente dar esse comando...
+      Pra conhecer mais sobre o sdkmanager dê uma consultada em https://developer.android.com/studio/command-line/sdkmanager
+
+      #+NAME: sdkmanager --update
+      #+BEGIN_SRC sh :exports both :results output
+         sdkmanager --update
+      #+END_SRC
+
+      #+RESULTS: sdkmanager --update
+      : Loading package information...                                                  Loading local repository...                                                     [                                       ] 3% Loading local repository...        [                                       ] 3% Fetch remote repository...         [                                       ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [==                                     ] 5% Fetch remote repository...         [==                                     ] 6% Fetch remote repository...                                                                                         [==                                     ] 6% Fetch remote repository...         [==                                     ] 6% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 10% Computing updates...              [=======================================] 100% Computing updates...
+
+      No momento o sdkmanager está atualizado.
+      Pra rodar seus aplicativos vc precisa de paddotes do android
+      instalados
+      Pra listar os pacotes que vc já tem instalado faça o seguinte
+      
+      #+NAME: sdkmanager --list
+      #+BEGIN_SRC sh :exports both :results output
+        sdkmanager --list
+      #+END_SRC
+
+      
+      Quando vc cria um emulador ele vai usar um dos pacotes
+      instalados acima que vc escolher. 
+
+      Nos equipamentos do labooratório os pacotes que vamo sutilizar já
+      estão instalados, mas se vc tiver instalando o ambiente no seu
+      equipamento a sugestão é você instalar o seguinte pacote 
+
+
+      #+NAME:sdkmanager "platform-tools" "platforms;android-26"
+      #+BEGIN_SRC sh :exports both :results output
+         sdkmanager "platform-tools" "platforms;android-26"
+      #+END_SRC
+
+      Nesta máquina em que estou já em instalado. Essa versão será
+      compatível com o cordova.
+      #+RESULTS: sdkmanager "platform-tools" "platforms;android-26"
+      : Loading package information...                                                  Loading local repository...                                                     [                                       ] 3% Loading local repository...        [                                       ] 3% Fetch remote repository...         [                                       ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [==                                     ] 5% Fetch remote repository...         [==                                     ] 6% Fetch remote repository...                                                                                         [==                                     ] 6% Fetch remote repository...         [==                                     ] 6% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 10% Computing updates...              [=======================================] 100% Computing updates...             
+      
+      #+NAME: cordova run android
+      #+BEGIN_SRC sh :exports bouth :result output :results output
+       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+       cordova run android
+      #+END_SRC
+
+      
+
+**** Inclusão do Jquery Mobile
+     Provavelmente o melhor lugar pra começar com jquery é
+     http://demos.jquerymobile.com/1.3.2/intro/
+     Como está em ingles, a gente dá uma ajudinha aqui...
+***** mas o que é jquery?
+      É uma biblioteca javascript
+      https://learn.jquery.com/
+      Tem a versão pra sites normais e tem a versão para mobile
+      Pra usar o jquery mobile vc tem que baixar ele e colocá-lo no
+      seu projeto.
+
+      Então os comandos abaixo vão baixar o jquery e instalá-lo no
+      nosso projeto. Vc pode fazer manualmente também.
+
+      
+
+      #+NAME:download do jquery mobile
+      #+BEGIN_SRC sh :export both :results output
+        cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+        wget --output-document jquerymobile.zip  https://jquerymobile.com/resources/download/jquery.mobile-1.4.5.zip                               
+        mkdir jquerymobile && unzip -d jquerymobile jquerymobile.zip
+        
+        cp jquerymobile/demos/js/jquery.js www/js
+        cp jquerymobile/jquery.mobile-1.4.5.min.css www/css
+        cp jquerymobile/jquery.mobile-1.4.5.min.js www/js
+        cp -rf jquerymobile/images www
+        
+        rm -r jquerymobile
+        echo "#######    DIRETORIO RAIZ DO NOSSO PROJETO      ########"
+        ls -l
+        echo "#######    DIRETORIO WWW DO NOSSO PROJETO       ########"
+        ls -l www
+        echo "#######   DIRETORIO WWW/JS DO NOSSO PROJETO     ########"
+        ls -l www/js
+        echo "#######  DIRETORIO WWW/CSS DO NOSSO PROJETO     ########"
+        ls -l www/css
+      #+END_SRC
+
+      #+RESULTS: download do jquery mobile
+      #+begin_example
+      #######    DIRETORIO RAIZ DO NOSSO PROJETO      ########
+      total 7764
+      -rw-r--r-- 1 wagner wagner    1203 jul 29 13:29 config.xml
+      drwxr-xr-x 2 wagner wagner      23 jul 28 23:24 hooks
+      drwxrwxr-x 4 wagner wagner    4096 jul 29 13:02 jquerymobile
+      -rw-rw-r-- 1 wagner wagner 7906983 out 31  2014 jquerymobile.zip
+      drwxrwxr-x 8 wagner wagner     161 jul 28 23:29 node_modules
+      -rw-r--r-- 1 wagner wagner     868 jul 29 13:29 package.json
+      -rw-rw-r-- 1 wagner wagner   28213 jul 28 23:29 package-lock.json
+      drwxrwxr-x 4 wagner wagner      36 jul 28 23:27 platforms
+      drwxrwxr-x 5 wagner wagner     161 jul 28 23:29 plugins
+      drwxr-xr-x 4 wagner wagner      49 jul 28 23:24 res
+      drwxr-xr-x 6 wagner wagner     107 jul 29 13:29 www
+      #######    DIRETORIO WWW DO NOSSO PROJETO       ########
+      total 12
+      drwxr-xr-x 2 wagner wagner   58 jul 29 13:30 css
+      drwxrwxr-x 4 wagner wagner   63 jul 28 23:55 images
+      drwxr-xr-x 3 wagner wagner 4096 jul 29 01:27 img
+      -rw-r--r-- 1 wagner wagner 3884 jul 29 13:29 index.html
+      -rw-r--r-- 1 wagner wagner 2513 jul 28 23:24 index.origina_do_cordova.html
+      drwxrwxr-x 2 wagner wagner   98 jul 29 13:33 js
+      #######   DIRETORIO WWW/JS DO NOSSO PROJETO     ########
+      total 472
+      -rw-r--r-- 1 wagner wagner   2156 jul 29 01:38 index.js
+      -rw-r--r-- 1 wagner wagner   1673 jul 29 01:36 index.original.js
+      -rw-rw-r-- 1 wagner wagner 273199 jul 29 13:33 jquery.js
+      -rw-rw-r-- 1 wagner wagner 200143 jul 29 13:33 jquery.mobile-1.4.5.min.js
+      #######  DIRETORIO WWW/CSS DO NOSSO PROJETO     ########
+      total 208
+      -rw-r--r-- 1 wagner wagner   2914 jul 29 09:34 index.css
+      -rw-rw-r-- 1 wagner wagner 207465 jul 29 13:33 jquery.mobile-1.4.5.min.css
+      #+end_example
+
+
+
+
+
+      
+      
+      
+      
+     
+     
+     
+
+
+
    
 
    
