@@ -9,8 +9,9 @@
   #+RESULTS:
   : desabilita execução dos códigos durante a exportação
 
+
 * Repositório para Aulas De Cordova
-  Este projeto tem por finalidade prover subsidios àss aulas de mobile
+  Este projeto tem por finalidade prover subsidios às aulas de mobile
   utilizando o Apache Cordova.
 
 ** Como utilizar este repositório
@@ -18,15 +19,44 @@
     git clone https://github.com/wagnermarques/aulas_de_cordova.git
 
 *** Apresentação dos projetos existentes
-    A idéia a aprensentar vários pequenos projetos pra ilustrar o
-    funcionamento de cada um.
+    Haverá vários pequenos projetos de exemplo pra vc estudar junto
+    com o seu professor.
+    
+** Sobre Cordova
+    https://cordova.apache.org/
 
-**** Criando nosso primeiro projeto Com Jquery Mobile
-     Você vai querer estudar mais sobre jquery mobile porque é muito
-     legal. Use esse site:
-     https://www.quanzhanketang.com/jquerymobile/
-     Essa é a página oficial https://jquerymobile.com/
+** Sobre Jquery Mobile
+   É uma biblioteca javascript
+   https://learn.jquery.com/
+   Tem a versão pra sites normais e tem a versão para mobile
+   Pra usar o jquery mobile vc tem que baixar ele e colocá-lo no
+   seu projeto.
+   
+   https://jquerymobile.com/
+   Você vai querer estudar mais sobre jquery mobile porque é muito
+   legal. Use esse site:
+   https://www.quanzhanketang.com/jquerymobile/
+   Essa é a página oficial https://jquerymobile.com/
 
+
+* Apresentação dos projetos cordova deste repositório
+  Dentro da pasta "projetos" tem os projetos de exemplo para estudo e
+  para as aulas.
+  A medida que os projetos de exemplo vao sendo criados eu vou
+  colocando uma apresentação de cada um aqui.
+
+** O projeto jquerymob_menu
+  O primeiro projeto é o jquerymob_menu que é criado desde o zero no
+  próximo tópico deste README.
+  O projeto jquerymob_menu apresenta os seguintes tópicos
+  + Instalação do JqueryMobile
+  + Criação de um Header e Footer comm jquery mobile
+    data-role="navbar"
+    data-role="footer"
+    data-role="content"
+  
+
+* [jquerymob_menu] Criando nosso primeiro projeto Com Jquery Mobile
      Apesar deste projeto jquerymob_menu já vir na clonagem do
      repositório, vamos mostrar como criar esse projeto do zero.
      
@@ -57,7 +87,7 @@
      : drwxr-xr-x 4 wagner wagner  49 jul 27 15:15 res
      : drwxr-xr-x 5 wagner wagner  56 jul 27 15:15 www
 
-***** Conhecendo a estrutura de um projeto do cordova
+** Conhecendo a estrutura de um projeto do cordova
       O arquivo config.xml tem o conteúdo abaixo. Por enquanto a gente
       não vai precisar mecher nele porque conforme a gente vai utilizando
       os plugins do cordova o cordova modifica esse arquivo pra gente.
@@ -205,7 +235,7 @@ que o seu projeto vai precisar. Por exemplo em
 https://cordova.apache.org/docs/en/3.3.0/config_ref/images.html mostra
 como mudar o ícone da palicação. 
   
-      #+NAME: ls res
+     #+NAME: ls res
      #+BEGIN_SRC sh :exports bouth :result output :results output
        cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
        ls -l res
@@ -256,7 +286,7 @@ como mudar o ícone da palicação.
      depois que o dispositivo está pronto pra uso.
 
     
-***** Vamos fazer o build do projeto e depois rodá-lo     
+** Vamos fazer o build do projeto e depois rodá-lo     
       
       Fazer o build significa criar o arquivo .apk que é um instalador
       do seu projeto mobile. Esse instalador vc pode depois passar pro
@@ -422,21 +452,13 @@ como mudar o ícone da palicação.
 
       
 
-**** Inclusão do Jquery Mobile
+* Inclusão do Jquery Mobile
      Provavelmente o melhor lugar pra começar com jquery é
      http://demos.jquerymobile.com/1.3.2/intro/
      Como está em ingles, a gente dá uma ajudinha aqui...
-***** mas o que é jquery?
-      É uma biblioteca javascript
-      https://learn.jquery.com/
-      Tem a versão pra sites normais e tem a versão para mobile
-      Pra usar o jquery mobile vc tem que baixar ele e colocá-lo no
-      seu projeto.
 
       Então os comandos abaixo vão baixar o jquery e instalá-lo no
       nosso projeto. Vc pode fazer manualmente também.
-
-      
 
       #+NAME:download do jquery mobile
       #+BEGIN_SRC sh :export both :results output
@@ -512,6 +534,7 @@ como mudar o ícone da palicação.
    
 
    
+
 
 
 
