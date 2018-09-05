@@ -54,7 +54,9 @@
     data-role="navbar"
     data-role="footer"
     data-role="content"
-  
+  + Utilização de Paginas internas e externas
+    http://demos.jquerymobile.com/1.4.0/pages/
+    http://demos.jquerymobile.com/1.2.1/docs/pages/multipage-template.html
 
 * [jquerymob_menu] Criando nosso primeiro projeto Com Jquery Mobile
      Apesar deste projeto jquerymob_menu já vir na clonagem do
