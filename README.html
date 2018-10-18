@@ -1,0 +1,1222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-07-29 dom 16:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="wagner" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgef50051">1. noexports&#xa0;&#xa0;&#xa0;<span class="tag"><span class="noexports">noexports</span></span></a></li>
+<li><a href="#org4573aa6">2. Repositório para Aulas De Cordova</a>
+<ul>
+<li><a href="#org0389ae4">2.1. Como utilizar este repositório</a>
+<ul>
+<li><a href="#org3180590">2.1.1. faça o checkout</a></li>
+<li><a href="#org30526be">2.1.2. Apresentação dos projetos existentes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgef50051" class="outline-2">
+<h2 id="orgef50051"><span class="section-number-2">1</span> noexports&#xa0;&#xa0;&#xa0;<span class="tag"><span class="noexports">noexports</span></span></h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #a020f0;">setq</span> rg-export-babel-evaluate nil)
+(message <span style="color: #8b2252;">"desabilita execu&#231;&#227;o dos c&#243;digos durante a exporta&#231;&#227;o"</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4573aa6" class="outline-2">
+<h2 id="org4573aa6"><span class="section-number-2">2</span> Repositório para Aulas De Cordova</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Este projeto tem por finalidade prover subsidios àss aulas de mobile
+utilizando o Apache Cordova.
+</p>
+</div>
+
+<div id="outline-container-org0389ae4" class="outline-3">
+<h3 id="org0389ae4"><span class="section-number-3">2.1</span> Como utilizar este repositório</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org3180590" class="outline-4">
+<h4 id="org3180590"><span class="section-number-4">2.1.1</span> faça o checkout</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+git clone <a href="https://github.com/wagnermarques/aulas_de_cordova.git">https://github.com/wagnermarques/aulas_de_cordova.git</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org30526be" class="outline-4">
+<h4 id="org30526be"><span class="section-number-4">2.1.2</span> Apresentação dos projetos existentes</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+A idéia a aprensentar vários pequenos projetos pra ilustrar o
+funcionamento de cada um.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org95b071c"></a>Criando nosso primeiro projeto Com Jquery Mobile<br />
+<div class="outline-text-5" id="text-2-1-2-1">
+<p>
+Você vai querer estudar mais sobre jquery mobile porque é muito
+legal. Use esse site:
+<a href="https://www.quanzhanketang.com/jquerymobile/">https://www.quanzhanketang.com/jquerymobile/</a>
+Essa é a página oficial <a href="https://jquerymobile.com/">https://jquerymobile.com/</a>
+</p>
+
+<p>
+Apesar deste projeto jquerymob<sub>menu</sub> já vir na clonagem do
+repositório, vamos mostrar como criar esse projeto do zero.
+</p>
+
+<p>
+Vá até o diretório onde vc quer criar o projeto e use o comando  cordova create
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh" id="orgdf0aa13"><span style="color: #483d8b;">cd</span> /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos
+cordova create jquerymob_menu
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sh" id="org87bdcf9"><span style="color: #483d8b;">cd</span> /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos
+ls -l jquerymob_menu
+</pre>
+</div>
+
+<pre class="example">
+total 8
+-rw-r--r-- 1 wagner wagner 992 jul 27 15:15 config.xml
+drwxr-xr-x 2 wagner wagner  23 jul 27 15:15 hooks
+-rw-r--r-- 1 wagner wagner 361 jul 27 15:15 package.json
+drwxrwxr-x 2 wagner wagner   6 jul 27 15:15 platforms
+drwxrwxr-x 2 wagner wagner   6 jul 27 15:15 plugins
+drwxr-xr-x 4 wagner wagner  49 jul 27 15:15 res
+drwxr-xr-x 5 wagner wagner  56 jul 27 15:15 www
+
+</pre>
+</div>
+
+<ol class="org-ol">
+<li><a id="org9479ff1"></a>Conhecendo a estrutura de um projeto do cordova<br />
+<div class="outline-text-6" id="text-2-1-2-1-1">
+<p>
+O arquivo config.xml tem o conteúdo abaixo. Por enquanto a gente
+não vai precisar mecher nele porque conforme a gente vai utilizando
+os plugins do cordova o cordova modifica esse arquivo pra gente.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-xml">&lt;?<span style="color: #a020f0;">xml</span> <span style="color: #a0522d;">version</span>=<span style="color: #8b2252;">'</span><span style="color: #8b2252;">1.0</span><span style="color: #8b2252;">'</span> <span style="color: #a0522d;">encoding</span>=<span style="color: #8b2252;">'</span><span style="color: #8b2252;">utf-8</span><span style="color: #8b2252;">'</span>?&gt;
+&lt;<span style="color: #0000ff;">widget</span> <span style="color: #a0522d;">id</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">io.cordova.hellocordova</span><span style="color: #8b2252;">"</span> <span style="color: #a0522d;">version</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">1.0.0</span><span style="color: #8b2252;">"</span> <span style="color: #483d8b;">xmlns</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">http://www.w3.org/ns/widgets</span><span style="color: #8b2252;">"</span> <span style="color: #483d8b;">xmlns</span>:<span style="color: #a0522d;">cdv</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">http://cordova.apache.org/ns/1.0</span><span style="color: #8b2252;">"</span>&gt;
+    &lt;<span style="color: #0000ff;">name</span>&gt;HelloCordova&lt;/<span style="color: #0000ff;">name</span>&gt;
+    &lt;<span style="color: #0000ff;">description</span>&gt;
+        A sample Apache Cordova application that responds to the deviceready event.
+    &lt;/<span style="color: #0000ff;">description</span>&gt;
+    &lt;<span style="color: #0000ff;">author</span> <span style="color: #a0522d;">email</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">dev@cordova.apache.org</span><span style="color: #8b2252;">"</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">http://cordova.io</span><span style="color: #8b2252;">"</span>&gt;
+        Apache Cordova Team
+    &lt;/<span style="color: #0000ff;">author</span>&gt;
+    &lt;<span style="color: #0000ff;">content</span> <span style="color: #a0522d;">src</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">index.html</span><span style="color: #8b2252;">"</span> /&gt;
+    &lt;<span style="color: #0000ff;">plugin</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">cordova-plugin-whitelist</span><span style="color: #8b2252;">"</span> <span style="color: #a0522d;">spec</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">1</span><span style="color: #8b2252;">"</span> /&gt;
+    &lt;<span style="color: #0000ff;">access</span> <span style="color: #a0522d;">origin</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">*</span><span style="color: #8b2252;">"</span> /&gt;
+    &lt;<span style="color: #0000ff;">allow-intent</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">http://*/*</span><span style="color: #8b2252;">"</span> /&gt;
+    &lt;<span style="color: #0000ff;">allow-intent</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">https://*/*</span><span style="color: #8b2252;">"</span> /&gt;
+    &lt;<span style="color: #0000ff;">allow-intent</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">tel:*</span><span style="color: #8b2252;">"</span> /&gt;
+    &lt;<span style="color: #0000ff;">allow-intent</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">sms:*</span><span style="color: #8b2252;">"</span> /&gt;
+    &lt;<span style="color: #0000ff;">allow-intent</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">mailto:*</span><span style="color: #8b2252;">"</span> /&gt;
+    &lt;<span style="color: #0000ff;">allow-intent</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">geo:*</span><span style="color: #8b2252;">"</span> /&gt;
+    &lt;<span style="color: #0000ff;">platform</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">android</span><span style="color: #8b2252;">"</span>&gt;
+        &lt;<span style="color: #0000ff;">allow-intent</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">market:*</span><span style="color: #8b2252;">"</span> /&gt;
+    &lt;/<span style="color: #0000ff;">platform</span>&gt;
+    &lt;<span style="color: #0000ff;">platform</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">ios</span><span style="color: #8b2252;">"</span>&gt;
+        &lt;<span style="color: #0000ff;">allow-intent</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">itms:*</span><span style="color: #8b2252;">"</span> /&gt;
+        &lt;<span style="color: #0000ff;">allow-intent</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">itms-apps:*</span><span style="color: #8b2252;">"</span> /&gt;
+    &lt;/<span style="color: #0000ff;">platform</span>&gt;
+    &lt;<span style="color: #0000ff;">plugin</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">cordova-plugin-dialogs</span><span style="color: #8b2252;">"</span> <span style="color: #a0522d;">spec</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">^2.0.1</span><span style="color: #8b2252;">"</span> /&gt;
+    &lt;<span style="color: #0000ff;">plugin</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">cordova-plugin-splashscreen</span><span style="color: #8b2252;">"</span> <span style="color: #a0522d;">spec</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">^5.0.2</span><span style="color: #8b2252;">"</span> /&gt;
+    &lt;<span style="color: #0000ff;">engine</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">android</span><span style="color: #8b2252;">"</span> <span style="color: #a0522d;">spec</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">^7.0.0</span><span style="color: #8b2252;">"</span> /&gt;
+    &lt;<span style="color: #0000ff;">engine</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">browser</span><span style="color: #8b2252;">"</span> <span style="color: #a0522d;">spec</span>=<span style="color: #8b2252;">"</span><span style="color: #8b2252;">^5.0.3</span><span style="color: #8b2252;">"</span> /&gt;
+&lt;/<span style="color: #0000ff;">widget</span>&gt;
+</pre>
+</div>
+
+<p>
+hooks é um diretório, e server pra customizar, automatizar o
+cordova. Por enquanto não vamos trabalhar com esse recurso.
+</p>
+
+<p>
+      package.json é um arquivo importante. Na verdade ele é utilizado
+pelo node e pelo npm e serve pra inventariar os plugins do seu projeto
+e para instalá-los automaticamente com o comando npm install (tem que
+estar no diretório do projeto)
+</p>
+
+<p>
+esse é o conteúdo do nosso package.json
+</p>
+<div class="org-src-container">
+<pre class="src src-json">{
+    <span style="color: #a020f0;">"name"</span>: <span style="color: #8b2252;">"helloworld"</span>,
+    <span style="color: #a020f0;">"displayName"</span>: <span style="color: #8b2252;">"HelloCordova"</span>,
+    <span style="color: #a020f0;">"version"</span>: <span style="color: #8b2252;">"1.0.0"</span>,
+    <span style="color: #a020f0;">"description"</span>: <span style="color: #8b2252;">"A sample Apache Cordova application that responds to the deviceready event."</span>,
+    <span style="color: #a020f0;">"main"</span>: <span style="color: #8b2252;">"index.js"</span>,
+    <span style="color: #a020f0;">"scripts"</span>: {
+        <span style="color: #a020f0;">"test"</span>: <span style="color: #8b2252;">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>
+    },
+    <span style="color: #a020f0;">"author"</span>: <span style="color: #8b2252;">"Apache Cordova Team"</span>,
+    <span style="color: #a020f0;">"license"</span>: <span style="color: #8b2252;">"Apache-2.0"</span>,
+    <span style="color: #a020f0;">"dependencies"</span>: {
+        <span style="color: #a020f0;">"cordova-android"</span>: <span style="color: #8b2252;">"^7.0.0"</span>,
+        <span style="color: #a020f0;">"cordova-browser"</span>: <span style="color: #8b2252;">"^5.0.3"</span>,
+        <span style="color: #a020f0;">"cordova-plugin-dialogs"</span>: <span style="color: #8b2252;">"^2.0.1"</span>,
+        <span style="color: #a020f0;">"cordova-plugin-splashscreen"</span>: <span style="color: #8b2252;">"^5.0.2"</span>,
+        <span style="color: #a020f0;">"cordova-plugin-whitelist"</span>: <span style="color: #8b2252;">"^1.3.3"</span>
+    },
+    <span style="color: #a020f0;">"cordova"</span>: {
+        <span style="color: #a020f0;">"plugins"</span>: {
+            <span style="color: #a020f0;">"cordova-plugin-whitelist"</span>: {},
+            <span style="color: #a020f0;">"cordova-plugin-dialogs"</span>: {},
+            <span style="color: #a020f0;">"cordova-plugin-splashscreen"</span>: {}
+        },
+        <span style="color: #a020f0;">"platforms"</span>: [
+            <span style="color: #8b2252;">"android"</span>,
+            <span style="color: #8b2252;">"browser"</span>
+        ]
+    }
+}
+</pre>
+</div>
+
+
+<p>
+platforms é um diretório. É aqui que vai ficar as plataformas
+com que seu projeto rodará. Inclusive pra emular o seu projeto
+vc também precis ainstalar as plataformas.
+</p>
+
+<p>
+Assim que um projeto é criado o diretório fica vazio. 
+Para instalar plataformas siga esses exemplos abaixo onde as
+plataformas android e browser são instaladas, depois cofira como
+ficou esse diretório.
+</p>
+
+<p>
+Não se esqueça que vc tem que estar no diretório do projeto pra
+dar esses comandos.
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-sh" id="orgfa2314d"><span style="color: #483d8b;">cd</span> /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+cordova platform add android
+</pre>
+</div>
+
+<pre class="example">
+Using cordova-fetch for cordova-android@~7.0.0
+Adding android project...
+Creating Cordova project for the Android platform:
+        Path: platforms/android
+        Package: io.cordova.hellocordova
+        Name: HelloCordova
+        Activity: MainActivity
+        Android target: android-26
+Subproject Path: CordovaLib
+Subproject Path: app
+Android project created with cordova-android@7.0.0
+Android Studio project detected
+Android Studio project detected
+Discovered plugin "cordova-plugin-whitelist" in config.xml. Adding it to the project
+Installing "cordova-plugin-whitelist" for android
+
+               This plugin is only applicable for versions of cordova-android greater than 4.0. If you have a previous platform version, you do *not* need this plugin since the whitelist will be built in.
+
+Adding cordova-plugin-whitelist to package.json
+Saved plugin info for "cordova-plugin-whitelist" to config.xml
+--save flag or autosave detected
+Saving android@~7.0.0 into config.xml file ...
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-sh" id="org75ac6f8"><span style="color: #483d8b;">cd</span> /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+cordova platform add browser
+</pre>
+</div>
+
+<pre class="example">
+Using cordova-fetch for cordova-browser@~5.0.1
+Adding browser project...
+Creating Cordova project for cordova-browser:
+	Path: /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/platforms/browser
+	Name: HelloCordova
+Installing "cordova-plugin-whitelist" for browser
+--save flag or autosave detected
+Saving browser@~5.0.3 into config.xml file ...
+
+</pre>
+
+
+<p>
+Agora, depois de adicionar  as plataformas vamos consutar o
+conteúdo do nosso diretório platforms
+</p>
+<div class="org-src-container">
+<pre class="src src-sh" id="org83a30c4">ls -l /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/platforms
+</pre>
+</div>
+
+<pre class="example">
+total 0
+drwxrwxr-x 6 wagner wagner 199 jul 28 23:27 android
+drwxrwxr-x 5 wagner wagner  90 jul 28 23:27 browser
+
+</pre>
+
+<p>
+depois, por curiosidade pode dar uma "passeada" por entre esses subdiretórios..
+</p>
+
+<p>
+Agora, sobre os plugins. São os plugins que interagem com o
+sistema operacional e você interage com o plugin através de
+javascript.
+Um plugin bem basicão seria cordova-plugin-dialogs pra usar
+diálogos nativos da plataforma. Vamos instalá-lo e depois ver o
+conteúdo da pasta plugin do nosso projeto.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh" id="org84dbd59"><span style="color: #483d8b;">cd</span> /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+cordova plugin add cordova-plugin-dialogs
+</pre>
+</div>
+
+
+<p>
+     O diretório plugins segue o mesmo entendimento. Adicionados os
+plugins eles são armazenados aqui. 
+</p>
+
+<p>
+Vamos instalar também o splasscreen
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh" id="org07af554"><span style="color: #483d8b;">cd</span> /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+cordova plugin add cordova-plugin-splashscreen
+</pre>
+</div>
+
+
+<pre class="example">
+Installing "cordova-plugin-splashscreen" for android
+Android Studio project detected
+Installing "cordova-plugin-splashscreen" for browser
+Adding cordova-plugin-splashscreen to package.json
+Saved plugin info for "cordova-plugin-splashscreen" to config.xml
+
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-sh" id="org98a19e8"><span style="color: #483d8b;">cd</span> /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+ls -l plugins
+</pre>
+</div>
+
+<pre class="example">
+total 12
+-rw-rw-r-- 1 wagner wagner 436 jul 28 23:29 android.json
+-rw-rw-r-- 1 wagner wagner 436 jul 28 23:29 browser.json
+drwxrwxr-x 7 wagner wagner 195 jul 28 23:28 cordova-plugin-dialogs
+drwxrwxr-x 7 wagner wagner 195 jul 28 23:29 cordova-plugin-splashscreen
+drwxrwxr-x 4 wagner wagner 158 jul 28 23:27 cordova-plugin-whitelist
+-rw-rw-r-- 1 wagner wagner 525 jul 28 23:29 fetch.json
+
+</pre>
+
+<p>
+     O diretório res é onde vc vai colocar images e demais recursos
+que o seu projeto vai precisar. Por exemplo em
+<a href="https://cordova.apache.org/docs/en/3.3.0/config_ref/images.html">https://cordova.apache.org/docs/en/3.3.0/config_ref/images.html</a> mostra
+como mudar o ícone da palicação. 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh" id="orgcea4422"><span style="color: #483d8b;">cd</span> /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+ls -l res
+</pre>
+</div>
+
+<pre class="example">
+total 4
+drwxr-xr-x 11 wagner wagner  145 jul 27 15:15 icon
+-rw-r--r--  1 wagner wagner 1248 jul 27 15:15 README.md
+drwxr-xr-x 11 wagner wagner  145 jul 27 15:15 screen
+
+</pre>
+
+<p>
+Agora sim, o diretório www. Esse é o diretório onde ficarão suas
+interfaces gráficas que são compostas por tecnologias front end
+html, javascript e css.
+</p>
+
+<p>
+Vamos dar uma olhada no conteúdo do nosso diretório www
+</p>
+<div class="org-src-container">
+<pre class="src src-sh" id="org681bb33"><span style="color: #483d8b;">cd</span> /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+ls -l www
+</pre>
+</div>
+
+<pre class="example">
+total 4
+drwxr-xr-x 2 wagner wagner   23 jul 27 15:15 css
+drwxr-xr-x 2 wagner wagner   22 jul 27 15:15 img
+-rw-r--r-- 1 wagner wagner 2513 jul 27 15:15 index.html
+drwxr-xr-x 2 wagner wagner   22 jul 27 15:15 js
+
+</pre>
+
+<p>
+Segue abaixo o conteúdo do nosso index.html pra gente estudar
+juntos&#x2026;
+</p>
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #a020f0;">!DOCTYPE</span> html&gt;
+<span style="color: #b22222;">&lt;!--</span>
+<span style="color: #b22222;">    Licensed to the Apache Software Foundation (ASF) under one</span>
+<span style="color: #b22222;">    or more contributor license agreements.  See the NOTICE file</span>
+<span style="color: #b22222;">    distributed with this work for additional information</span>
+<span style="color: #b22222;">    regarding copyright ownership.  The ASF licenses this file</span>
+<span style="color: #b22222;">    to you under the Apache License, Version 2.0 (the</span>
+<span style="color: #b22222;">    "License"); you may not use this file except in compliance</span>
+<span style="color: #b22222;">    with the License.  You may obtain a copy of the License at</span>
+
+<span style="color: #b22222;">    http://www.apache.org/licenses/LICENSE-2.0</span>
+
+<span style="color: #b22222;">    Unless required by applicable law or agreed to in writing,</span>
+<span style="color: #b22222;">    software distributed under the License is distributed on an</span>
+<span style="color: #b22222;">    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span style="color: #b22222;">     KIND, either express or implied.  See the License for the</span>
+<span style="color: #b22222;">    specific language governing permissions and limitations</span>
+<span style="color: #b22222;">    under the License.</span>
+<span style="color: #b22222;">--&gt;</span>
+&lt;<span style="color: #0000ff;">html</span>&gt;
+    &lt;<span style="color: #0000ff;">head</span>&gt;
+        <span style="color: #b22222;">&lt;!--</span>
+<span style="color: #b22222;">             Customize this policy to fit your own app's needs. For more guidance, see:</span>
+<span style="color: #b22222;">             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy</span>
+<span style="color: #b22222;">             Some notes:</span>
+<span style="color: #b22222;">             * gap: is required only on iOS (when using UIWebView) and is needed for JS-&gt;native communication</span>
+<span style="color: #b22222;">             * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly</span>
+<span style="color: #b22222;">             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:</span>
+<span style="color: #b22222;">             * Enable inline JS: add 'unsafe-inline' to default-src</span>
+<span style="color: #b22222;">        </span><span style="color: #b22222;">--&gt;</span>
+        <span style="color: #b22222;">&lt;!-- </span><span style="color: #b22222;">-</span>
+<span style="color: #b22222;">             &lt;meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"&gt;</span>
+<span style="color: #b22222;">        </span><span style="color: #b22222;">--&gt;</span>
+        &lt;<span style="color: #0000ff;">meta</span> <span style="color: #a0522d;">charset</span>=<span style="color: #8b2252;">"UTF-8"</span>&gt;
+        &lt;<span style="color: #0000ff;">meta</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"format-detection"</span> <span style="color: #a0522d;">content</span>=<span style="color: #8b2252;">"telephone=no"</span>&gt;
+        &lt;<span style="color: #0000ff;">meta</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"msapplication-tap-highlight"</span> <span style="color: #a0522d;">content</span>=<span style="color: #8b2252;">"no"</span>&gt;
+        &lt;<span style="color: #0000ff;">meta</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"viewport"</span> <span style="color: #a0522d;">content</span>=<span style="color: #8b2252;">"user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"</span>&gt;
+        &lt;<span style="color: #0000ff;">link</span> <span style="color: #a0522d;">rel</span>=<span style="color: #8b2252;">"stylesheet"</span> <span style="color: #a0522d;">type</span>=<span style="color: #8b2252;">"text/css"</span> <span style="color: #a0522d;">href</span>=<span style="color: #8b2252;">"css/jquery.mobile-1.4.5.min.css"</span>&gt;
+        &lt;<span style="color: #0000ff;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Menu Com Jquery Mobile</span>&lt;/<span style="color: #0000ff;">title</span>&gt;
+    &lt;/<span style="color: #0000ff;">head</span>&gt;
+    &lt;<span style="color: #0000ff;">body</span>&gt;
+            &lt;<span style="color: #0000ff;">div</span> <span style="color: #a0522d;">data-role</span>=<span style="color: #8b2252;">"page"</span> <span style="color: #a0522d;">id</span>=<span style="color: #8b2252;">"pagina-principal"</span>&gt;
+
+                <span style="color: #b22222;">&lt;!--</span>
+<span style="color: #b22222;">                     /header</span>
+<span style="color: #b22222;">                     /navbar</span>
+<span style="color: #b22222;">                </span><span style="color: #b22222;">--&gt;</span>
+                &lt;<span style="color: #0000ff;">div</span> <span style="color: #a0522d;">data-role</span>=<span style="color: #8b2252;">"header"</span>&gt;
+                    &lt;<span style="color: #0000ff;">h1</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Compre Conosco :)</span>&lt;/<span style="color: #0000ff;">h1</span>&gt;
+                    &lt;<span style="color: #0000ff;">div</span> <span style="color: #a0522d;">data-role</span>="navbar"&gt;
+                        &lt;<span style="color: #0000ff;">ul</span>&gt;
+                            &lt;<span style="color: #0000ff;">li</span>&gt;&lt;<span style="color: #0000ff;">a</span> <span style="color: #a0522d;">href</span>="index.html"&gt;home&lt;/<span style="color: #0000ff;">a</span>&gt;&lt;/<span style="color: #0000ff;">li</span>&gt;
+                            &lt;<span style="color: #0000ff;">li</span>&gt;&lt;<span style="color: #0000ff;">a</span> <span style="color: #a0522d;">href</span>="produtos.html"&gt;produtos&lt;/<span style="color: #0000ff;">a</span>&gt;&lt;/<span style="color: #0000ff;">li</span>&gt;
+                            &lt;<span style="color: #0000ff;">li</span>&gt;&lt;<span style="color: #0000ff;">a</span> <span style="color: #a0522d;">href</span>="login.html"&gt;login&lt;/<span style="color: #0000ff;">a</span>&gt;&lt;/<span style="color: #0000ff;">li</span>&gt;                        
+                        &lt;/<span style="color: #0000ff;">ul</span>&gt;
+                    &lt;/<span style="color: #0000ff;">div</span>&gt;
+
+                &lt;/<span style="color: #0000ff;">div</span>&gt;
+
+
+                <span style="color: #b22222;">&lt;!-- </span><span style="color: #b22222;">/content </span><span style="color: #b22222;">--&gt;</span>
+                &lt;<span style="color: #0000ff;">div</span> <span style="color: #a0522d;">data-role</span>="content" <span style="color: #a0522d;">class</span>="ui-content"&gt;
+                    &lt;<span style="color: #0000ff;">h1</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Ofertas de hoje</span>&lt;/<span style="color: #0000ff;">h1</span>&gt;
+                &lt;/<span style="color: #0000ff;">div</span>&gt;
+
+                &lt;<span style="color: #0000ff;">footer</span> <span style="color: #a0522d;">data-role</span>="footer"&gt;
+                    &lt;<span style="color: #0000ff;">ul</span>&gt;
+                        &lt;<span style="color: #0000ff;">li</span>&gt;&lt;<span style="color: #0000ff;">a</span> <span style="color: #a0522d;">href</span>="empresa.html"&gt;A empresa&lt;/<span style="color: #0000ff;">a</span>&gt;&lt;/<span style="color: #0000ff;">li</span>&gt;
+                        &lt;<span style="color: #0000ff;">li</span>&gt;&lt;<span style="color: #0000ff;">a</span> <span style="color: #a0522d;">href</span>="clientes.html"&gt;Clientes&lt;/<span style="color: #0000ff;">a</span>&gt;&lt;/<span style="color: #0000ff;">li</span>&gt;
+                        &lt;<span style="color: #0000ff;">li</span>&gt;&lt;<span style="color: #0000ff;">a</span> <span style="color: #a0522d;">href</span>="contato.html"&gt;Contato&lt;/<span style="color: #0000ff;">a</span>&gt;&lt;/<span style="color: #0000ff;">li</span>&gt;                        
+                    &lt;/<span style="color: #0000ff;">ul</span>&gt;
+                &lt;/<span style="color: #0000ff;">footer</span>&gt;
+
+            &lt;/<span style="color: #0000ff;">div</span>&gt;<span style="color: #b22222;">&lt;!-- </span><span style="color: #b22222;">pagina-principal </span><span style="color: #b22222;">--&gt;</span>            
+
+
+
+        &lt;<span style="color: #0000ff;">script</span> <span style="color: #a0522d;">type</span>="text/javascript" <span style="color: #a0522d;">src</span>="cordova.js"&gt;&lt;/<span style="color: #0000ff;">script</span>&gt;
+        &lt;<span style="color: #0000ff;">script</span> <span style="color: #a0522d;">type</span>="text/javascript" <span style="color: #a0522d;">src</span>="js/index.js"&gt;&lt;/<span style="color: #0000ff;">script</span>&gt;
+        &lt;<span style="color: #0000ff;">script</span> <span style="color: #a0522d;">type</span>="text/javascript" <span style="color: #a0522d;">src</span>="js/jquery.js"&gt;&lt;/<span style="color: #0000ff;">script</span>&gt;
+        &lt;<span style="color: #0000ff;">script</span> <span style="color: #a0522d;">type</span>="text/javascript" <span style="color: #a0522d;">src</span>="js/jquery.mobile-1.4.5.min.js"&gt;&lt;/<span style="color: #0000ff;">script</span>&gt;
+
+    &lt;/<span style="color: #0000ff;">body</span>&gt;
+&lt;/<span style="color: #0000ff;">html</span>&gt;
+</pre>
+</div>
+
+<p>
+Segue também o conteúdo do nosso index.js pra gente estudar
+juntos&#x2026; lembrando que nosso index.js fica dentro d pasta js
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #b22222;">/*</span>
+<span style="color: #b22222;"> * Licensed to the Apache Software Foundation (ASF) under one</span>
+<span style="color: #b22222;"> * or more contributor license agreements.  See the NOTICE file</span>
+<span style="color: #b22222;"> * distributed with this work for additional information</span>
+<span style="color: #b22222;"> * regarding copyright ownership.  The ASF licenses this file</span>
+<span style="color: #b22222;"> * to you under the Apache License, Version 2.0 (the</span>
+<span style="color: #b22222;"> * "License"); you may not use this file except in compliance</span>
+<span style="color: #b22222;"> * with the License.  You may obtain a copy of the License at</span>
+<span style="color: #b22222;"> *</span>
+<span style="color: #b22222;"> * http://www.apache.org/licenses/LICENSE-2.0</span>
+<span style="color: #b22222;"> *</span>
+<span style="color: #b22222;"> * Unless required by applicable law or agreed to in writing,</span>
+<span style="color: #b22222;"> * software distributed under the License is distributed on an</span>
+<span style="color: #b22222;"> * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span style="color: #b22222;"> * KIND, either express or implied.  See the License for the</span>
+<span style="color: #b22222;"> * specific language governing permissions and limitations</span>
+<span style="color: #b22222;"> * under the License.</span>
+<span style="color: #b22222;"> */</span>
+<span style="color: #a020f0;">var</span> <span style="color: #a0522d;">app</span> = {
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">Application Constructor</span>
+    <span style="color: #0000ff;">initialize</span>: <span style="color: #a020f0;">function</span>() {
+        document.addEventListener(<span style="color: #8b2252;">'deviceready'</span>, <span style="color: #008b8b;">this</span>.onDeviceReady.bind(<span style="color: #008b8b;">this</span>), <span style="color: #008b8b;">false</span>);
+    },
+
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">deviceready Event Handler</span>
+    <span style="color: #b22222;">//</span>
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">Bind any cordova events here. Common events are:</span>
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">'pause', 'resume', etc.</span>
+    <span style="color: #0000ff;">onDeviceReady</span>: <span style="color: #a020f0;">function</span>() {
+        <span style="color: #008b8b;">this</span>.receivedEvent(<span style="color: #8b2252;">'deviceready'</span>);        
+    },
+
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">Update DOM on a Received Event</span>
+    <span style="color: #0000ff;">receivedEvent</span>: <span style="color: #a020f0;">function</span>(<span style="color: #a0522d;">id</span>) {
+
+
+        $( document ).on( <span style="color: #8b2252;">"pageinit"</span>, <span style="color: #8b2252;">"#demo-page"</span>, <span style="color: #a020f0;">function</span>() {
+            $( document ).on( <span style="color: #8b2252;">"swipeleft swiperight"</span>, <span style="color: #8b2252;">"#demo-page"</span>, <span style="color: #a020f0;">function</span>( <span style="color: #a0522d;">e</span> ) {
+                <span style="color: #b22222;">// </span><span style="color: #b22222;">We check if there is no open panel on the page because otherwise</span>
+                <span style="color: #b22222;">// </span><span style="color: #b22222;">a swipe to close the left panel would also open the right panel (and v.v.).</span>
+                <span style="color: #b22222;">// </span><span style="color: #b22222;">We do this by checking the data that the framework stores on the page element (panel: open).</span>
+                <span style="color: #a020f0;">if</span> ( $.mobile.activePage.jqmData( <span style="color: #8b2252;">"panel"</span> ) !== <span style="color: #8b2252;">"open"</span> ) {
+                    <span style="color: #a020f0;">if</span> ( e.type === <span style="color: #8b2252;">"swipeleft"</span>  ) {
+                        $( <span style="color: #8b2252;">"#right-panel"</span> ).panel( <span style="color: #8b2252;">"open"</span> );
+                    } <span style="color: #a020f0;">else</span> <span style="color: #a020f0;">if</span> ( e.type === <span style="color: #8b2252;">"swiperight"</span> ) {
+                        $( <span style="color: #8b2252;">"#left-panel"</span> ).panel( <span style="color: #8b2252;">"open"</span> );
+                    }
+                }
+            });
+        });
+
+    }<span style="color: #b22222;">//</span><span style="color: #b22222;">receivedEvent: function(id) {</span>
+};
+
+app.initialize();
+</pre>
+</div>
+
+<p>
+Tem que comprendeder bem essa função de callback&#x2026;
+</p>
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #0000ff;">onDeviceReady</span>: <span style="color: #a020f0;">function</span>() {
+   <span style="color: #008b8b;">this</span>.receivedEvent(<span style="color: #8b2252;">'deviceready'</span>);
+},
+</pre>
+</div>
+
+<p>
+Só depois que ela roda é que seus plugin podem interagir com o
+dispositivo. Então já fica o aviso. Seus plugins só funcionam
+depois que o dispositivo está pronto pra uso.
+</p>
+</div>
+</li>
+
+
+<li><a id="orgd9aef1b"></a>Vamos fazer o build do projeto e depois rodá-lo<br />
+<div class="outline-text-6" id="text-2-1-2-1-2">
+<p>
+Fazer o build significa criar o arquivo .apk que é um instalador
+do seu projeto mobile. Esse instalador vc pode depois passar pro
+seu celular e instalá-lo. Quando rodamos no emulador é exatamene
+a mesma coisa que é feito, ou seja, gerado o apk e depois
+instalá-lo no aparelho virtual.
+</p>
+
+<p>
+Bom então vc precisa primeiro buidar o seu projeto, vamos fazer
+isso?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh" id="org2d0ca8b"><span style="color: #483d8b;">cd</span> /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+cordova build android
+</pre>
+</div>
+
+<pre class="example">
+Unable to load PlatformApi from platform. Error: Cannot find module '/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/platforms/android/cordova/Api.js'
+
+</pre>
+
+<p>
+Dá uma olhadinha na saída do comando e veja o build foi um
+suscesso e que foi gerado o arquivo app-debug.apk
+</p>
+
+<p>
+Agora a gente pode rodar o projeto. Bom mas pera aí, vamos ter
+que ver se temos um dispositivo virtual disponível pra rodar o
+nosos projeto.
+</p>
+
+<p>
+Nas máquinas do nosso lab já tem esses dispositivos virutais
+configurados mas se não tivesse vc teria que criálos
+primeiro. Vamos aprender como se faz isso.
+</p>
+
+<p>
+Puts, mas o que é um avd? 
+Dá uma lida aqui.. <a href="https://developer.android.com/studio/run/managing-avds">https://developer.android.com/studio/run/managing-avds</a>
+</p>
+
+<p>
+É nessa hora que a gente começa a conversar sobre o ambiente
+android.
+É bom sempre fazer o update do sdkmanager que é a ferramenta que
+instala e atualiza os pactoes do android. A maioria dos
+desenvolvedores utiliza o visual studio pra pra fazer isso, mas
+por simplicidade vc pode simplesmente dar esse comando&#x2026;
+Pra conhecer mais sobre o sdkmanager dê uma consultada em <a href="https://developer.android.com/studio/command-line/sdkmanager">https://developer.android.com/studio/command-line/sdkmanager</a>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh" id="orgde16cdb">sdkmanager --update
+</pre>
+</div>
+
+<pre class="example">
+Loading package information...                                                  Loading local repository...                                                     [                                       ] 3% Loading local repository...        [                                       ] 3% Fetch remote repository...         [                                       ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [==                                     ] 5% Fetch remote repository...         [==                                     ] 6% Fetch remote repository...                                                                                         [==                                     ] 6% Fetch remote repository...         [==                                     ] 6% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 10% Computing updates...              [=======================================] 100% Computing updates...             
+
+</pre>
+
+<p>
+No momento o sdkmanager está atualizado.
+Pra rodar seus aplicativos vc precisa de paddotes do android
+instalados
+Pra listar os pacotes que vc já tem instalado faça o seguinte
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh" id="orgae6730c">sdkmanager --list
+</pre>
+</div>
+
+<pre class="example">
+Loading package information...                                                  Loading local repository...                                                     [=========                              ] 25% Loading local repository...       [=========                              ] 25% Fetch remote repository...        [=========                              ] 25% Fetch remote repository...        [==========                             ] 26% Fetch remote repository...        [==========                             ] 28% Fetch remote repository...        [===========                            ] 28% Fetch remote repository...        [===========                            ] 29% Fetch remote repository...        [===========                            ] 30% Fetch remote repository...        [============                           ] 31% Fetch remote repository...        [============                           ] 32% Fetch remote repository...        [============                           ] 33% Fetch remote repository...        [=============                          ] 33% Fetch remote repository...        [=============                          ] 34% Fetch remote repository...        [=============                          ] 35% Fetch remote repository...        [==============                         ] 36% Fetch remote repository...        [==============                         ] 37% Fetch remote repository...        [==============                         ] 38% Fetch remote repository...        [===============                        ] 38% Fetch remote repository...        [===============                        ] 39% Fetch remote repository...        [===============                        ] 40% Fetch remote repository...        [================                       ] 41% Fetch remote repository...        [================                       ] 42% Fetch remote repository...        [====================                   ] 51% Fetch remote repository...        [=======================                ] 58% Fetch remote repository...                                                                                        [=======================                ] 58% Fetch remote repository...        [=======================                ] 58% Computing updates...              [=============================          ] 75% Computing updates...              [=============================          ] 75% Computing updates...              [=======================================] 100% Computing updates...             Installed packages:
+  Path                                               | Version | Description                             | Location                                           
+  -------                                            | ------- | -------                                 | -------                                            
+  build-tools;27.0.3                                 | 27.0.3  | Android SDK Build-Tools 27.0.3          | build-tools/27.0.3/                                
+  emulator                                           | 27.3.9  | Android Emulator                        | emulator/                                          
+  extras;android;m2repository                        | 47.0.0  | Android Support Repository              | extras/android/m2repository/                       
+  patcher;v4                                         | 1       | SDK Patch Applier v4                    | patcher/v4/                                        
+  platform-tools                                     | 28.0.0  | Android SDK Platform-Tools              | platform-tools/                                    
+  platforms;android-23                               | 3       | Android SDK Platform 23                 | platforms/android-23/                              
+  platforms;android-24                               | 2       | Android SDK Platform 24                 | platforms/android-24/                              
+  platforms;android-25                               | 3       | Android SDK Platform 25                 | platforms/android-25/                              
+  platforms;android-26                               | 2       | Android SDK Platform 26                 | platforms/android-26/                              
+  platforms;android-27                               | 3       | Android SDK Platform 27                 | platforms/android-27/                              
+  sources;android-23                                 | 1       | Sources for Android 23                  | sources/android-23/                                
+  sources;android-24                                 | 1       | Sources for Android 24                  | sources/android-24/                                
+  sources;android-25                                 | 1       | Sources for Android 25                  | sources/android-25/                                
+  system-images;android-24;google_apis;x86           | 22      | Google APIs Intel x86 Atom System Image | system-images/android-24/google_apis/x86/          
+  system-images;android-25;google_apis_playstore;x86 | 9       | Google Play Intel x86 Atom System Image | system-images/android-25/google_apis_playstore/x86/
+  tools                                              | 26.1.1  | Android SDK Tools                       | tools/                                             
+
+Available Packages:
+  Path                                                                                     | Version      | Description                                                         
+  -------                                                                                  | -------      | -------                                                             
+  add-ons;addon-google_apis-google-15                                                      | 3            | Google APIs                                                         
+  add-ons;addon-google_apis-google-16                                                      | 4            | Google APIs                                                         
+  add-ons;addon-google_apis-google-17                                                      | 4            | Google APIs                                                         
+  add-ons;addon-google_apis-google-18                                                      | 4            | Google APIs                                                         
+  add-ons;addon-google_apis-google-19                                                      | 20           | Google APIs                                                         
+  add-ons;addon-google_apis-google-21                                                      | 1            | Google APIs                                                         
+  add-ons;addon-google_apis-google-22                                                      | 1            | Google APIs                                                         
+  add-ons;addon-google_apis-google-23                                                      | 1            | Google APIs                                                         
+  add-ons;addon-google_apis-google-24                                                      | 1            | Google APIs                                                         
+  add-ons;addon-google_gdk-google-19                                                       | 11           | Glass Development Kit Preview                                       
+  build-tools;19.1.0                                                                       | 19.1.0       | Android SDK Build-Tools 19.1                                        
+  build-tools;20.0.0                                                                       | 20.0.0       | Android SDK Build-Tools 20                                          
+  build-tools;21.1.2                                                                       | 21.1.2       | Android SDK Build-Tools 21.1.2                                      
+  build-tools;22.0.1                                                                       | 22.0.1       | Android SDK Build-Tools 22.0.1                                      
+  build-tools;23.0.1                                                                       | 23.0.1       | Android SDK Build-Tools 23.0.1                                      
+  build-tools;23.0.2                                                                       | 23.0.2       | Android SDK Build-Tools 23.0.2                                      
+  build-tools;23.0.3                                                                       | 23.0.3       | Android SDK Build-Tools 23.0.3                                      
+  build-tools;24.0.0                                                                       | 24.0.0       | Android SDK Build-Tools 24                                          
+  build-tools;24.0.1                                                                       | 24.0.1       | Android SDK Build-Tools 24.0.1                                      
+  build-tools;24.0.2                                                                       | 24.0.2       | Android SDK Build-Tools 24.0.2                                      
+  build-tools;24.0.3                                                                       | 24.0.3       | Android SDK Build-Tools 24.0.3                                      
+  build-tools;25.0.0                                                                       | 25.0.0       | Android SDK Build-Tools 25                                          
+  build-tools;25.0.1                                                                       | 25.0.1       | Android SDK Build-Tools 25.0.1                                      
+  build-tools;25.0.2                                                                       | 25.0.2       | Android SDK Build-Tools 25.0.2                                      
+  build-tools;25.0.3                                                                       | 25.0.3       | Android SDK Build-Tools 25.0.3                                      
+  build-tools;26.0.0                                                                       | 26.0.0       | Android SDK Build-Tools 26                                          
+  build-tools;26.0.1                                                                       | 26.0.1       | Android SDK Build-Tools 26.0.1                                      
+  build-tools;26.0.2                                                                       | 26.0.2       | Android SDK Build-Tools 26.0.2                                      
+  build-tools;26.0.3                                                                       | 26.0.3       | Android SDK Build-Tools 26.0.3                                      
+  build-tools;27.0.0                                                                       | 27.0.0       | Android SDK Build-Tools 27                                          
+  build-tools;27.0.1                                                                       | 27.0.1       | Android SDK Build-Tools 27.0.1                                      
+  build-tools;27.0.2                                                                       | 27.0.2       | Android SDK Build-Tools 27.0.2                                      
+  build-tools;27.0.3                                                                       | 27.0.3       | Android SDK Build-Tools 27.0.3                                      
+  build-tools;28.0.0                                                                       | 28.0.0       | Android SDK Build-Tools 28                                          
+  build-tools;28.0.0-rc1                                                                   | 28.0.0 rc1   | Android SDK Build-Tools 28-rc1                                      
+  build-tools;28.0.0-rc2                                                                   | 28.0.0 rc2   | Android SDK Build-Tools 28-rc2                                      
+  build-tools;28.0.1                                                                       | 28.0.1       | Android SDK Build-Tools 28.0.1                                      
+  cmake;3.6.4111459                                                                        | 3.6.4111459  | CMake 3.6.4111459                                                   
+  docs                                                                                     | 1            | Documentation for Android SDK                                       
+  emulator                                                                                 | 27.3.9       | Android Emulator                                                    
+  extras;android;gapid;1                                                                   | 1.0.3        | GPU Debugging tools                                                 
+  extras;android;gapid;3                                                                   | 3.1.0        | GPU Debugging tools                                                 
+  extras;android;m2repository                                                              | 47.0.0       | Android Support Repository                                          
+  extras;google;auto                                                                       | 1.1          | Android Auto Desktop Head Unit emulator                             
+  extras;google;google_play_services                                                       | 49           | Google Play services                                                
+  extras;google;instantapps                                                                | 1.3.0        | Instant Apps Development SDK                                        
+  extras;google;m2repository                                                               | 58           | Google Repository                                                   
+  extras;google;market_apk_expansion                                                       | 1            | Google Play APK Expansion library                                   
+  extras;google;market_licensing                                                           | 1            | Google Play Licensing Library                                       
+  extras;google;simulators                                                                 | 1            | Android Auto API Simulators                                         
+  extras;google;webdriver                                                                  | 2            | Google Web Driver                                                   
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0        | 1            | Solver for ConstraintLayout 1.0.0                                   
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-alpha2 | 1            | com.android.support.constraint:constraint-layout-solver:1.0.0-alpha2
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-alpha3 | 1            | com.android.support.constraint:constraint-layout-solver:1.0.0-alpha3
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-alpha4 | 1            | com.android.support.constraint:constraint-layout-solver:1.0.0-alpha4
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-alpha5 | 1            | Solver for ConstraintLayout 1.0.0-alpha5                            
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-alpha6 | 1            | Solver for ConstraintLayout 1.0.0-alpha6                            
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-alpha7 | 1            | Solver for ConstraintLayout 1.0.0-alpha7                            
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-alpha8 | 1            | Solver for ConstraintLayout 1.0.0-alpha8                            
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-alpha9 | 1            | Solver for ConstraintLayout 1.0.0-alpha9                            
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-beta1  | 1            | Solver for ConstraintLayout 1.0.0-beta1                             
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-beta2  | 1            | Solver for ConstraintLayout 1.0.0-beta2                             
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-beta3  | 1            | Solver for ConstraintLayout 1.0.0-beta3                             
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-beta4  | 1            | Solver for ConstraintLayout 1.0.0-beta4                             
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.0-beta5  | 1            | Solver for ConstraintLayout 1.0.0-beta5                             
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.1        | 1            | Solver for ConstraintLayout 1.0.1                                   
+  extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2        | 1            | Solver for ConstraintLayout 1.0.2                                   
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0               | 1            | ConstraintLayout for Android 1.0.0                                  
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-alpha2        | 1            | com.android.support.constraint:constraint-layout:1.0.0-alpha2       
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-alpha3        | 1            | com.android.support.constraint:constraint-layout:1.0.0-alpha3       
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-alpha4        | 1            | com.android.support.constraint:constraint-layout:1.0.0-alpha4       
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-alpha5        | 1            | ConstraintLayout for Android 1.0.0-alpha5                           
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-alpha6        | 1            | ConstraintLayout for Android 1.0.0-alpha6                           
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-alpha7        | 1            | ConstraintLayout for Android 1.0.0-alpha7                           
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-alpha8        | 1            | ConstraintLayout for Android 1.0.0-alpha8                           
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-alpha9        | 1            | ConstraintLayout for Android 1.0.0-alpha9                           
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-beta1         | 1            | ConstraintLayout for Android 1.0.0-beta1                            
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-beta2         | 1            | ConstraintLayout for Android 1.0.0-beta2                            
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-beta3         | 1            | ConstraintLayout for Android 1.0.0-beta3                            
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-beta4         | 1            | ConstraintLayout for Android 1.0.0-beta4                            
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0-beta5         | 1            | ConstraintLayout for Android 1.0.0-beta5                            
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.1               | 1            | ConstraintLayout for Android 1.0.1                                  
+  extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2               | 1            | ConstraintLayout for Android 1.0.2                                  
+  lldb;2.0                                                                                 | 2.0.2558144  | LLDB 2.0                                                            
+  lldb;2.1                                                                                 | 2.1.2852477  | LLDB 2.1                                                            
+  lldb;2.2                                                                                 | 2.2.3271982  | LLDB 2.2                                                            
+  lldb;2.3                                                                                 | 2.3.3614996  | LLDB 2.3                                                            
+  lldb;3.0                                                                                 | 3.0.4213617  | LLDB 3.0                                                            
+  lldb;3.1                                                                                 | 3.1.4508709  | LLDB 3.1                                                            
+  ndk-bundle                                                                               | 17.1.4828580 | NDK                                                                 
+  patcher;v4                                                                               | 1            | SDK Patch Applier v4                                                
+  platform-tools                                                                           | 28.0.0       | Android SDK Platform-Tools                                          
+  platforms;android-10                                                                     | 2            | Android SDK Platform 10                                             
+  platforms;android-11                                                                     | 2            | Android SDK Platform 11                                             
+  platforms;android-12                                                                     | 3            | Android SDK Platform 12                                             
+  platforms;android-13                                                                     | 1            | Android SDK Platform 13                                             
+  platforms;android-14                                                                     | 4            | Android SDK Platform 14                                             
+  platforms;android-15                                                                     | 5            | Android SDK Platform 15                                             
+  platforms;android-16                                                                     | 5            | Android SDK Platform 16                                             
+  platforms;android-17                                                                     | 3            | Android SDK Platform 17                                             
+  platforms;android-18                                                                     | 3            | Android SDK Platform 18                                             
+  platforms;android-19                                                                     | 4            | Android SDK Platform 19                                             
+  platforms;android-20                                                                     | 2            | Android SDK Platform 20                                             
+  platforms;android-21                                                                     | 2            | Android SDK Platform 21                                             
+  platforms;android-22                                                                     | 2            | Android SDK Platform 22                                             
+  platforms;android-23                                                                     | 3            | Android SDK Platform 23                                             
+  platforms;android-24                                                                     | 2            | Android SDK Platform 24                                             
+  platforms;android-25                                                                     | 3            | Android SDK Platform 25                                             
+  platforms;android-26                                                                     | 2            | Android SDK Platform 26                                             
+  platforms;android-27                                                                     | 3            | Android SDK Platform 27                                             
+  platforms;android-28                                                                     | 4            | Android SDK Platform 28                                             
+  platforms;android-7                                                                      | 3            | Android SDK Platform 7                                              
+  platforms;android-8                                                                      | 3            | Android SDK Platform 8                                              
+  platforms;android-9                                                                      | 2            | Android SDK Platform 9                                              
+  sources;android-15                                                                       | 2            | Sources for Android 15                                              
+  sources;android-16                                                                       | 2            | Sources for Android 16                                              
+  sources;android-17                                                                       | 1            | Sources for Android 17                                              
+  sources;android-18                                                                       | 1            | Sources for Android 18                                              
+  sources;android-19                                                                       | 2            | Sources for Android 19                                              
+  sources;android-20                                                                       | 1            | Sources for Android 20                                              
+  sources;android-21                                                                       | 1            | Sources for Android 21                                              
+  sources;android-22                                                                       | 1            | Sources for Android 22                                              
+  sources;android-23                                                                       | 1            | Sources for Android 23                                              
+  sources;android-24                                                                       | 1            | Sources for Android 24                                              
+  sources;android-25                                                                       | 1            | Sources for Android 25                                              
+  sources;android-26                                                                       | 1            | Sources for Android 26                                              
+  sources;android-27                                                                       | 1            | Sources for Android 27                                              
+  system-images;android-10;default;armeabi-v7a                                             | 4            | ARM EABI v7a System Image                                           
+  system-images;android-10;default;x86                                                     | 4            | Intel x86 Atom System Image                                         
+  system-images;android-10;google_apis;armeabi-v7a                                         | 5            | Google APIs ARM EABI v7a System Image                               
+  system-images;android-10;google_apis;x86                                                 | 5            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-14;default;armeabi-v7a                                             | 2            | ARM EABI v7a System Image                                           
+  system-images;android-15;default;armeabi-v7a                                             | 4            | ARM EABI v7a System Image                                           
+  system-images;android-15;default;mips                                                    | 1            | MIPS System Image                                                   
+  system-images;android-15;default;x86                                                     | 4            | Intel x86 Atom System Image                                         
+  system-images;android-15;google_apis;armeabi-v7a                                         | 5            | Google APIs ARM EABI v7a System Image                               
+  system-images;android-15;google_apis;x86                                                 | 5            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-16;default;armeabi-v7a                                             | 4            | ARM EABI v7a System Image                                           
+  system-images;android-16;default;mips                                                    | 1            | MIPS System Image                                                   
+  system-images;android-16;default;x86                                                     | 5            | Intel x86 Atom System Image                                         
+  system-images;android-16;google_apis;x86                                                 | 5            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-17;default;armeabi-v7a                                             | 5            | ARM EABI v7a System Image                                           
+  system-images;android-17;default;mips                                                    | 1            | MIPS System Image                                                   
+  system-images;android-17;default;x86                                                     | 3            | Intel x86 Atom System Image                                         
+  system-images;android-17;google_apis;armeabi-v7a                                         | 5            | Google APIs ARM EABI v7a System Image                               
+  system-images;android-17;google_apis;x86                                                 | 5            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-18;default;armeabi-v7a                                             | 4            | ARM EABI v7a System Image                                           
+  system-images;android-18;default;x86                                                     | 3            | Intel x86 Atom System Image                                         
+  system-images;android-18;google_apis;armeabi-v7a                                         | 5            | Google APIs ARM EABI v7a System Image                               
+  system-images;android-18;google_apis;x86                                                 | 5            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-19;default;armeabi-v7a                                             | 5            | ARM EABI v7a System Image                                           
+  system-images;android-19;default;x86                                                     | 6            | Intel x86 Atom System Image                                         
+  system-images;android-19;google_apis;armeabi-v7a                                         | 35           | Google APIs ARM EABI v7a System Image                               
+  system-images;android-19;google_apis;x86                                                 | 35           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-21;android-tv;armeabi-v7a                                          | 3            | Android TV ARM EABI v7a System Image                                
+  system-images;android-21;android-tv;x86                                                  | 3            | Android TV Intel x86 Atom System Image                              
+  system-images;android-21;default;armeabi-v7a                                             | 4            | ARM EABI v7a System Image                                           
+  system-images;android-21;default;x86                                                     | 5            | Intel x86 Atom System Image                                         
+  system-images;android-21;default;x86_64                                                  | 5            | Intel x86 Atom_64 System Image                                      
+  system-images;android-21;google_apis;armeabi-v7a                                         | 27           | Google APIs ARM EABI v7a System Image                               
+  system-images;android-21;google_apis;x86                                                 | 27           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-21;google_apis;x86_64                                              | 27           | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-22;android-tv;armeabi-v7a                                          | 1            | Android TV ARM EABI v7a System Image                                
+  system-images;android-22;android-tv;x86                                                  | 3            | Android TV Intel x86 Atom System Image                              
+  system-images;android-22;default;armeabi-v7a                                             | 2            | ARM EABI v7a System Image                                           
+  system-images;android-22;default;x86                                                     | 6            | Intel x86 Atom System Image                                         
+  system-images;android-22;default;x86_64                                                  | 6            | Intel x86 Atom_64 System Image                                      
+  system-images;android-22;google_apis;armeabi-v7a                                         | 21           | Google APIs ARM EABI v7a System Image                               
+  system-images;android-22;google_apis;x86                                                 | 21           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-22;google_apis;x86_64                                              | 21           | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-23;android-tv;armeabi-v7a                                          | 12           | Android TV ARM EABI v7a System Image                                
+  system-images;android-23;android-tv;x86                                                  | 16           | Android TV Intel x86 Atom System Image                              
+  system-images;android-23;android-wear;armeabi-v7a                                        | 6            | Android Wear ARM EABI v7a System Image                              
+  system-images;android-23;android-wear;x86                                                | 6            | Android Wear Intel x86 Atom System Image                            
+  system-images;android-23;default;x86                                                     | 10           | Intel x86 Atom System Image                                         
+  system-images;android-23;default;x86_64                                                  | 10           | Intel x86 Atom_64 System Image                                      
+  system-images;android-23;google_apis;armeabi-v7a                                         | 28           | Google APIs ARM EABI v7a System Image                               
+  system-images;android-23;google_apis;x86                                                 | 28           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-23;google_apis;x86_64                                              | 28           | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-24;android-tv;x86                                                  | 17           | Android TV Intel x86 Atom System Image                              
+  system-images;android-24;default;arm64-v8a                                               | 7            | ARM 64 v8a System Image                                             
+  system-images;android-24;default;armeabi-v7a                                             | 7            | ARM EABI v7a System Image                                           
+  system-images;android-24;default;x86                                                     | 8            | Intel x86 Atom System Image                                         
+  system-images;android-24;default;x86_64                                                  | 8            | Intel x86 Atom_64 System Image                                      
+  system-images;android-24;google_apis;arm64-v8a                                           | 22           | Google APIs ARM 64 v8a System Image                                 
+  system-images;android-24;google_apis;armeabi-v7a                                         | 22           | Google APIs ARM EABI v7a System Image                               
+  system-images;android-24;google_apis;x86                                                 | 22           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-24;google_apis;x86_64                                              | 22           | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-24;google_apis_playstore;x86                                       | 19           | Google Play Intel x86 Atom System Image                             
+  system-images;android-25;android-tv;x86                                                  | 11           | Android TV Intel x86 Atom System Image                              
+  system-images;android-25;android-wear-cn;armeabi-v7a                                     | 4            | China version of Android Wear ARM EABI v7a System Image             
+  system-images;android-25;android-wear-cn;x86                                             | 4            | China version of Android Wear Intel x86 Atom System Image           
+  system-images;android-25;android-wear;armeabi-v7a                                        | 3            | Android Wear ARM EABI v7a System Image                              
+  system-images;android-25;android-wear;x86                                                | 3            | Android Wear Intel x86 Atom System Image                            
+  system-images;android-25;google_apis;arm64-v8a                                           | 13           | Google APIs ARM 64 v8a System Image                                 
+  system-images;android-25;google_apis;armeabi-v7a                                         | 13           | Google APIs ARM EABI v7a System Image                               
+  system-images;android-25;google_apis;x86                                                 | 13           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-25;google_apis;x86_64                                              | 13           | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-25;google_apis_playstore;x86                                       | 9            | Google Play Intel x86 Atom System Image                             
+  system-images;android-26;android-tv;x86                                                  | 9            | Android TV Intel x86 Atom System Image                              
+  system-images;android-26;android-wear-cn;x86                                             | 4            | China version of Android Wear Intel x86 Atom System Image           
+  system-images;android-26;android-wear;x86                                                | 4            | Android Wear Intel x86 Atom System Image                            
+  system-images;android-26;google_apis;x86                                                 | 10           | Google APIs Intel x86 Atom System Image                             
+  system-images;android-26;google_apis;x86_64                                              | 10           | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-26;google_apis_playstore;x86                                       | 7            | Google Play Intel x86 Atom System Image                             
+  system-images;android-27;android-tv;x86                                                  | 4            | Android TV Intel x86 Atom System Image                              
+  system-images;android-27;google_apis;x86                                                 | 6            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-27;google_apis_playstore;x86                                       | 3            | Google Play Intel x86 Atom System Image                             
+  system-images;android-28;android-tv;x86                                                  | 4            | Android TV Intel x86 Atom System Image                              
+  system-images;android-28;default;x86                                                     | 3            | Intel x86 Atom System Image                                         
+  system-images;android-28;default;x86_64                                                  | 3            | Intel x86 Atom_64 System Image                                      
+  system-images;android-28;google_apis;x86                                                 | 4            | Google APIs Intel x86 Atom System Image                             
+  system-images;android-28;google_apis;x86_64                                              | 4            | Google APIs Intel x86 Atom_64 System Image                          
+  system-images;android-28;google_apis_playstore;x86                                       | 4            | Google Play Intel x86 Atom System Image                             
+  system-images;android-28;google_apis_playstore;x86_64                                    | 4            | Google Play Intel x86 Atom_64 System Image                          
+  system-images;android-P;android-wear-cn;x86                                              | 2            | China version of Wear OS Intel x86 Atom System Image                
+  system-images;android-P;android-wear;x86                                                 | 2            | Wear OS Intel x86 Atom System Image                                 
+  tools                                                                                    | 26.1.1       | Android SDK Tools                                                   
+
+</pre>
+
+
+<p>
+Quando vc cria um emulador ele vai usar um dos pacotes
+instalados acima que vc escolher. 
+</p>
+
+<p>
+Nos equipamentos do labooratório os pacotes que vamo sutilizar já
+estão instalados, mas se vc tiver instalando o ambiente no seu
+equipamento a sugestão é você instalar o seguinte pacote 
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-sh" id="orgb50a058">sdkmanager <span style="color: #8b2252;">"platform-tools"</span> <span style="color: #8b2252;">"platforms;android-26"</span>
+</pre>
+</div>
+
+<p>
+Nesta máquina em que estou já em instalado. Essa versão será
+compatível com o cordova.
+</p>
+<pre class="example">
+Loading package information...                                                  Loading local repository...                                                     [                                       ] 3% Loading local repository...        [                                       ] 3% Fetch remote repository...         [                                       ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [==                                     ] 5% Fetch remote repository...         [==                                     ] 6% Fetch remote repository...                                                                                         [==                                     ] 6% Fetch remote repository...         [==                                     ] 6% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 10% Computing updates...              [=======================================] 100% Computing updates...             
+
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-sh" id="org40ea7f3"><span style="color: #483d8b;">cd</span> /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+cordova run android
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</li>
+
+
+
+<li><a id="org70b1355"></a>Inclusão do Jquery Mobile<br />
+<div class="outline-text-5" id="text-2-1-2-2">
+<p>
+Provavelmente o melhor lugar pra começar com jquery é
+<a href="http://demos.jquerymobile.com/1.3.2/intro/">http://demos.jquerymobile.com/1.3.2/intro/</a>
+Como está em ingles, a gente dá uma ajudinha aqui&#x2026;
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org158f2df"></a>mas o que é jquery?<br />
+<div class="outline-text-6" id="text-2-1-2-2-1">
+<p>
+É uma biblioteca javascript
+<a href="https://learn.jquery.com/">https://learn.jquery.com/</a>
+Tem a versão pra sites normais e tem a versão para mobile
+Pra usar o jquery mobile vc tem que baixar ele e colocá-lo no
+seu projeto.
+</p>
+
+<p>
+Então os comandos abaixo vão baixar o jquery e instalá-lo no
+nosso projeto. Vc pode fazer manualmente também.
+</p>
+
+
+
+<div class="org-src-container">
+<pre class="src src-sh" id="orge5b0a98"><span style="color: #483d8b;">cd</span> /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+wget --output-document jquerymobile.zip  https://jquerymobile.com/resources/download/jquery.mobile-1.4.5.zip                               
+mkdir jquerymobile &amp;&amp; unzip -d jquerymobile jquerymobile.zip
+
+cp jquerymobile/demos/js/jquery.js www/js
+cp jquerymobile/jquery.mobile-1.4.5.min.css www/css
+cp jquerymobile/jquery.mobile-1.4.5.min.js www/js
+cp -rf jquerymobile/images www
+
+rm -r jquerymobile
+<span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"#######    DIRETORIO RAIZ DO NOSSO PROJETO      ########"</span>
+ls -l
+<span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"#######    DIRETORIO WWW DO NOSSO PROJETO       ########"</span>
+ls -l www
+<span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"#######   DIRETORIO WWW/JS DO NOSSO PROJETO     ########"</span>
+ls -l www/js
+<span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"#######  DIRETORIO WWW/CSS DO NOSSO PROJETO     ########"</span>
+ls -l www/css
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: wagner</p>
+<p class="date">Created: 2018-07-29 dom 16:50</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

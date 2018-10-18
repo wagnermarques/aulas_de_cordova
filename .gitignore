@@ -1,6 +1,5 @@
 *.tex
 *.pdf
-*.html
 **/node_modules
 **/*.zip
 **/platforms/*

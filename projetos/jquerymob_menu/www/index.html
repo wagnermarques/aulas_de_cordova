@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 
+             <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        -->
+        <meta charset="UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+        <title>Loja Info</title>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script>
+         function mostraPainelLateral(){
+             alert(window.document.getElementById("painelComLinksDeNavegacao").panel());
+         }
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="main">
+
+            <!--
+                 http://view.jquerymobile.com/master/demos/panel/
+                 O panel tem que que estar no mesmo nivel dos elementos  do header, content and footer.
+                 Pode por tanto antes como depois deles, mas nao dentro de algum deles.
+                 Perceba, entretanto, que este panel esta dentro dessa page
+                 Panels visiveis para qualquer page tem que estar fora.
+                 Vamos criar esse dentro mesmo
+            -->
+            <div id="painelComLinksDeNavegacao"
+                 data-role="panel" data-position="left" data-display="overlay" >
+                <ul>
+                    <li>Meus Pedidos</li>
+                    <li>Meu Perfil</li>
+                    <li>SAC</li>
+                </ul>
+            </div><!-- /panel -->
+            <!--
+                 /header
+                 /navbar
+            -->
+            <div data-role="header">
+                <h1>Loja Info</h1>
+                <div>
+                    <a href="#painelComLinksDeNavegacao" class="ui-btn ui-btn-inline">Open Panel</a>
+                </div>
+                <div data-role="navbar">
+                        <ul>
+                            <li><a href="index.html">home</a></li>
+                            <li><a href="produtos.html">Ofertas</a></li>
+                            <li><a href="#loginPage" data-role="button">login</a></li>                        
+                        </ul>
+                    </div>
+
+                </div>
+
+                
+                <!-- /content -->
+                <div data-role="content" class="ui-content">
+                    <h1>Ofertas da nossa Loja</h1>
+                    <p>oferta1</p>
+                    <p>oferta2</p>
+                    <p>oferta3</p>
+                    <p>oferta4</p>
+
+                </div>
+
+
+
+                
+                <footer data-role="footer">
+                    <ul>
+                        <li><a href="empresa.html">A empresa</a></li>
+                        <li><a href="clientes.html">Clientes</a></li>
+                        <li><a href="contato.html">Contato</a></li>                        
+                    </ul>
+                </footer>
+                
+        </div><!-- pagina-principal -->
+
+        
+        <div data-role="page" id="loginPage">
+            <div data-role="content" class="ui-content">
+                <h1>Login:</h1>
+                <span>Login</span><br/>
+                <input type="text"></input>
+                <span>Senha</span><br/>
+                <input type="text"></input>
+            </div>
+        </div>
+
+        
+            
+    </body>
+</html>
