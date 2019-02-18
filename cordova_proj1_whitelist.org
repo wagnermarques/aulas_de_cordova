@@ -1,0 +1,205 @@
+#+Title: Cordova WhiteList
+
+* Plugin cordova-plugin-whitelist
+  https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist/
+  https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/
+  O plugin whitelist controla quais urls ou domínios de url sua
+  aplicação pode navegar.
+  Por padrão seu app só pode navegar para file://
+  Para que sua aplicação possa nevegar para outros domínios, por
+  exemplo, para o google maps ou outro serviço da internet você
+  precisa colocar a tag <allow-navigation> no config.xml (para o caso
+  do android para demais usar a tag <access do mesmo aquivo)
+  Neste roteiro de aula a gente vair criar um projeto cordova e fazer
+  isso pra vcs verem e compreenderem como funciona esse plugin tao
+  importante.
+  
+  Refs sobre Content-Security-Policy
+  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#Unsafe_inline_script
+  https://developer.mozilla.org/pt-BR/docs/Web/HTTP/CSP
+  https://developers.google.com/web/fundamentals/security/csp/?hl=pt-br
+
+  Refs sobre defer e async
+  https://flaviocopes.com/javascript-async-defer/
+
+  https://github.com/apache/cordova-plugin-whitelist
+  https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/
+  Além de configurar quais urls externas sua app pode acessar, dá pra
+  configurar também quais quais urls sua app pode solicitar para o
+  android abrir internamente. Em outras palavras, quais aplicações
+  internas sua app poderá abrir.
+
+  Por exemplo, permite sua app abrir o navegador
+  #+BEGIN_EXAMPLE
+     <!-- Allow links to web pages to open in a browser -->
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+  #+END_EXAMPLE
+
+  Algumas outras permissões são possíveis.. tem que dar uma estudada
+  na documentação. Por equanto vamos usar nossa aula pra testar
+  acessos externos.
+
+
+* Criando um projeto
+  
+   #+NAME preparando ambiente                  
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      source ../aulas_de_cordova/setup.sh
+   #+END_SRC
+
+   #+RESULTS:
+
+   
+   #+NAME  rm -rf projetos/cordova_proj1                    
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      rm -rf projetos/cordova_proj1
+   #+END_SRC
+
+   #+RESULTS:
+
+  #+NAME cordova create proj                     
+  #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cordova create projetos/cordova_proj1 br.edu.eteczl "Proj1"      
+  #+END_SRC
+
+  #+RESULTS:
+  : 
+  : Creating a new cordova project.[0m
+
+
+  
+   #+NAME ls projeto                  
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      ls projetos
+      ls projetos/cordova_proj1
+   #+END_SRC
+
+
+   
+   #+NAME                     
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cd projetos/cordova_proj1
+      cordova platform add android
+   #+END_SRC
+
+   #+RESULTS:
+   #+begin_example
+
+   bash: cd: projetos/cordova_proj1: No such file or directory
+   Using cordova-fetch for cordova-android@~7.1.1[0m
+   Adding android project...[0m
+   Creating Cordova project for the Android platform:[0m
+           Path: platforms/android[0m
+           Package: br.edu.eteczl[0m
+           Name: Proj1[0m
+           Activity: MainActivity[0m
+           Android target: android-27[0m
+   Android project created with cordova-android@7.1.4[0m
+   Android Studio project detected[0m
+   Android Studio project detected[0m
+   Discovered plugin "cordova-plugin-whitelist" in config.xml. Adding it to the project[0m
+   Installing "cordova-plugin-whitelist" for android[0m
+
+                  This plugin is only applicable for versions of cordova-android greater than 4.0. If you have a previous platform version, you do *not* need this plugin since the whitelist will be built in.
+             [0m
+   Adding cordova-plugin-whitelist to package.json[0m
+   Saved plugin info for "cordova-plugin-whitelist" to config.xml[0m
+   --save flag or autosave detected[0m
+   Saving android@~7.1.4 into config.xml file ...[0m
+   #+end_example
+   
+   #+NAME                     
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      adb devices
+   #+END_SRC
+
+   #+RESULTS:
+   : 
+   : List of devices attached
+   : c1ca8fb	device
+
+
+   
+   #+NAME                     
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cd projetos/cordova_proj1
+      cordova run android
+   #+END_SRC
+
+
+* O plugin whitelist
+  
+  Confirma abaixo que o plugin whitelist já está instalado.
+  Na verdade ele vem instalado por padrão nos projetos cordova
+  
+   #+NAME cordova plugin list                     
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cd projetos/cordova_proj1
+      cordova plugin list
+   #+END_SRC
+
+   #+RESULTS:
+   : 
+   : bash: cd: projetos/cordova_proj1: No such file or directory
+   : cordova-plugin-whitelist 1.3.3 "Whitelist"[0m
+
+
+   Bom vamos dar uma olhada no config.xml do nosso projeto
+   
+   #+include: projetos/cordova_proj1/config.original.xml :src xml
+
+   Agora adicionando allow navigation tag
+
+   #+include: projetos/cordova_proj1/config.xml :src xml
+
+
+* Rodando no navegador     
+  
+   #+NAME rodando no naveg add browser platform                  
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cd projetos/cordova_proj1
+      cordova platform add browser
+   #+END_SRC
+
+   #+RESULTS:
+   #+begin_example
+
+   bash: cd: projetos/cordova_proj1: No such file or directory
+   Using cordova-fetch for cordova-browser@~5.0.1[0m
+   Adding browser project...[0m
+   Creating Cordova project for cordova-browser:[0m
+           Path: /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/cordova_proj1/platforms/browser[0m
+           Name: Proj1[0m
+   Installing "cordova-plugin-whitelist" for browser[0m
+   --save flag or autosave detected[0m
+   Saving browser@~5.0.4 into config.xml file ...[0m
+   #+end_example
+
+
+   
+   #+NAME  rodando no navegador                   
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cd projetos/cordova_proj1
+      cordova clean
+      cordova run browser
+   #+END_SRC
+
+
+   O Resultado final é que o whitelist deixou passar a requisicao pro
+   google fazer a geordificacao do endenreco da nossa etec.
+
+   Como sugestao, aprende a interpretar esse resultado porque a gente
+   vai usar o google maps e vamos utiliza isso de novo...
+   
+   [[file:imgs/whitelist/resultadodoprojeto.png]]

@@ -1,0 +1,72 @@
+#+Title: Cordova Install
+
+Vamos ver se o cordova nao está instalado mesmo...
+
+
+   #+NAME ver se o cordova nao esta instalado mesmo                     
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cordova -version
+   #+END_SRC
+
+   #+RESULTS:
+   : 
+   : bash: cordova: comando nÃ£o encontrado
+
+   Pra ver como instalar o cordova vamos seguir a documentação
+   https://cordova.apache.org/docs/en/latest/guide/cli/
+   
+   Primeiro temos que instalar o nodejs
+   
+   No meu note já tenho instalado, conforme podemos ver abaixo.
+   Se vc tiver usando linux, use essa url
+   https://nodejs.org/en/download/package-manager/
+   Se tiver usando windows é só baixar e dar next next...
+   https://nodejs.org/en/download/
+   
+   #+NAME   node -v                   
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      node -v
+      npm -v
+   #+END_SRC
+
+   #+RESULTS:
+   : 
+   : v10.15.0
+   : 6.5.0
+
+   Agora instalando do cordova mesmo...
+   
+   Aqui onde estou preparando essa aula pra vcs tem proxy, então eu
+   preciso desses comandos abaixo. Na aula a gente não precisa então é
+   só ignorar essa parte.
+   #+NAME config proxy                  
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      npm config set proxy http://cid2:cid2@192.168.0.2:3128/
+      npm config set https-proxy http://cid2:cid2@192.168.0.2:3128/
+   #+END_SRC
+
+   #+RESULTS:
+
+   #+NAME sudo npm install -g cordova
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code      
+      npm install -g cordova
+   #+END_SRC
+
+   #+RESULTS:
+   : 
+   : /usr/bin/cordova -> /usr/lib/node_modules/cordova/bin/cordova
+   : + cordova@8.1.2
+   : added 594 packages from 523 contributors in 5.465s
+
+   #+BEGIN_EXAMPLE
+   [wagner@nsi_pc_149_3 aulas_de_cordova]$ cordova -v
+   ? May Cordova anonymously report usage statistics to improve the tool over time? No
+ 
+   You have been opted out of telemetry. To change this, run: cordova telemetry on.
+   8.1.2 (cordova-lib@8.1.1)
+   [wagner@nsi_pc_149_3 aulas_de_cordova]$ 
+   #+END_EXAMPLE

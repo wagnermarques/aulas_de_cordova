@@ -5,8 +5,8 @@
 
 export ANDROID_HOME=/home/wagner/PROGSATIVOS/androidSdk
 #export ANDROID_SDK_ROOT=/home/wagner/PROGSATIVOS/androidSdk
-export JAVA_HOME=/home/wagner/PROGSATIVOS/jdk1.8.0_161
-export GRADLE_HOME=/home/wagner/PROGSATIVOS/gradle-4.6-rc-2
+#export JAVA_HOME=/home/wagner/PROGSATIVOS/jdk1.8.0_161
+export GRADLE_HOME=/home/wagner/wagnerdocri@gmail.com3/fzlbpms/fzlStudio/integrated/build/gradle-5.1.1
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$GRADLE_HOME/bin
 
 #cordova plugin add cordova-plugin-console
@@ -37,9 +37,5 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_SDK_
 
 #neste ponto do script a gente sabe que o nosso tools original esta guardado
 #yes | cp -rf $HOME/Downloads/tools $ANDROID_HOME
-
-
-
-
 
 

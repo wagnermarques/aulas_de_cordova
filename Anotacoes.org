@@ -24,6 +24,7 @@
 * Limpar projeto
   cordova clean
 
+
 * atras de um proxy
   npm config set proxy http://wagner:nicolas1*@192.168.0.2:3128/
   npm config set https-proxy http://wagner:nicolas1*@192.168.0.2:3128/
