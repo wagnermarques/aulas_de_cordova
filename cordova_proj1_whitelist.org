@@ -1,8 +1,11 @@
 #+Title: Cordova WhiteList
 
 * Plugin cordova-plugin-whitelist
+
   https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist/
+
   https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/
+
   O plugin whitelist controla quais urls ou domínios de url sua
   aplicação pode navegar.
   Por padrão seu app só pode navegar para file://
@@ -15,15 +18,22 @@
   importante.
   
   Refs sobre Content-Security-Policy
+  
   https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#Unsafe_inline_script
+  
   https://developer.mozilla.org/pt-BR/docs/Web/HTTP/CSP
+  
   https://developers.google.com/web/fundamentals/security/csp/?hl=pt-br
 
+  
   Refs sobre defer e async
+  
   https://flaviocopes.com/javascript-async-defer/
 
   https://github.com/apache/cordova-plugin-whitelist
+  
   https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/
+  
   Além de configurar quais urls externas sua app pode acessar, dá pra
   configurar também quais quais urls sua app pode solicitar para o
   android abrir internamente. Em outras palavras, quais aplicações
@@ -43,7 +53,7 @@
 
 * Criando um projeto
   
-   #+NAME preparando ambiente                  
+   #+NAME:: preparando ambiente                  
    #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
       source ../aulas_de_cordova/setup.sh
@@ -52,7 +62,7 @@
    #+RESULTS:
 
    
-   #+NAME  rm -rf projetos/cordova_proj1                    
+   #+NAME:  rm -rf projetos/cordova_proj1                    
    #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
       rm -rf projetos/cordova_proj1
@@ -60,7 +70,7 @@
 
    #+RESULTS:
 
-  #+NAME cordova create proj                     
+  #+NAME: cordova create proj                     
   #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
       cordova create projetos/cordova_proj1 br.edu.eteczl "Proj1"      
@@ -72,7 +82,7 @@
 
 
   
-   #+NAME ls projeto                  
+   #+NAME: ls projeto                  
    #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
       ls projetos
@@ -81,7 +91,7 @@
 
 
    
-   #+NAME                     
+   #+NAME:                     
    #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
       cd projetos/cordova_proj1
@@ -114,7 +124,7 @@
    Saving android@~7.1.4 into config.xml file ...[0m
    #+end_example
    
-   #+NAME                     
+   #+NAME:                     
    #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
       adb devices
@@ -127,7 +137,7 @@
 
 
    
-   #+NAME                     
+   #+NAME:                     
    #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
       cd projetos/cordova_proj1
@@ -140,7 +150,7 @@
   Confirma abaixo que o plugin whitelist já está instalado.
   Na verdade ele vem instalado por padrão nos projetos cordova
   
-   #+NAME cordova plugin list                     
+   #+NAME: cordova plugin list                     
    #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
       cd projetos/cordova_proj1
@@ -164,7 +174,7 @@
 
 * Rodando no navegador     
   
-   #+NAME rodando no naveg add browser platform                  
+   #+NAME: rodando no naveg add browser platform                  
    #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
       cd projetos/cordova_proj1
@@ -187,7 +197,7 @@
 
 
    
-   #+NAME  rodando no navegador                   
+   #+NAME:  rodando no navegador                   
    #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
       cd projetos/cordova_proj1
