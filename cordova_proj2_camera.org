@@ -1,0 +1,185 @@
+#+Title: Cordova Camera
+
+* Plugin cordova-plugin-camera
+  
+  https://www.tutorialspoint.com/cordova/cordova_camera.htm
+  https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-camera/
+
+
+* Criando um projeto
+  
+   #+NAME:: preparando ambiente                  
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      source ../aulas_de_cordova/setup.sh
+   #+END_SRC
+
+   #+RESULTS: : preparando ambiente
+
+   
+   #+NAME:  rm -rf projetos/cordova_proj1                    
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      rm -rf projetos/cordova_proj2_camera
+      ls -l projetos
+   #+END_SRC
+
+   #+RESULTS: rm -rf projetos/cordova_proj1
+   : 
+   : [wagner@Unknown aulas_de_cordova]$ total 16
+   : drwxrwxr-x. 8 wagner wagner 4096 fev 18 23:00 cordova_proj1
+   : drwxrwxr-x. 8 wagner wagner 4096 fev 25 18:02 cordova_proj3_geo
+   : drwxrwxr-x. 8 wagner wagner 4096 mar 10 23:37 cordova_proj4_contatos
+   : drwxrwxr-x. 8 wagner wagner 4096 fev 11 23:06 jquerymob_menu
+
+
+
+  #+NAME: cordova create proj                     
+  #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code      
+      cordova create projetos/cordova_proj2_camera br.edu.eteczl "Proj2 Camera"      
+      export projDir=projetos/cordova_proj2_camera
+      ls -l projetos
+  #+END_SRC
+
+  #+RESULTS: cordova create proj
+  : 
+  : Creating a new cordova project.[0m
+  : [wagner@Unknown aulas_de_cordova]$ total 20
+  : drwxrwxr-x. 8 wagner wagner 4096 fev 18 23:00 cordova_proj1
+  : drwxrwxr-x. 7 wagner wagner 4096 mar 17 22:42 cordova_proj2_camera
+  : drwxrwxr-x. 8 wagner wagner 4096 fev 25 18:02 cordova_proj3_geo
+  : drwxrwxr-x. 8 wagner wagner 4096 mar 10 23:37 cordova_proj4_contatos
+  : drwxrwxr-x. 8 wagner wagner 4096 fev 11 23:06 jquerymob_menu
+
+  #+RESULTS:
+  : 
+  : Creating a new cordova project.[0m
+
+
+  
+   #+NAME: ls projeto                  
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      ls $projDir
+   #+END_SRC
+
+   #+RESULTS: ls projeto
+   : 
+   : config.xml  hooks  package.json  platforms  plugins  res  www
+
+
+   
+   #+NAME: add platform e camera                    
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cd $projDir
+      cordova platform add android
+      cordova plugin add cordova-plugin-camera
+   #+END_SRC
+
+   #+RESULTS: add platform e camera
+   #+begin_example
+
+   [wagner@Unknown cordova_proj2_camera]$ Using cordova-fetch for cordova-android@~7.1.1[0m
+   Adding android project...[0m
+   Creating Cordova project for the Android platform:[0m
+           Path: platforms/android[0m
+           Package: br.edu.eteczl[0m
+           Name: Proj2_Camera[0m
+           Activity: MainActivity[0m
+           Android target: android-27[0m
+   Android project created with cordova-android@7.1.4[0m
+   Android Studio project detected[0m
+   Android Studio project detected[0m
+   Discovered plugin "cordova-plugin-whitelist" in config.xml. Adding it to the project[0m
+   Installing "cordova-plugin-whitelist" for android[0m
+
+                  This plugin is only applicable for versions of cordova-android greater than 4.0. If you have a previous platform version, you do *not* need this plugin since the whitelist will be built in.
+             [0m
+   Adding cordova-plugin-whitelist to package.json[0m
+   Saved plugin info for "cordova-plugin-whitelist" to config.xml[0m
+   --save flag or autosave detected[0m
+   Saving android@~7.1.4 into config.xml file ...[0m
+   Installing "cordova-plugin-camera" for android[0m
+   Android Studio project detected[0m
+   Subproject Path: CordovaLib[0m
+   Subproject Path: app[0m
+   Adding cordova-plugin-camera to package.json[0m
+   Saved plugin info for "cordova-plugin-camera" to config.xml[0m
+   #+end_example
+
+   #+NAME: adb devices                     
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      adb devices
+   #+END_SRC
+
+   #+RESULTS: adb devices
+   : 
+   : List of devices attached
+   : * daemon not running; starting now at tcp:5037
+   : * daemon started successfully
+   : c1ca8fb	device
+
+   #+RESULTS:
+   : 
+   : List of devices attached
+   : c1ca8fb	device
+
+
+   
+   #+NAME: cordova plugin list                     
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cd $projDir
+      cordova plugin list
+   #+END_SRC
+
+   #+RESULTS: cordova plugin list
+   : 
+   : bash: cd: projetos/cordova_proj2_camera: No such file or directory
+   : cordova-plugin-camera 4.0.3 "Camera"
+   : cordova-plugin-whitelist 1.3.3 "Whitelist"[0m
+
+
+   
+   #+NAME:  cordova run android 1                   
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cordova run android
+   #+END_SRC
+
+
+
+   navigator.camera.cleanup(onSuccess, onFail);
+
+   function onSuccess() {
+   console.log("Camera cleanup success.")
+   }
+   
+   function onFail(message) {
+   alert('Failed because: ' + message);
+   }
+
+
+
+   camera.getPicture(successCallback, errorCallback, options)
+   Função que abre a camera e permite tirar uma foto
+   
+   Qdo Camera.sourceType = Camera.PictureSourceType.CAMERA (1) é a
+   pcao padrao: imagem é obtida pela camera
+
+   PHOTOLIBRARY (0) imagem é obtida da galeria de fotos
+   
+   Camera.Direction = BACK (Camera trazeira)
+   Camera.Direction = FRONT(Camera frontal)
+
+
+   
+
+   
+* referencias
+  https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-camera/#module_Camera.PictureSourceType
+
+

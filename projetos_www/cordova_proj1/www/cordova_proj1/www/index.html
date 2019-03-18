@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+             Customize this policy to fit your own app's needs. For more guidance, see:
+             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+             Some notes:
+             * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+             * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+             * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+
+        <!-- -
+             https://developer.mozilla.org/pt-BR/docs/Web/HTTP/CSP
+        -->
+        <!--
+             https://developers.google.com/web/fundamentals/security/csp/?hl=pt-br
+             https://stackoverflow.com/questions/13228825/google-maps-api-script-does-load-due-to-content-security-policy
+        -->
+        <meta http-equiv="Content-Security-Policy"
+              content="script-src 'self' https://maps.googleapis.com https://maps.gstatic.com 'unsafe-inline' ;worker-src *;  style-src 'self' 'unsafe-inline'; media-src *">
+
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Hello World</title>
+        <script>
+         function googleMapCallback(){
+             let end="Av. Águia de Haia, 2633 - Cidade A.E. Carvalho, São Paulo - SP, 03694-000";
+             let geocoder = new google.maps.Geocoder();
+
+             //https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple
+             geocoder.geocode({'address': end}, function(results, status) {
+                 if (status === 'OK') {
+                     console.log("Geocodificacao realizada com sucesso!!!")
+                     console.log(results);
+                     alert(results);
+                 } else {                     
+                     console.log('Erro de Geocodificacao": ' + status);
+                     alert(status);
+                 }
+             });
+         }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF4SsLUCcsaGGwVKQeGPWUQ9p-mKaA7Kw"></script>
+    </head>
+    <body>
+        <h1>whitelist</h1>
+        <button
+            onclick="googleMapCallback();">Geocodificar</button>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
