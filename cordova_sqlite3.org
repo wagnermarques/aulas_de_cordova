@@ -1,0 +1,123 @@
+#+Title: Usando sqlite com cordova
+#+Subtitle: explorarando funcionalidades basicas
+
+
+* preparando o ambiente de desenvolvimento
+
+   #+NAME:: preparando ambiente                  
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      source ../aulas_de_cordova/setup.sh
+   #+END_SRC
+
+   #+RESULTS: : preparando ambiente
+
+   
+   #+NAME:  removendo projeto preexistente cordovacomsqlite                    
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      export projetosDir=/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos
+      cd $projetosDir
+      rm -rf cordovacomsqlite1
+      ls -l
+   #+END_SRC
+
+   #+RESULTS: removendo projeto preexistente cordovacomsqlite
+   : 
+   : [wagner@Unknown projetos]$ [wagner@Unknown projetos]$ [wagner@Unknown projetos]$ total 20
+   : drwxrwxr-x. 8 wagner wagner 4096 fev 18 23:00 cordova_proj1
+   : drwxrwxr-x. 8 wagner wagner 4096 mar 18 00:25 cordova_proj2_camera
+   : drwxrwxr-x. 8 wagner wagner 4096 mar 17 23:51 cordova_proj3_geo
+   : drwxrwxr-x. 8 wagner wagner 4096 mar 10 23:37 cordova_proj4_contatos
+   : drwxrwxr-x. 8 wagner wagner 4096 fev 11 23:06 jquerymob_menu
+
+
+* Criando o projeto
+
+  
+   #+NAME:  cordova create cordovacomsqlite1 br.edu.eteczl.cordovacomsqlite1 "Cordova Com Sqlite"
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cd $projetosDir
+      cordova create cordovacomsqlite1 br.edu.eteczl.cordovacomsqlite1 "Cordova Com Sqlite"      
+      export projDir=$projetosDir/cordovacomsqlite1
+      ls -l $projDir
+   #+END_SRC
+
+   #+RESULTS: cordova create cordovacomsqlite1 br.edu.eteczl.cordovacomsqlite1 "Cordova Com Sqlite"
+   #+begin_example
+
+   [wagner@Unknown projetos]$ Creating a new cordova project.[0m
+   [wagner@Unknown projetos]$ total 28
+   -rw-rw-r--. 1 wagner wagner 1006 mar 31 12:57 config.xml
+   drwxrwxr-x. 2 wagner wagner 4096 mar 31 12:57 hooks
+   -rw-rw-r--. 1 wagner wagner  388 mar 31 12:57 package.json
+   drwxrwxr-x. 2 wagner wagner 4096 mar 31 12:57 platforms
+   drwxrwxr-x. 2 wagner wagner 4096 mar 31 12:57 plugins
+   drwxrwxr-x. 4 wagner wagner 4096 mar 31 12:57 res
+   drwxrwxr-x. 5 wagner wagner 4096 mar 31 12:57 www
+   #+end_example
+
+* Instalando o plugin do sqlite e a plataforma android no projeto
+  
+
+  
+   #+NAME:  instalando plugin do sqlite e plat android                   
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cd $projDir
+      cordova plugin add cordova-sqlite-storage
+      cordova platform add android
+   #+END_SRC
+
+   #+RESULTS: instalando plugin do sqlite e plat android
+   #+begin_example
+
+   [wagner@Unknown cordovacomsqlite1]$ Adding cordova-sqlite-storage to package.json[0m
+   Saved plugin info for "cordova-sqlite-storage" to config.xml[0m
+   Using cordova-fetch for cordova-android@~7.1.1[0m
+   Adding android project...[0m
+   Creating Cordova project for the Android platform:[0m
+           Path: platforms/android[0m
+           Package: br.edu.eteczl.cordovacomsqlite1[0m
+           Name: Cordova_Com_Sqlite[0m
+           Activity: MainActivity[0m
+           Android target: android-27[0m
+   Android project created with cordova-android@7.1.4[0m
+   Android Studio project detected[0m
+   Android Studio project detected[0m
+   Installing "cordova-sqlite-storage" for android[0m
+   installing external dependencies via npm
+   for package name: cordova-sqlite-storage
+   npm install of external dependencies ok
+   Discovered plugin "cordova-plugin-whitelist" in config.xml. Adding it to the project[0m
+   Installing "cordova-plugin-whitelist" for android[0m
+
+                  This plugin is only applicable for versions of cordova-android greater than 4.0. If you have a previous platform version, you do *not* need this plugin since the whitelist will be built in.
+             [0m
+   Adding cordova-plugin-whitelist to package.json[0m
+   Saved plugin info for "cordova-plugin-whitelist" to config.xml[0m
+   --save flag or autosave detected[0m
+   Saving android@~7.1.4 into config.xml file ...[0m
+   #+end_example
+
+* Mudando um pouco nossa index.html pra inserir um usuario
+  
+* Inserindo usuarios
+  
+
+  
+   #+NAME:  rodando o proj                   
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cd $projDir
+      cordova run android &
+   #+END_SRC
+
+   #+RESULTS: rodando o proj
+   : 
+   : [wagner@Unknown cordovacomsqlite1]$ [1] 3662
+
+* refs
+  https://github.com/xpbrew/cordova-sqlite-storage#readme
+

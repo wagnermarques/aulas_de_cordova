@@ -37,36 +37,30 @@
   #+NAME: cordova create proj                     
   #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code      
-      cordova create projetos/cordova_proj2_camera br.edu.eteczl "Proj2 Camera"      
-      export projDir=projetos/cordova_proj2_camera
-      ls -l projetos
+      #cordova create projetos/cordova_proj2_camera br.edu.eteczl "Proj2 Camera"      
+      export projDir=/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/cordova_proj2_camera      
+      echo $projDir
   #+END_SRC
 
   #+RESULTS: cordova create proj
   : 
-  : Creating a new cordova project.[0m
-  : [wagner@Unknown aulas_de_cordova]$ total 20
-  : drwxrwxr-x. 8 wagner wagner 4096 fev 18 23:00 cordova_proj1
-  : drwxrwxr-x. 7 wagner wagner 4096 mar 17 22:42 cordova_proj2_camera
-  : drwxrwxr-x. 8 wagner wagner 4096 fev 25 18:02 cordova_proj3_geo
-  : drwxrwxr-x. 8 wagner wagner 4096 mar 10 23:37 cordova_proj4_contatos
-  : drwxrwxr-x. 8 wagner wagner 4096 fev 11 23:06 jquerymob_menu
-
-  #+RESULTS:
-  : 
-  : Creating a new cordova project.[0m
+  : [wagner@Unknown cordova_proj3_geo]$ [wagner@Unknown cordova_proj3_geo]$ /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/cordova_proj2_camera
 
 
   
    #+NAME: ls projeto                  
    #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
-      ls $projDir
+      cd $projDir
+      ls
+      pwd
    #+END_SRC
 
    #+RESULTS: ls projeto
    : 
-   : config.xml  hooks  package.json  platforms  plugins  res  www
+   : [wagner@Unknown cordova_proj2_camera]$ config.xml  node_modules  package-lock.json  plugins  www
+   : hooks	    package.json  platforms	     res
+   : /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/cordova_proj2_camera
 
 
    
@@ -74,37 +68,27 @@
    #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
       cd $projDir
-      cordova platform add android
+      cordova platform add android browser
+      cordova platform add browser
       cordova plugin add cordova-plugin-camera
    #+END_SRC
 
    #+RESULTS: add platform e camera
    #+begin_example
 
-   [wagner@Unknown cordova_proj2_camera]$ Using cordova-fetch for cordova-android@~7.1.1[0m
-   Adding android project...[0m
-   Creating Cordova project for the Android platform:[0m
-           Path: platforms/android[0m
-           Package: br.edu.eteczl[0m
-           Name: Proj2_Camera[0m
-           Activity: MainActivity[0m
-           Android target: android-27[0m
-   Android project created with cordova-android@7.1.4[0m
-   Android Studio project detected[0m
-   Android Studio project detected[0m
-   Discovered plugin "cordova-plugin-whitelist" in config.xml. Adding it to the project[0m
-   Installing "cordova-plugin-whitelist" for android[0m
-
-                  This plugin is only applicable for versions of cordova-android greater than 4.0. If you have a previous platform version, you do *not* need this plugin since the whitelist will be built in.
-             [0m
-   Adding cordova-plugin-whitelist to package.json[0m
-   Saved plugin info for "cordova-plugin-whitelist" to config.xml[0m
+   [wagner@Unknown cordova_proj2_camera]$ Using cordova-fetch for cordova-android@^7.1.4[0m
+   Platform android already added.
+   Using cordova-fetch for cordova-browser@~5.0.1[0m
+   Adding browser project...[0m
+   Creating Cordova project for cordova-browser:[0m
+           Path: /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/cordova_proj2_camera/platforms/browser[0m
+           Name: Proj2 Camera[0m
+   Installing "cordova-plugin-camera" for browser[0m
+   Installing "cordova-plugin-whitelist" for browser[0m
    --save flag or autosave detected[0m
-   Saving android@~7.1.4 into config.xml file ...[0m
-   Installing "cordova-plugin-camera" for android[0m
-   Android Studio project detected[0m
-   Subproject Path: CordovaLib[0m
-   Subproject Path: app[0m
+   Saving browser@~5.0.4 into config.xml file ...[0m
+   Plugin "cordova-plugin-camera" already installed on android.[0m
+   Plugin "cordova-plugin-camera" already installed on browser.[0m
    Adding cordova-plugin-camera to package.json[0m
    Saved plugin info for "cordova-plugin-camera" to config.xml[0m
    #+end_example
@@ -147,8 +131,13 @@
    #+NAME:  cordova run android 1                   
    #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
+      cd $projDir
       cordova run android
    #+END_SRC
+
+   #+RESULTS: cordova run android 1
+   : 
+   : [wagner@Unknown cordova_proj2_camera]$ The platform "browser" does not appear to have been added to this project.
 
 
 
