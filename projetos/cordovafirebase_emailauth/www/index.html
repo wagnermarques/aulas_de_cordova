@@ -36,7 +36,16 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>cordovafirebase_emailauth</title>
 
+
         <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+        <!-- Firebase App is always required and must be first 
+             https://firebase.google.com/docs/web/setup?authuser=0
+        -->
+        <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+
+        <!-- Add additional services that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-auth.js"></script>
+
         <script>
          // Initialize Firebase
          var config = {
@@ -60,11 +69,21 @@
              if(errorMessage) alert(errorMessage);
          });
         </script>
+
+        <script>
+         var config = {
+             // ...
+         };
+         firebase.initializeApp(config);
+        </script>
+
     </head>
     <body>
         <div class="app">
-            <h1>cordovafirebase_emailauth</h1>
-            
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
