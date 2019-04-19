@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-BR">
+    <head>
+        <title>cordovafirebase_emailauth</title>
+
+        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-auth.js"></script>
+
+        <script src="firebaseConfig.js"></script>
+        <script src="firebaseAppInit.js"></script>
+        
+    </head>
+    
+    <body onload="onloadFunction()">
+        <h1>cordovafirebase_emailauth</h1>
+        <fieldset>
+            <legend>Inscrever-se neste app</legend>
+            <label>Email</label><br/>
+            <input type="text" id="email"></input><br/>
+            <label>Senha</label><br/>
+            <input type="password" id="senha"></input><br/>
+            <button type="button" onclick="signup()">Inscrever-se</button><br/>
+        </fieldset>
+        <br/>
+        <fieldset>
+            <legend>Informacoes...</legend>
+            <button type="button" onclick="userLoggedIn()">Mostra Usuario Logado</button><br/>
+            <button type="button" onclick="loggout()">Sair</button><br/>
+        </fieldset>
+
+        
+    </body>
+</html>
