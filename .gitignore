@@ -6,7 +6,7 @@
 **/plugins/*
 **/demos
 /projetos2
-
+*.html
 !projetos/**/*.html #the cordova's projects html must be considered
 
 #I use emacs, so this files must be ignore

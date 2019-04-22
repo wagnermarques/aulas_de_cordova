@@ -1,0 +1,210 @@
+#+Title: Cordova Geolocalização
+
+* Plugin cordova-plugin-geolocation
+  
+
+* Criando um projeto
+  
+   #+NAME:: preparando ambiente                  
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      source ../aulas_de_cordova/setup.sh
+   #+END_SRC
+
+   #+RESULTS: : preparando ambiente
+
+   
+   #+NAME:  rm -rf projetos/cordova_proj1                    
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      rm -rf projetos/cordova_proj3_geo
+   #+END_SRC
+
+   #+RESULTS: rm -rf projetos/cordova_proj1
+
+  #+NAME: cordova create proj                     
+  #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code      
+      cordova create projetos/cordova_proj3_geo br.edu.eteczl "Proj3 Georef"      
+      export projDir=/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/cordova_proj3_geo
+  #+END_SRC
+
+  #+RESULTS: cordova create proj
+
+   #+NAME: ls projeto                  
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      ls $projDir
+   #+END_SRC
+
+   #+RESULTS: ls projeto
+   : 
+   : config.xml  node_modules  package-lock.json  plugins  www
+   : hooks	    package.json  platforms	     res
+
+
+   
+   #+NAME: add platform e camera                    
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cd $projDir      
+      cordova platform add browser 
+      cordova platform add android 
+      cordova plugin add cordova-plugin-geolocation
+   #+END_SRC
+
+   #+RESULTS: add platform e camera
+   : 
+   : [wagner@Unknown cordova_proj3_geo]$ Using cordova-fetch for cordova-browser@^5.0.4[0m
+   : Platform browser already added.
+   : Using cordova-fetch for cordova-android@^7.1.4[0m
+   : Platform android already added.
+   : Plugin "cordova-plugin-geolocation" already installed on android.[0m
+   : Plugin "cordova-plugin-geolocation" already installed on browser.[0m
+   : Adding cordova-plugin-geolocation to package.json[0m
+   : Saved plugin info for "cordova-plugin-geolocation" to config.xml[0m
+
+   #+NAME: adb devices                     
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      adb devices
+   #+END_SRC
+
+   #+RESULTS: adb devices
+   : 
+   : List of devices attached
+   : c1ca8fb	device
+
+   #+NAME: cordova plugin list                     
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cd $projDir
+      cordova plugin list
+   #+END_SRC
+
+   #+RESULTS: cordova plugin list
+   : 
+   : bash: cd: projetos/cordova_proj3_geo: No such file or directory
+   : cordova-plugin-geolocation 4.0.1 "Geolocation"
+   : cordova-plugin-whitelist 1.3.3 "Whitelist"[0m
+
+
+   
+   #+NAME:  cordova run android 1                   
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cordova run android
+   #+END_SRC
+
+   #+RESULTS: cordova run android 1
+   #+begin_example
+
+   Android Studio project detected[0m
+   ANDROID_HOME=/home/wagner/PROGSATIVOS/androidSdk
+   JAVA_HOME=/home/wagner/PROGSATIVOS/jdk1.8.0_191
+   studio
+   Subproject Path: CordovaLib[0m
+   Subproject Path: app[0m
+   publishNonDefault is deprecated and has no effect anymore. All variants are now published.
+   The Task.leftShift(Closure) method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use Task.doLast(Action) instead.
+           at build_eu8mteczcynbgvci6a88ic61d.run(/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/cordova_proj3_geo/platforms/android/app/build.gradle:148)
+   :CordovaLib:preBuild UP-TO-DATE
+   :CordovaLib:preDebugBuild UP-TO-DATE
+   :CordovaLib:compileDebugAidl UP-TO-DATE
+   :CordovaLib:compileDebugRenderscript UP-TO-DATE
+   :CordovaLib:checkDebugManifest UP-TO-DATE
+   :CordovaLib:generateDebugBuildConfig UP-TO-DATE
+   :CordovaLib:prepareLintJar UP-TO-DATE
+   :CordovaLib:generateDebugResValues UP-TO-DATE
+   :CordovaLib:generateDebugResources UP-TO-DATE
+   :CordovaLib:packageDebugResources UP-TO-DATE
+   :CordovaLib:platformAttrExtractor UP-TO-DATE
+   :CordovaLib:processDebugManifest UP-TO-DATE
+   :CordovaLib:processDebugResources UP-TO-DATE
+   :CordovaLib:generateDebugSources UP-TO-DATE
+   :CordovaLib:javaPreCompileDebug UP-TO-DATE
+   :CordovaLib:compileDebugJavaWithJavac UP-TO-DATE
+   :CordovaLib:processDebugJavaRes NO-SOURCE
+   :CordovaLib:transformClassesAndResourcesWithPrepareIntermediateJarsForDebug UP-TO-DATE
+   :app:preBuild UP-TO-DATE
+   :app:preDebugBuild UP-TO-DATE
+   :app:compileDebugAidl UP-TO-DATE
+   :CordovaLib:packageDebugRenderscript NO-SOURCE
+   :app:compileDebugRenderscript UP-TO-DATE
+   :app:checkDebugManifest UP-TO-DATE
+   :app:generateDebugBuildConfig UP-TO-DATE
+   :app:prepareLintJar UP-TO-DATE
+   :app:generateDebugResValues UP-TO-DATE
+   :app:generateDebugResources UP-TO-DATE
+   :app:mergeDebugResources UP-TO-DATE
+   :app:createDebugCompatibleScreenManifests UP-TO-DATE
+   :app:processDebugManifest UP-TO-DATE
+   :app:splitsDiscoveryTaskDebug UP-TO-DATE
+   :app:processDebugResources UP-TO-DATE
+   :app:generateDebugSources UP-TO-DATE
+   :app:javaPreCompileDebug UP-TO-DATE
+   :app:compileDebugJavaWithJavac UP-TO-DATE
+   :app:compileDebugNdk NO-SOURCE
+   :app:compileDebugSources UP-TO-DATE
+   :CordovaLib:mergeDebugShaders UP-TO-DATE
+   :CordovaLib:compileDebugShaders UP-TO-DATE
+   :CordovaLib:generateDebugAssets UP-TO-DATE
+   :CordovaLib:mergeDebugAssets UP-TO-DATE
+   :app:mergeDebugShaders UP-TO-DATE
+   :app:compileDebugShaders UP-TO-DATE
+   :app:generateDebugAssets UP-TO-DATE
+   :app:mergeDebugAssets UP-TO-DATE
+   :app:transformClassesWithStackFramesFixerForDebug UP-TO-DATE
+   :app:transformClassesWithDesugarForDebug UP-TO-DATE
+   :app:transformClassesWithDexBuilderForDebug UP-TO-DATE
+   :app:transformDexArchiveWithExternalLibsDexMergerForDebug UP-TO-DATE
+   :app:transformDexArchiveWithDexMergerForDebug UP-TO-DATE
+   :CordovaLib:compileDebugNdk NO-SOURCE
+   :CordovaLib:mergeDebugJniLibFolders UP-TO-DATE
+   :CordovaLib:transformNativeLibsWithMergeJniLibsForDebug UP-TO-DATE
+   :CordovaLib:transformNativeLibsWithIntermediateJniLibsForDebug UP-TO-DATE
+   :app:mergeDebugJniLibFolders UP-TO-DATE
+   :app:transformNativeLibsWithMergeJniLibsForDebug UP-TO-DATE
+   :app:processDebugJavaRes NO-SOURCE
+   :app:transformResourcesWithMergeJavaResForDebug UP-TO-DATE
+   :app:validateSigningDebug
+   :app:packageDebug UP-TO-DATE
+   :app:assembleDebug UP-TO-DATE
+   :app:cdvBuildDebug UP-TO-DATE
+
+   BUILD SUCCESSFUL in 0s
+   46 actionable tasks: 1 executed, 45 up-to-date
+   Built the following apk(s): 
+           /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/cordova_proj3_geo/platforms/android/app/build/outputs/apk/debug/app-debug.apk[0m
+   ANDROID_HOME=/home/wagner/PROGSATIVOS/androidSdk
+   JAVA_HOME=/home/wagner/PROGSATIVOS/jdk1.8.0_191
+   [1m[33mNo target specified, deploying to device 'c1ca8fb'.[0m
+   none
+   Skipping build...[0m
+   Built the following apk(s): 
+           /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/cordova_proj3_geo/platforms/android/app/build/outputs/apk/debug/app-debug.apk[0m
+   Using apk: /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/cordova_proj3_geo/platforms/android/app/build/outputs/apk/debug/app-debug.apk[0m
+   Package name: br.edu.eteczl[0m
+   LAUNCH SUCCESS[0m
+   #+end_example
+
+
+   camera.getPicture(successCallback, errorCallback, options)
+   Função que abre a camera e permite tirar uma foto
+   
+   Qdo Camera.sourceType = Camera.PictureSourceType.CAMERA (1) é a
+   pcao padrao: imagem é obtida pela camera
+
+   PHOTOLIBRARY (0) imagem é obtida da galeria de fotos
+   
+   Camera.Direction = BACK (Camera trazeira)
+   Camera.Direction = FRONT(Camera frontal)
+
+
+   
+
+   
+* referencias
+  https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-camera/#module_Camera.PictureSourceType
+
+

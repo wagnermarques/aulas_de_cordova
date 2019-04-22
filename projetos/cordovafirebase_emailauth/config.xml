@@ -24,4 +24,5 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <engine name="browser" spec="^5.0.4" />
+    <engine name="android" spec="^7.1.4" />
 </widget>

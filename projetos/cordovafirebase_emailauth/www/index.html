@@ -34,58 +34,42 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>cordovafirebase_emailauth</title>
 
+        <title>Cordova Firebase Email Password Auth</title>
 
-        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
-        <!-- Firebase App is always required and must be first 
-             https://firebase.google.com/docs/web/setup?authuser=0
-        -->
-        <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-auth.js"></script>
 
-        <!-- Add additional services that you want to use -->
-        <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-auth.js"></script>
+        <script src="firebaseConfig.js"></script>
+        <script src="firebaseAuthFeatures.js"></script>
+        <script src="firebaseAppInit.js"></script>
 
-        <script>
-         // Initialize Firebase
-         var config = {
-             apiKey: "AIzaSyAnD5vtoX3N38SNP5iHfVJQd0nxsULw94c",
-             authDomain: "aulas-de-cordova.firebaseapp.com",
-             databaseURL: "https://aulas-de-cordova.firebaseio.com",
-             projectId: "aulas-de-cordova",
-             storageBucket: "aulas-de-cordova.appspot.com",
-             messagingSenderId: "25796691453"
-         };
-         firebase.initializeApp(config);
-        </script>
-
-        <script>
-         var email = "wagnerfrancamarques@hotmail.com";
-         var password = "nicolas1";
-         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-             var errorCode = error.code;
-             var errorMessage = error.message;
-             if(errorCode) alert(errorCode);
-             if(errorMessage) alert(errorMessage);
-         });
-        </script>
-
-        <script>
-         var config = {
-             // ...
-         };
-         firebase.initializeApp(config);
-        </script>
 
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
+
+        <h1>Cordova Firebase Email Auth</h1>
+
+        <fieldset>
+            <legend>Inscrever-se neste app</legend>
+            <label>Email</label><br/>
+            <input type="text" id="email"></input><br/>
+            <label>Senha</label><br/>
+            <input type="password" id="senha"></input><br/>
+            <button type="button" onclick="signup()">Inscrever-se</button>
+            <button type="button" onclick="mudarSenha()">Mudar Senha</button>
+            <button type="button" onclick="login()">Login</button><br/>
+        </fieldset>
+
+        <br/>
+
+        <fieldset>
+            <legend>Informacoes...</legend>
+            <button type="button" onclick="showCurrentUser()">Consulta Usuario Logado</button>
+            <Label id="lbUserLoggedIn"></Label><br/>
+            <button type="button" onclick="logout()">Sair</button><br/>
+        </fieldset>
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
