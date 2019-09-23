@@ -60,10 +60,10 @@ var app = {
         
         navigator.camera.getPicture(
             function(imgData) {
-                alert(imgData);
-                //var imgHtmlTag = document.getElementById("imgHtmlTag");
-                //alert(imgHtmlTag);
-                //imgHtmlTag.src = "data:image/jpeg;base64,"+imgData;
+                //alert(imgData);
+                var imgHtmlTag = document.getElementById("imgHtmlTag");
+                alert(imgHtmlTag);
+                imgHtmlTag.src = "data:image/jpeg;base64,"+imgData;
             },
             function(e) {
                 alert(e);

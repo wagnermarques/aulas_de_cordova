@@ -7,7 +7,7 @@
    #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova
-      source ../aulas_de_cordova/setup.sh
+      source ../aulas_de_cordova/setup.sh 
    #+END_SRC
 
    #+RESULTS: : preparando ambiente
