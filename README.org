@@ -13,14 +13,18 @@
   Este repositório tem por finalidade prover subsidios às aulas de mobile
   utilizando o Apache Cordova.
 
-** Como utilizar este repositório
-*** faça o checkout
-    git clone https://github.com/wagnermarques/aulas_de_cordova.git
 
-*** Apresentação dos projetos existentes
-    Haverá vários pequenos projetos de exemplo pra vc estudar junto
-    com o seu professor.
-    
+* Como utilizar este repositório
+   Bom, vc pode seguir o tutorial desse README.org ou pode clonar o
+   projeto e estudá-los.
+   Pra fazer o clone: git clone
+   https://github.com/wagnermarques/aulas_de_cordova.git
+
+   Este repositório term vários projetos, que vão levando você das
+   tarefas mais simples às mais complexas. Bom esse é o objetivo. Na
+   verdade ainda não tem tantos projetos assim, mas é por aí que vamos
+   caminhas em nossas aulas.
+      
 
 * Apresentação dos projetos cordova deste repositório
   Dentro da pasta "projetos" tem os projetos de exemplo para estudo e
@@ -28,29 +32,29 @@
   A medida que os projetos de exemplo vao sendo criados eu vou
   colocando uma apresentação de cada um aqui.
 
-** O projeto jquerymob_menu
+
+* O projeto jquerymob_menu and pages
    O primeiro projeto é o jquerymob_menu que é criado desde o zero no
-   próximo tópico deste README.
+   mais à frente neste README.
 
    O projeto jquerymob_menu apresenta os seguintes tópicos
-  + Instalação do JqueryMobile
-  + Criação de um Header e Footer comm jquery mobile
-    data-role="navbar"
-    data-role="footer"
-    data-role="content"
-  + Utilização de Paginas internas e externas
-    http://demos.jquerymobile.com/1.4.0/pages/
-    http://demos.jquerymobile.com/1.2.1/docs/pages/multipage-template.html
+   + Instalação do JqueryMobile
+   + Criação de um Header e Footer comm jquery mobile
+   + Utilização de Paginas internas
+     http://demos.jquerymobile.com/1.4.0/pages/
+     http://demos.jquerymobile.com/1.2.1/docs/pages/multipage-template.html
 
 
 * [jquerymob_menu] Criando nosso primeiro projeto Com Jquery Mobile
-     Apesar deste projeto jquerymob_menu já vir na clonagem do
-     repositório, vamos mostrar como criar esse projeto do zero. Se eu
-     fosse vc eu seguiria esse tutorial direitinho pra aprender como
-     se faz...
+  https://cordova.apache.org/docs/en/latest/guide/cli/
+
+  Apesar deste projeto jquerymob_menu já vir na clonagem do
+  repositório, vamos mostrar como criar esse projeto do zero. Se eu
+  fosse vc eu seguiria esse tutorial direitinho pra aprender como
+  se faz...
      
-     Vá até o diretório onde vc quer criar o projeto e use o comando  cordova create
-     
+  Vá até o diretório onde vc quer criar o projeto e use o comando  cordova create
+  
      #+Name:create project
      #+BEGIN_SRC sh :exports both :results output
      cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos
@@ -78,7 +82,8 @@
      : drwxrwxr-x. 4 wagner wagner 4096 fev 11 22:58 res
      : drwxrwxr-x. 5 wagner wagner 4096 fev 11 22:58 www
 
-** Conhecendo a estrutura de um projeto do cordova
+     
+* Conhecendo a estrutura de um projeto do cordova
       O arquivo config.xml tem o conteúdo abaixo. Por enquanto a gente
       não vai precisar mecher nele porque conforme a gente vai utilizando
       os plugins do cordova o cordova modifica esse arquivo pra gente.
@@ -173,61 +178,9 @@ estar no diretório do projeto)
     
      depois, por curiosidade pode dar uma "passeada" por entre esses subdiretórios..
 
-     Agora, sobre os plugins. São os plugins que interagem com o
-     sistema operacional e você interage com o plugin através de
-     javascript.
-     Um plugin bem basicão seria cordova-plugin-dialogs pra usar
-     diálogos nativos da plataforma. Vamos instalá-lo e depois ver o
-     conteúdo da pasta plugin do nosso projeto.
-      #+NAME: pplugin add cordova-plugin-dialogs
-     #+BEGIN_SRC sh :exports bouth :result output :results output
-       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
-       cordova plugin add cordova-plugin-dialogs
-     #+END_SRC
-
-     #+RESULTS: pplugin add cordova-plugin-dialogs
-     : Installing "cordova-plugin-dialogs" for android
-     : Android Studio project detected
-     : Installing "cordova-plugin-dialogs" for browser
-     : Adding cordova-plugin-dialogs to package.json
-     : Saved plugin info for "cordova-plugin-dialogs" to config.xml
 
 
-     O diretório plugins segue o mesmo entendimento. Adicionados os
-plugins eles são armazenados aqui. 
-
-     Vamos instalar também o splasscreen
-
-     #+NAME: plugin add  cordova plugin add cordova-plugin-splashscreen
-     #+BEGIN_SRC sh :exports bouth :result output :results output
-       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
-       cordova plugin add cordova-plugin-splashscreen
-     #+END_SRC
-
-     #+RESULTS: plugin add  cordova plugin add cordova-plugin-splashscreen
-     : Installing "cordova-plugin-splashscreen" for android
-     : Android Studio project detected
-     : Installing "cordova-plugin-splashscreen" for browser
-     : Adding cordova-plugin-splashscreen to package.json
-     : Saved plugin info for "cordova-plugin-splashscreen" to config.xml
-
-
-
-     #+NAME: ls plugins
-     #+BEGIN_SRC sh :exports bouth :result output :results output
-       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
-       ls -l plugins
-     #+END_SRC
-     
-     #+RESULTS: ls plugins
-     : total 24
-     : -rw-rw-r--. 1 wagner wagner  406 fev 11 23:06 android.json
-     : -rw-rw-r--. 1 wagner wagner  406 fev 11 23:07 browser.json
-     : drwxrwxr-x. 7 wagner wagner 4096 fev 11 23:06 cordova-plugin-dialogs
-     : drwxrwxr-x. 7 wagner wagner 4096 fev 11 23:06 cordova-plugin-splashscreen
-     : drwxrwxr-x. 4 wagner wagner 4096 fev 11 23:05 cordova-plugin-whitelist
-     : -rw-rw-r--. 1 wagner wagner  525 fev 11 23:06 fetch.json
-
+* Diretorio res
      O diretório res é onde vc vai colocar images e demais recursos
 que o seu projeto vai precisar. Por exemplo em
 https://cordova.apache.org/docs/en/3.3.0/config_ref/images.html mostra
@@ -248,6 +201,9 @@ como mudar o ícone da palicação.
      Agora sim, o diretório www. Esse é o diretório onde ficarão suas
      interfaces gráficas que são compostas por tecnologias front end
      html, javascript e css.
+
+
+* diretório www
 
      Vamos dar uma olhada no conteúdo do nosso diretório www
       #+NAME: ls www
@@ -283,9 +239,75 @@ como mudar o ícone da palicação.
      dispositivo. Então já fica o aviso. Seus plugins só funcionam
      depois que o dispositivo está pronto pra uso.
 
+
+* plugins do Cordova
+  Agora, sobre os plugins. São os plugins que interagem com o
+  sistema operacional e você interage com o plugin através de
+  javascript.
+  Um plugin bem basicão seria cordova-plugin-dialogs pra usar
+  diálogos nativos da plataforma. Vamos instalá-lo e depois ver o
+  conteúdo da pasta plugin do nosso projeto.
+      #+NAME: pplugin add cordova-plugin-dialogs
+     #+BEGIN_SRC sh :exports bouth :result output :results output
+       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+       cordova plugin add cordova-plugin-dialogs
+     #+END_SRC
+
+     #+RESULTS: pplugin add cordova-plugin-dialogs
+     : Installing "cordova-plugin-dialogs" for android
+     : Android Studio project detected
+     : Installing "cordova-plugin-dialogs" for browser
+     : Adding cordova-plugin-dialogs to package.json
+     : Saved plugin info for "cordova-plugin-dialogs" to config.xml
+
+
+     O diretório plugins segue o mesmo entendimento. Adicionados os
+     plugins eles são armazenados aqui. 
+
+     Vamos instalar também o splasscreen
+
+     #+NAME: plugin add  cordova plugin add cordova-plugin-splashscreen
+     #+BEGIN_SRC sh :exports bouth :result output :results output
+       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+       cordova plugin add cordova-plugin-splashscreen
+     #+END_SRC
+
+     #+RESULTS: plugin add  cordova plugin add cordova-plugin-splashscreen
+     : Installing "cordova-plugin-splashscreen" for android
+     : Android Studio project detected
+     : Installing "cordova-plugin-splashscreen" for browser
+     : Adding cordova-plugin-splashscreen to package.json
+     : Saved plugin info for "cordova-plugin-splashscreen" to config.xml
+
+
+
+     #+NAME: ls plugins
+     #+BEGIN_SRC sh :exports bouth :result output :results output
+       cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+       ls -l plugins
+     #+END_SRC
+     
+     #+RESULTS: ls plugins
+     : total 24
+     : -rw-rw-r--. 1 wagner wagner  406 fev 11 23:06 android.json
+     : -rw-rw-r--. 1 wagner wagner  406 fev 11 23:07 browser.json
+     : drwxrwxr-x. 7 wagner wagner 4096 fev 11 23:06 cordova-plugin-dialogs
+     : drwxrwxr-x. 7 wagner wagner 4096 fev 11 23:06 cordova-plugin-splashscreen
+     : drwxrwxr-x. 4 wagner wagner 4096 fev 11 23:05 cordova-plugin-whitelist
+     : -rw-rw-r--. 1 wagner wagner  525 fev 11 23:06 fetch.json
+
     
-** Vamos fazer o build do projeto e depois rodá-lo     
-      
+* Vamos fazer o build do projeto e depois rodá-lo
+  Caso não funcione o build do seu projeto, mais à frente no texto
+      haverá mais informações sobre o seu ambiente de
+      desenvolvimento. Nos laboratórios está tudo configurado, caso dê
+      algum problema avance para a próxima sessão do texto e/ou
+      solicita suporte do professor.
+
+      Outra coisa, tem alguns comandos que serão dados, vc tem que
+      prestar atenção na saída dos comandos também heinn... tem que
+      entender tudo... 
+
       Fazer o build significa criar o arquivo .apk que é um instalador
       do seu projeto mobile. Esse instalador vc pode depois passar pro
       seu celular e instalá-lo. Quando rodamos no emulador é exatamene
@@ -553,7 +575,9 @@ como mudar o ícone da palicação.
       primeiro. Vamos aprender como se faz isso.
 
       Puts, mas o que é um avd? 
-      Dá uma lida aqui.. https://developer.android.com/studio/run/managing-avds
+      Dá uma lida
+      aqui.. https://developer.android.com/studio/run/managing-avds
+      Pode perguntar pro professor tb é claro...
 
       É nessa hora que a gente começa a conversar sobre o ambiente
       android.
@@ -568,7 +592,30 @@ como mudar o ícone da palicação.
       configurar o seu path
       Vc vai ajustar esses caminhos para o seu diretório correto da
       sua máquina. 
-      
+
+
+* Ambiente Android da sua máquina      
+  Pode ser que não tenha rodado corretamente seu comando cordova build
+  Se isso aconteceu, não vai funcionar também o comando cordova run
+  androi ou cordova run browser.
+  No nosso laboratório já está tudo configurado, mas é importante
+  conhecer um pouco sobre o ambiente de desenvolvimento que vc está usando.
+  
+  Pra resolver vc tem que ver alguns passos:
+  + vc instalou o nodejs?
+    https://nodejs.dev/how-to-install-nodejs
+  + vc instalaou o cordova? 
+    sudo npm install -g cordova
+  + Vc configurou as variáveis de ambiente corretamente?
+
+** Variáveis de Ambiente
+
+   Nesta sessão vc vai ver que além de configurar-mos as variáveis de
+   ambiente a gente roda vários comandos pra checkar se as ferramentas
+   estão funcionando.
+
+    Pra cada variável de ambiente, obviamente vc tem que ter feito a
+    download e instalação das respectivas ferramentas
       #+NAME conf android sdk path                    
       #+BEGIN_SRC shell :session s1 :results output :exports both
          #starts code
@@ -612,13 +659,16 @@ como mudar o ícone da palicação.
       Pela saída acima dá pra ver que agora tá funcionando os comandos
       do ambiente de desenvolvimento do android que é o adb,
       sdkmanager, o gradle e o emulator.
+        
       
+** O Android SDK
 
       É bom sempre fazer o update do sdkmanager que é a ferramenta que
       instala e atualiza os pactoes do android. A maioria dos
       desenvolvedores utiliza o visual studio pra pra fazer isso, mas
       por simplicidade vc pode simplesmente dar esse comando...
       Pra conhecer mais sobre o sdkmanager dê uma consultada em https://developer.android.com/studio/command-line/sdkmanager
+      
 
       #+NAME: sdkmanager --update
       #+BEGIN_SRC shell :session s1 :exports both :results output
@@ -903,12 +953,11 @@ como mudar o ícone da palicação.
         tools                                                                                    | 26.1.1       | Android SDK Tools                                                   
 
       #+end_example
-
       
       Quando vc cria um emulador ele vai usar um dos pacotes
       instalados acima que vc escolher. 
 
-      Nos equipamentos do labooratório os pacotes que vamo utilizar já
+      Nos equipamentos do labooratório os pacotes que vamos utilizar já
       estão instalados, mas se vc tiver instalando o ambiente no seu
       equipamento a sugestão é você instalar o seguinte pacote 
 
@@ -930,108 +979,6 @@ como mudar o ícone da palicação.
 
       
 
-* Inclusão do Jquery Mobile
-     Provavelmente o melhor lugar pra começar com jquery é
-     http://demos.jquerymobile.com/1.3.2/intro/
-     Como está em ingles, a gente dá uma ajudinha aqui...
 
-      Então os comandos abaixo vão baixar o jquery e instalá-lo no
-      nosso projeto. Vc pode fazer manualmente também.
-
-      #+NAME:download do jquery mobile
-      #+BEGIN_SRC sh :export both :results output
-        cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
-        wget --output-document jquerymobile.zip  https://jquerymobile.com/resources/download/jquery.mobile-1.4.5.zip                               
-        mkdir jquerymobile && unzip -d jquerymobile jquerymobile.zip
-        
-        cp jquerymobile/demos/js/jquery.js www/js
-        cp jquerymobile/jquery.mobile-1.4.5.min.css www/css
-        cp jquerymobile/jquery.mobile-1.4.5.min.js www/js
-        cp -rf jquerymobile/images www
-        
-        rm -r jquerymobile
-        echo "#######    DIRETORIO RAIZ DO NOSSO PROJETO      ########"
-        ls -l
-        echo "#######    DIRETORIO WWW DO NOSSO PROJETO       ########"
-        ls -l www
-        echo "#######   DIRETORIO WWW/JS DO NOSSO PROJETO     ########"
-        ls -l www/js
-        echo "#######  DIRETORIO WWW/CSS DO NOSSO PROJETO     ########"
-        ls -l www/css
-      #+END_SRC
-
-      #+RESULTS: download do jquery mobile
-      #+begin_example
-      #######    DIRETORIO RAIZ DO NOSSO PROJETO      ########
-      total 7764
-      -rw-r--r-- 1 wagner wagner    1203 jul 29 13:29 config.xml
-      drwxr-xr-x 2 wagner wagner      23 jul 28 23:24 hooks
-      drwxrwxr-x 4 wagner wagner    4096 jul 29 13:02 jquerymobile
-      -rw-rw-r-- 1 wagner wagner 7906983 out 31  2014 jquerymobile.zip
-      drwxrwxr-x 8 wagner wagner     161 jul 28 23:29 node_modules
-      -rw-r--r-- 1 wagner wagner     868 jul 29 13:29 package.json
-      -rw-rw-r-- 1 wagner wagner   28213 jul 28 23:29 package-lock.json
-      drwxrwxr-x 4 wagner wagner      36 jul 28 23:27 platforms
-      drwxrwxr-x 5 wagner wagner     161 jul 28 23:29 plugins
-      drwxr-xr-x 4 wagner wagner      49 jul 28 23:24 res
-      drwxr-xr-x 6 wagner wagner     107 jul 29 13:29 www
-      #######    DIRETORIO WWW DO NOSSO PROJETO       ########
-      total 12
-      drwxr-xr-x 2 wagner wagner   58 jul 29 13:30 css
-      drwxrwxr-x 4 wagner wagner   63 jul 28 23:55 images
-      drwxr-xr-x 3 wagner wagner 4096 jul 29 01:27 img
-      -rw-r--r-- 1 wagner wagner 3884 jul 29 13:29 index.html
-      -rw-r--r-- 1 wagner wagner 2513 jul 28 23:24 index.origina_do_cordova.html
-      drwxrwxr-x 2 wagner wagner   98 jul 29 13:33 js
-      #######   DIRETORIO WWW/JS DO NOSSO PROJETO     ########
-      total 472
-      -rw-r--r-- 1 wagner wagner   2156 jul 29 01:38 index.js
-      -rw-r--r-- 1 wagner wagner   1673 jul 29 01:36 index.original.js
-      -rw-rw-r-- 1 wagner wagner 273199 jul 29 13:33 jquery.js
-      -rw-rw-r-- 1 wagner wagner 200143 jul 29 13:33 jquery.mobile-1.4.5.min.js
-      #######  DIRETORIO WWW/CSS DO NOSSO PROJETO     ########
-      total 208
-      -rw-r--r-- 1 wagner wagner   2914 jul 29 09:34 index.css
-      -rw-rw-r-- 1 wagner wagner 207465 jul 29 13:33 jquery.mobile-1.4.5.min.css
-      #+end_example
-
-
-
-
-
-      
-      
-      
-      
-     
-     
-     
-
-
-
-   
-
-   
-
-
-
-
-
-
-
-** Sobre Cordova
-    https://cordova.apache.org/
-
-** Sobre Jquery Mobile
-   É uma biblioteca javascript
-   https://learn.jquery.com/
-   Tem a versão pra sites normais e tem a versão para mobile
-   Pra usar o jquery mobile vc tem que baixar ele e colocá-lo no
-   seu projeto.
-   
-   https://jquerymobile.com/
-   Você vai querer estudar mais sobre jquery mobile porque é muito
-   legal. Use esse site:
-   https://www.quanzhanketang.com/jquerymobile/
-   Essa é a página oficial https://jquerymobile.com/
-
+* Refs
+  [fn:w3schoolsHanbMenu] https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_mobile_navbar

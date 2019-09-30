@@ -1,0 +1,186 @@
+#+Title: Adb Commands
+#+Subtitle:
+
+
+
+   #+NAME:: preparando ambiente                  
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      source ../aulas_de_cordova/setup.sh
+   #+END_SRC
+
+   #+RESULTS: : preparando ambiente
+
+   #+NAME: adb devices 1                    
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      adb devices
+   #+END_SRC
+
+   #+RESULTS: adb devices 1
+   : 
+   : List of devices attached
+   : emulator-5584	device
+
+
+   
+   #+NAME: adb shell getprop | grep ro.build
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      adb shell getprop | grep ro.build
+   #+END_SRC
+
+   #+RESULTS: adb shell getprop | grep ro.build
+   #+begin_example
+
+   [ro.build.characteristics]: [emulator]
+   [ro.build.date]: [Tue Feb  6 01:02:48 UTC 2018]
+   [ro.build.date.utc]: [1517878968]
+   [ro.build.description]: [sdk_gphone_x86-user 8.1.0 OSM1.180201.007 4586646 release-keys]
+   [ro.build.display.id]: [OSM1.180201.007]
+   [ro.build.fingerprint]: [google/sdk_gphone_x86/generic_x86:8.1.0/OSM1.180201.007/4586646:user/release-keys]
+   [ro.build.flavor]: [sdk_gphone_x86-user]
+   [ro.build.host]: [abfarm281]
+   [ro.build.id]: [OSM1.180201.007]
+   [ro.build.product]: [generic_x86]
+   [ro.build.tags]: [release-keys]
+   [ro.build.type]: [user]
+   [ro.build.user]: [android-build]
+   [ro.build.version.all_codenames]: [REL]
+   [ro.build.version.base_os]: []
+   [ro.build.version.codename]: [REL]
+   [ro.build.version.incremental]: [4586646]
+   [ro.build.version.preview_sdk]: [0]
+   [ro.build.version.release]: [8.1.0]
+   [ro.build.version.sdk]: [27]
+   [ro.build.version.security_patch]: [2018-01-05]
+   #+end_example
+
+
+   
+   #+NAME:                     
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      #starts code
+      cd projetos/cordova_proj4_contatos
+      cordova clean
+      cordova build
+      adb uninstall br.edu.eteczl
+      adb install ./platforms/android/app/build/outputs/apk/debug/app-debug.apk
+   #+END_SRC
+   -r é tipo um force pra instalar de novo um mesmo apk já instalado antes
+   #+RESULTS: 
+   #+begin_example
+
+   bash: cd: projetos/cordova_proj4_contatos: No such file or directory
+   Android Studio project detected[0m
+   ANDROID_HOME=/home/wagner/PROGSATIVOS/androidSdk
+   JAVA_HOME=/home/wagner/PROGSATIVOS/jdk1.8.0_191
+   Subproject Path: CordovaLib[0m
+   Subproject Path: app[0m
+   publishNonDefault is deprecated and has no effect anymore. All variants are now published.
+   The Task.leftShift(Closure) method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use Task.doLast(Action) instead.
+           at build_4oqyrcjtnv0xy5dvsettsyed8.run(/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/cordova_proj4_contatos/platforms/android/app/build.gradle:148)
+   :clean
+   :CordovaLib:clean
+   :app:clean
+
+   BUILD SUCCESSFUL in 7s
+   3 actionable tasks: 3 executed
+   Android Studio project detected[0m
+   ANDROID_HOME=/home/wagner/PROGSATIVOS/androidSdk
+   JAVA_HOME=/home/wagner/PROGSATIVOS/jdk1.8.0_191
+   studio
+   Subproject Path: CordovaLib[0m
+   Subproject Path: app[0m
+   publishNonDefault is deprecated and has no effect anymore. All variants are now published.
+   The Task.leftShift(Closure) method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use Task.doLast(Action) instead.
+           at build_4oqyrcjtnv0xy5dvsettsyed8.run(/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/cordova_proj4_contatos/platforms/android/app/build.gradle:148)
+   :CordovaLib:preBuild UP-TO-DATE
+   :CordovaLib:preDebugBuild UP-TO-DATE
+   :CordovaLib:compileDebugAidl
+   :CordovaLib:compileDebugRenderscript
+   :CordovaLib:checkDebugManifest
+   :CordovaLib:generateDebugBuildConfig
+   :CordovaLib:prepareLintJar UP-TO-DATE
+   :CordovaLib:generateDebugResValues
+   :CordovaLib:generateDebugResources
+   :CordovaLib:packageDebugResources
+   :CordovaLib:platformAttrExtractor
+   :CordovaLib:processDebugManifest
+   :CordovaLib:javaPreCompileDebug
+   :CordovaLib:processDebugJavaRes NO-SOURCE
+   :app:preBuild UP-TO-DATE
+   :app:preDebugBuild
+   :app:compileDebugAidl
+   :CordovaLib:packageDebugRenderscript NO-SOURCE
+   :app:compileDebugRenderscript
+   :app:checkDebugManifest
+   :app:generateDebugBuildConfig
+   :CordovaLib:processDebugResources
+   :CordovaLib:generateDebugSources
+   :CordovaLib:compileDebugJavaWithJavacNote: Some input files use or override a deprecated API.
+   Note: Recompile with -Xlint:deprecation for details.
+
+   :CordovaLib:transformClassesAndResourcesWithPrepareIntermediateJarsForDebug
+   :app:prepareLintJar UP-TO-DATE
+   :app:generateDebugResValues
+   :app:generateDebugResources
+   :app:mergeDebugResources
+   :app:createDebugCompatibleScreenManifests
+   :app:processDebugManifest
+   :app:splitsDiscoveryTaskDebug
+   :app:processDebugResources
+   :app:generateDebugSources
+   :app:javaPreCompileDebug
+   :app:compileDebugJavaWithJavac
+   :app:compileDebugNdk NO-SOURCE
+   :app:compileDebugSources
+   :CordovaLib:mergeDebugShaders
+   :CordovaLib:compileDebugShaders
+   :CordovaLib:generateDebugAssets
+   :CordovaLib:mergeDebugAssets
+   :app:mergeDebugShaders
+   :app:compileDebugShaders
+   :app:generateDebugAssets
+   :app:mergeDebugAssets
+   :app:transformClassesWithStackFramesFixerForDebug
+   :app:transformClassesWithDesugarForDebug
+   :app:transformClassesWithDexBuilderForDebug
+   :app:transformDexArchiveWithExternalLibsDexMergerForDebug
+   :app:transformDexArchiveWithDexMergerForDebug
+   :CordovaLib:compileDebugNdk NO-SOURCE
+   :CordovaLib:mergeDebugJniLibFolders
+   :CordovaLib:transformNativeLibsWithMergeJniLibsForDebug
+   :CordovaLib:transformNativeLibsWithIntermediateJniLibsForDebug
+   :app:mergeDebugJniLibFolders
+   :app:transformNativeLibsWithMergeJniLibsForDebug
+   :app:processDebugJavaRes NO-SOURCE
+   :app:transformResourcesWithMergeJavaResForDebug
+   :app:validateSigningDebug
+   :app:packageDebug
+   :app:assembleDebug
+   :app:cdvBuildDebug
+
+   BUILD SUCCESSFUL in 9s
+   46 actionable tasks: 44 executed, 2 up-to-date
+   Built the following apk(s): 
+           /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/cordova_proj4_contatos/platforms/android/app/build/outputs/apk/debug/app-debug.apk[0m
+   Exception occurred while executing:
+   java.lang.IllegalArgumentException: Unknown package: br.edu.eteczl
+           at com.android.server.pm.Settings.isOrphaned(Settings.java:4409)
+           at com.android.server.pm.PackageManagerService.isOrphaned(PackageManagerService.java:22197)
+           at com.android.server.pm.PackageManagerService.deletePackageVersioned(PackageManagerService.java:19116)
+           at com.android.server.pm.PackageInstallerService.uninstall(PackageInstallerService.java:745)
+           at com.android.server.pm.PackageManagerShellCommand.runUninstall(PackageManagerShellCommand.java:929)
+           at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:134)
+           at android.os.ShellCommand.exec(ShellCommand.java:96)
+           at com.android.server.pm.PackageManagerService.onShellCommand(PackageManagerService.java:22497)
+           at android.os.Binder.shellCommand(Binder.java:594)
+           at android.os.Binder.onTransact(Binder.java:492)
+   Stub.onTransact(IPackageManager.java:2658)
+           at com.android.server.pm.PackageManagerService.onTransact(PackageManagerService.java:3773)
+           at android.os.Binder.execTransact(Binder.java:697)
+   Success
+   #+end_example
+
+   

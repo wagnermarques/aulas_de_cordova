@@ -1,7 +1,6 @@
 #+Title: Cordova Install
 
-Vamos ver se o cordova nao está instalado mesmo...
-
+Vamos ver se o Cordova ja esta instalado...
 
    #+NAME ver se o cordova nao esta instalado mesmo                     
    #+BEGIN_SRC shell :session s1 :results output :exports both

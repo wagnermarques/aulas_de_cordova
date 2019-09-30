@@ -1,0 +1,263 @@
+#+Title: Plano de Aula Jquery Mobile 
+#+Subtitle: Instalação, Criação Menu e Pages
+
+* Tema
+  Plano de Aula Jquery Mobile - Instalação, Criação Menu e Page
+* Objetivo
+  Inicar algo útil com o Jquery Mobile com pages e navegação
+  utilizando menu hanburger
+* Duração
+  2 blocos
+
+* Pré-Requisitos
+** Conhecimentos Prévios
+   Básico da plataforma Cordova
+** Recursos
+   Ler README.org do repositório aulas_de_cordova
+   Cordova Instalado
+   Internet pra fazer download do jquery
+
+* Procedimento didatico
+  Após exposição do professor,
+  Seguir passo a passo pra fazer o projeto na prática
+
+** Sobre Jquery Mobile
+   É uma biblioteca javascript
+   https://learn.jquery.com/
+   Tem a versão pra sites normais e tem a versão para mobile
+   Pra usar o jquery mobile vc tem que baixar ele e colocá-lo no
+   seu projeto.
+   
+   https://jquerymobile.com/
+   Você vai querer estudar mais sobre jquery mobile porque é muito
+   legal. Use esse site:
+   https://www.quanzhanketang.com/jquerymobile/
+   Essa é a página oficial https://jquerymobile.com/
+
+** Passo a Passo (Criando o projeto)
+   Primeiro vc cria o projeto do cordova
+   Faz do download do jquerymobile em 
+   Abaixo vc vai ver como faz pra instalar o jquerymobile no seu
+   projeto.
+   Em linhas gerais, o processo de instalação do jquerymobile consiste
+   simplesmente em baixar o zip do jquerymobile, descompactar, pegar
+   dois arquivos js do jquerymobile descompactado e colocá-los em
+   www/js do seu projeto, pegar um arquivo css e colocá-los em www/css
+   do seu projeto e carrega-los na sua index.html.
+
+*** Download e Instalação do jquery mobile
+    Provavelmente o melhor lugar pra começar com jquery é
+    http://demos.jquerymobile.com/1.3.2/intro/
+    Como está em ingles, a gente dá uma ajudinha aqui...
+    
+    Então os comandos abaixo vão baixar o jquery e instalá-lo no
+    nosso projeto. Vc pode fazer manualmente também.    
+
+    http://jquerymobile.com/resources/download/jquery.mobile-1.4.5.zip
+
+    Descompacta.
+
+      #+NAME:download do jquery mobile
+      #+BEGIN_SRC sh :export both :results output
+        cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+        wget --output-document jquerymobile.zip  https://jquerymobile.com/resources/download/jquery.mobile-1.4.5.zip                               
+        mkdir jquerymobile && unzip -d jquerymobile jquerymobile.zip
+        
+        cp jquerymobile/demos/js/jquery.js www/js
+        cp jquerymobile/jquery.mobile-1.4.5.min.css www/css
+        cp jquerymobile/jquery.mobile-1.4.5.min.js www/js
+        cp -rf jquerymobile/images www
+        
+        rm -r jquerymobile
+        echo "#######    DIRETORIO RAIZ DO NOSSO PROJETO      ########"
+        ls -l
+        echo "#######    DIRETORIO WWW DO NOSSO PROJETO       ########"
+        ls -l www
+        echo "#######   DIRETORIO WWW/JS DO NOSSO PROJETO     ########"
+        ls -l www/js
+        echo "#######  DIRETORIO WWW/CSS DO NOSSO PROJETO     ########"
+        ls -l www/css
+      #+END_SRC
+
+      #+RESULTS: download do jquery mobile
+      #+begin_example
+      #######    DIRETORIO RAIZ DO NOSSO PROJETO      ########
+      total 7764
+      -rw-r--r-- 1 wagner wagner    1203 jul 29 13:29 config.xml
+      drwxr-xr-x 2 wagner wagner      23 jul 28 23:24 hooks
+      drwxrwxr-x 4 wagner wagner    4096 jul 29 13:02 jquerymobile
+      -rw-rw-r-- 1 wagner wagner 7906983 out 31  2014 jquerymobile.zip
+      drwxrwxr-x 8 wagner wagner     161 jul 28 23:29 node_modules
+      -rw-r--r-- 1 wagner wagner     868 jul 29 13:29 package.json
+      -rw-rw-r-- 1 wagner wagner   28213 jul 28 23:29 package-lock.json
+      drwxrwxr-x 4 wagner wagner      36 jul 28 23:27 platforms
+      drwxrwxr-x 5 wagner wagner     161 jul 28 23:29 plugins
+      drwxr-xr-x 4 wagner wagner      49 jul 28 23:24 res
+      drwxr-xr-x 6 wagner wagner     107 jul 29 13:29 www
+      #######    DIRETORIO WWW DO NOSSO PROJETO       ########
+      total 12
+      drwxr-xr-x 2 wagner wagner   58 jul 29 13:30 css
+      drwxrwxr-x 4 wagner wagner   63 jul 28 23:55 images
+      drwxr-xr-x 3 wagner wagner 4096 jul 29 01:27 img
+      -rw-r--r-- 1 wagner wagner 3884 jul 29 13:29 index.html
+      -rw-r--r-- 1 wagner wagner 2513 jul 28 23:24 index.origina_do_cordova.html
+      drwxrwxr-x 2 wagner wagner   98 jul 29 13:33 js
+      #######   DIRETORIO WWW/JS DO NOSSO PROJETO     ########
+      total 472
+      -rw-r--r-- 1 wagner wagner   2156 jul 29 01:38 index.js
+      -rw-r--r-- 1 wagner wagner   1673 jul 29 01:36 index.original.js
+      -rw-rw-r-- 1 wagner wagner 273199 jul 29 13:33 jquery.js
+      -rw-rw-r-- 1 wagner wagner 200143 jul 29 13:33 jquery.mobile-1.4.5.min.js
+      #######  DIRETORIO WWW/CSS DO NOSSO PROJETO     ########
+      total 208
+      -rw-r--r-- 1 wagner wagner   2914 jul 29 09:34 index.css
+      -rw-rw-r-- 1 wagner wagner 207465 jul 29 13:33 jquery.mobile-1.4.5.min.css
+      #+end_example
+
+* Trazendo arquivos do jquerymobile para nosso projeto      
+  pegue o arquivo jquery.mobile-1.4.5.min.css e coloque ele na pasta
+  www/css do seu projeto
+
+  Vai até a pasta demo/js do download descompactado do jquerymobile e
+  pega o arquivo jquery.min.js e coloque em www/js do seu projeto.
+
+  Fazer o mesmo com o arquivo jquery.mobile-1.4.5.min.js
+
+* Carregando os arquivos do jquery mobile para o seu index.html  
+  inclua essas linhas no head do seu html pra carregar os arquivos do
+  jquery mobile no seu index.html
+
+  #+BEGIN_EXAMPLE
+  
+        <link rel = "stylesheet" href = "./css/jquery.mobile-1.4.5.min.css">
+        <script src = "./js/jquery.min.js"></script>
+        <script src = "./js/jquery.mobile-1.4.5.min.js"></script>
+        
+  #+END_EXAMPLE
+  
+  Encontre a linha abaixo que está no head do seu index.html
+  
+
+  #+BEGIN_EXAMPLE
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+  #+END_EXAMPLE
+  
+  Depois de encontra-la, nao precisa apagar, só comenta ela por
+  enquanto fazndo conforme abaixo
+
+  #+BEGIN_EXAMPLE
+  <!--
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+  -->
+  #+END_EXAMPLE
+
+  Pronto o jquery já está instalado minimamente, agora já dá pra usar
+
+
+* Usando o jquery mobile pra fazer as pages  
+  o seu index.html agora, deve fical igual a este
+  https://github.com/wagnermarques/contatemeantes/blob/master/www/index.html
+ 
+  O seu index.js deve ficar igual a este
+  https://github.com/wagnermarques/contatemeantes/blob/master/www/js/index.js
+
+  Rode o projeto com cordova run browser ou cordova run android
+
+  O professor fará a exposição do código 
+
+
+* Exercicios e Atividades de Reflexão/Fixação
+  Criar uma idéia de projeto que possa usar navegacao
+  
+* Avaliação
+  Enviar link do repositório no  github do projeto
+  Mostrar rodando no celular
+
+* Referencias
+
+
+
+
+* Instalação do Jquery Mobile
+     Provavelmente o melhor lugar pra começar com jquery é
+     http://demos.jquerymobile.com/1.3.2/intro/
+     Como está em ingles, a gente dá uma ajudinha aqui...
+
+      Então os comandos abaixo vão baixar o jquery e instalá-lo no
+      nosso projeto. Vc pode fazer manualmente também.
+
+      #+NAME:download do jquery mobile
+      #+BEGIN_SRC sh :export both :results output
+        cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
+        wget --output-document jquerymobile.zip  https://jquerymobile.com/resources/download/jquery.mobile-1.4.5.zip                               
+        mkdir jquerymobile && unzip -d jquerymobile jquerymobile.zip
+        
+        cp jquerymobile/demos/js/jquery.js www/js
+        cp jquerymobile/jquery.mobile-1.4.5.min.css www/css
+        cp jquerymobile/jquery.mobile-1.4.5.min.js www/js
+        cp -rf jquerymobile/images www
+        
+        rm -r jquerymobile
+        echo "#######    DIRETORIO RAIZ DO NOSSO PROJETO      ########"
+        ls -l
+        echo "#######    DIRETORIO WWW DO NOSSO PROJETO       ########"
+        ls -l www
+        echo "#######   DIRETORIO WWW/JS DO NOSSO PROJETO     ########"
+        ls -l www/js
+        echo "#######  DIRETORIO WWW/CSS DO NOSSO PROJETO     ########"
+        ls -l www/css
+      #+END_SRC
+
+      #+RESULTS: download do jquery mobile
+      #+begin_example
+      #######    DIRETORIO RAIZ DO NOSSO PROJETO      ########
+      total 7764
+      -rw-r--r-- 1 wagner wagner    1203 jul 29 13:29 config.xml
+      drwxr-xr-x 2 wagner wagner      23 jul 28 23:24 hooks
+      drwxrwxr-x 4 wagner wagner    4096 jul 29 13:02 jquerymobile
+      -rw-rw-r-- 1 wagner wagner 7906983 out 31  2014 jquerymobile.zip
+      drwxrwxr-x 8 wagner wagner     161 jul 28 23:29 node_modules
+      -rw-r--r-- 1 wagner wagner     868 jul 29 13:29 package.json
+      -rw-rw-r-- 1 wagner wagner   28213 jul 28 23:29 package-lock.json
+      drwxrwxr-x 4 wagner wagner      36 jul 28 23:27 platforms
+      drwxrwxr-x 5 wagner wagner     161 jul 28 23:29 plugins
+      drwxr-xr-x 4 wagner wagner      49 jul 28 23:24 res
+      drwxr-xr-x 6 wagner wagner     107 jul 29 13:29 www
+      #######    DIRETORIO WWW DO NOSSO PROJETO       ########
+      total 12
+      drwxr-xr-x 2 wagner wagner   58 jul 29 13:30 css
+      drwxrwxr-x 4 wagner wagner   63 jul 28 23:55 images
+      drwxr-xr-x 3 wagner wagner 4096 jul 29 01:27 img
+      -rw-r--r-- 1 wagner wagner 3884 jul 29 13:29 index.html
+      -rw-r--r-- 1 wagner wagner 2513 jul 28 23:24 index.origina_do_cordova.html
+      drwxrwxr-x 2 wagner wagner   98 jul 29 13:33 js
+      #######   DIRETORIO WWW/JS DO NOSSO PROJETO     ########
+      total 472
+      -rw-r--r-- 1 wagner wagner   2156 jul 29 01:38 index.js
+      -rw-r--r-- 1 wagner wagner   1673 jul 29 01:36 index.original.js
+      -rw-rw-r-- 1 wagner wagner 273199 jul 29 13:33 jquery.js
+      -rw-rw-r-- 1 wagner wagner 200143 jul 29 13:33 jquery.mobile-1.4.5.min.js
+      #######  DIRETORIO WWW/CSS DO NOSSO PROJETO     ########
+      total 208
+      -rw-r--r-- 1 wagner wagner   2914 jul 29 09:34 index.css
+      -rw-rw-r-- 1 wagner wagner 207465 jul 29 13:33 jquery.mobile-1.4.5.min.css
+      #+end_example
+
+** Sobre Cordova
+    https://cordova.apache.org/
+
+** Sobre Jquery Mobile
+   É uma biblioteca javascript
+   https://learn.jquery.com/
+   Tem a versão pra sites normais e tem a versão para mobile
+   Pra usar o jquery mobile vc tem que baixar ele e colocá-lo no
+   seu projeto.
+   
+   https://jquerymobile.com/
+   Você vai querer estudar mais sobre jquery mobile porque é muito
+   legal. Use esse site:
+   https://www.quanzhanketang.com/jquerymobile/
+   Essa é a página oficial https://jquerymobile.com/
+
+* Refs
+[fn:w3schoolsHanbMenu] https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_mobile_navbar
