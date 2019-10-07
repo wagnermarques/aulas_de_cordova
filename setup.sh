@@ -3,9 +3,9 @@
 #vc precisa rodar esse script usando o comando source e nao simplesmente ./setup.sh
 #dessa maneira o comando export deixa a variavel PATH alterado no sua sessao do terminal
 
-export ANDROID_HOME=/home/wagner/PROGSATIVOS/androidSdk
+export ANDROID_HOME=/home/wagner/wagnerdocri@gmail.com3/fzlbpms/fzlStudio/integrated/android/androidSdk/
 #export ANDROID_SDK_ROOT=/home/wagner/PROGSATIVOS/androidSdk
-#export JAVA_HOME=/home/wagner/PROGSATIVOS/jdk1.8.0_161
+export JAVA_HOME=/home/wagner/wagnerdocri@gmail.com3/fzlbpms/fzlStudio/integrated/jdks/jdk1.8.0_201/
 export GRADLE_HOME=/home/wagner/wagnerdocri@gmail.com3/fzlbpms/fzlStudio/integrated/build/gradle-5.1.1
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$GRADLE_HOME/bin
 

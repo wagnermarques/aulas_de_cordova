@@ -21,8 +21,8 @@
             "cordova-plugin-contacts": {}
         },
         "platforms": [
-            "browser",
-            "android"
+            "android",
+            "browser"
         ]
     }
 }

@@ -1,19 +1,47 @@
 #+Title: Cordova Lista de Contatos
 
+
+* Tema
+  Acessando lista de contatos com cordova
+* Objetivo
+  Compreender o mecanismo de acesso a lista de contato utilizando
+  cordova plugin
+
+* Duração
+  2Blocos
+
+* Pré-Requisitos
+** Conhecimentos Prévios
+   Basicao de Cordova e javascript
+
+** Recursos
+   Instalar o plugin do cordova
+   
+   #+NAME:cordova plugin add org.apache.cordova.contacts
+   #+BEGIN_SRC shell :session s1 :results output :exports both
+      cordova plugin add org.apache.cordova.contacts
+   #+END_SRC
+
+
+* Procedimento didatico
+** Explanação Introdutória do professora
+** Parte Prática
+*** Criação do projeto
+    Crie o seu projeto
+    Instale o plugin
+
+* Exercicios e Atividades de Reflexão/Fixação
+* Avaliação
+* Referencias
+
+
+
+
 * Plugin cordova-plugin-contacts
   
 
 * Criando um projeto
   
-   #+NAME:: preparando ambiente                  
-   #+BEGIN_SRC shell :session s1 :results output :exports both
-      #starts code
-      source ../aulas_de_cordova/setup.sh
-   #+END_SRC
-
-   #+RESULTS: : preparando ambiente
-
-   
    #+NAME:  rm -rf projetos/cordova_proj1                    
    #+BEGIN_SRC shell :session s1 :results output :exports both
       #starts code
@@ -125,21 +153,6 @@
    #+END_SRC
 
 
-   camera.getPicture(successCallback, errorCallback, options)
-   Função que abre a camera e permite tirar uma foto
-   
-   Qdo Camera.sourceType = Camera.PictureSourceType.CAMERA (1) é a
-   pcao padrao: imagem é obtida pela camera
-
-   PHOTOLIBRARY (0) imagem é obtida da galeria de fotos
-   
-   Camera.Direction = BACK (Camera trazeira)
-   Camera.Direction = FRONT(Camera frontal)
-
-
-   
-
-   
 * referencias
   https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-camera/#module_Camera.PictureSourceType
 
