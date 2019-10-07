@@ -29,11 +29,294 @@
 *** Criação do projeto
     Crie o seu projeto
     Instale o plugin
+*** Crie o o html da aplicação
+    O html da aplicação do prefessor pode ser encontrada aqui...
+    https://github.com/wagnermarques/aulas_de_cordova/blob/master/projetos/cordova_proj4_contatos/www/index.html
+    
+    Não tem o que comentar sobre esse html. Apenas que tem um span pra
+    mostrar o nome do contato selecionado e uma tag img pra mostrar a
+    imagem do contato.
+    
+    Não precisa dizer que o atributo src da nossa tag img receberá seu
+    valor relativo à imagem do contato via javascript não é? Bom,
+    agora já disse... 
+
+    #+BEGIN_EXAMPLE
+    <button type="button" id="bntSelContato" >Seleciona Contato</button><p></p>
+            <button type="button" id="bntShowContact" >Mostra  Contato Selecionado</button><p></p>
+
+            <span id="contactName">contactName?</span><p></p>
+            <img id="contactImg" alt="contactImg?"></img><p></p>
+    #+END_EXAMPLE
+
+*** Seu arquivo index.js
+    Na verdade esse é o único arquivo que vc precisa compreender
+    Vc pode consultá-lo em 
+
+    https://github.com/wagnermarques/aulas_de_cordova/blob/master/projetos/cordova_proj4_contatos/www/js/index.js
+
+    Vou comentar esse arquivo citando alguns trechos pra vc
+    entender... se tiver alguma dúvida pode perguntar pro professor...
+
+    Acompanha a leitura desse arquivo com o arquivo completo que pode
+    ser útil pra melhorar a compreensão...
+
+    #+BEGIN_EXAMPLE
+    var app = {
+
+    selectedContact : null,
+    selectedContactErr : null,
+    
+    (...)
+    #+END_EXAMPLE
+    
+    Reserver uma variáveil de escopo do app pra guardar o contato que
+    for selecionado pelo usuário do app.
+    Se ocorrer algum erro, vou guardar esse erro nessa outra variável
+    global selectedContactErr.
+
+
+    Olhe esse trecho de código abaixo...
+    Qando o seu javascript carrega ele é executado pelo
+    navegador. Então o objeto app é definido e após a definição do app
+    é executado essa função "initialize".
+    Essa função registra as funções onDeviceReady pra rodar quando o
+    disposirivo estiver pronto pra uso e onResume que roda toda vez
+    que activity do seu nevegador voltar a topo da pilha de
+    activities.
+
+    Esse on resume tem uma funcção especialmente importante nesse
+    exercício, sem ele não funciona o app.
+    #+BEGIN_EXAMPLE
+    (...)
+
+     // Application Constructor
+    initialize: function() {
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+        document.addEventListener('resume', this.onResume.bind(this), false);        
+    },
+    (...)
+    app.initialize()
+    #+END_EXAMPLE
+
+
+    Eis a funçao onDeviceReady. 
+    Qdo o dispositivo está pronto, é adicionada as funcionaldiades aos
+    nossos botoes.
+    
+    #+BEGIN_EXAMPLE
+    // deviceready Event Handler
+    //
+    // Bind any cordova events here. Common events are:
+    // 'pause', 'resume', etc.
+    onDeviceReady: function() {
+        //alert(navigator.contacts);
+        document.getElementById("bntSelContato").addEventListener("click", this.selecionaContato); 
+        document.getElementById("bntShowContact").addEventListener("click", this.showSelectedContact);
+    },
+    #+END_EXAMPLE
+
+    Como vc dever ter percebido, o botão de selecionar contato roda a
+    função selecionaContato e o tobão de mostrar o contato roda a
+    função showSelectedContact.
+    Eis abaixo as duas funções que esses botões rodam e que, na
+    verdade, rodam as duas funcionaldades do nosso app. 
+    
+    Segue abaixo a função, slecionaContato.
+    Vamos commpreende-la com calma...
+
+    A linha 
+    
+    navigator.contacts.pickContact(function(contact){
+
+    utiliza o objecto "contacts", que o plugin de contatos injetou no
+    "navigator", tem uma função que chama pickContact.
+    
+    O interessante é que essa função pickContact, recebe como parâmetro
+    outra função que vai rodar quando o contato já tiver sido
+    selecionado pelo seu usuário.
+
+
+    o trecho "function(contact){" mostra que essa função passada como
+    parâmetro para a função pickContact vai receber o contato
+    selecionado pelo seu usuário.
+
+    COm isso em mente dá uma olhadinha na função como um todo de
+    novo...
+
+    #+BEGIN_EXAMPLE
+    selecionaContato: function(){
+        navigator.contacts.pickContact(function(contact){
+            alert("selecionaContato: function(){...  navigator.contacts.pickContact(function(contact){...");
+            alert('The following contact has been selected:' + JSON.stringify(contact));
+            alert("Contact:"+contact);
+            app.selectedContact = contact;
+        },function(err){
+            alert("selecionaContato: function(){...  function(err){...");
+            alert('Error: ' + err);
+            alert("err:"+err);
+            app.selectedContactErr = err;
+        });
+    },
+    #+END_EXAMPLE
+
+    A única coisa que essa função, a  que recebe o contato após a
+    seleção, faz é atribuir o contato selecionado á variável de escopo
+    do app  " app.selectedContact = contact;"
+    Fora isso, há vários alerts pra vc acompnhar o que está
+    acontecendo no seu app.
+    
+    O trecho "},function(err){" é uma uma função que é passada pro
+    pickContact junto com a função que recebe o contato.
+    Ela vai rodar caso um erro aconteca. Caso de tudo certo na seleção
+    do contato, roda a função que recebe o contato pra armazer o
+    contato recebido na variável global.
+
+    Então a funcionalidade da função pickContac é abrir sua lista de
+    contato pra selecção.
+    Mas quando a lista de contato é utilizada, ao fechar a lista,
+    volta a activity do seu navegador com o seu app e nesse momento
+    roda a função onResume.
+    Por isso que ela é importante....
+    Segue abaixo a função onResume
+    #+BEGIN_EXAMPLE
+     onResume :function(resumeEvent) {
+        alert("onResume :function(resumeEvent) {...");
+        if(resumeEvent.pendingResult) {
+            if(resumeEvent.pendingResult.pluginStatus === "OK") {
+                var contact = navigator.contacts.create(resumeEvent.pendingResult.result);
+                this.successCallback(contact);
+            } else {                
+                this.failCallback(resumeEvent.pendingResult.result);
+            }
+        }
+    },
+    #+END_EXAMPLE
+
+    Essa função é importante e um pouquinho mais complicada que a que
+    vimos anteriormente.
+    
+    a função onResume recebe o evento "resumeEvent".
+    
+    o "if(resumeEvent.pendingResult) {" pergunta se tem algum
+    resultado pendente... aí faz sentido que tenha mesmo, já que a
+    activity de contatos acabou de fechar apois a gente ter
+    selecionado o contato.
+
+    Tendo resultado pendente roda a seguinte linha
+
+    if(resumeEvent.pendingResult.pluginStatus === "OK") {
+
+    averiguando se o plugin tá ok
+
+    Se o plugin tá ok, usa o plugin, através do objeto
+    navigator.contacts pra criar um contato a partir do resultado
+    pendente que é a seleção do contato.
+
+    var contact = navigator.contacts.create(resumeEvent.pendingResult.result);
+    this.successCallback(contact);
+
+    Então o plugin conseguindo criar o contato a gente chama uma
+    função  this.successCallback(contact); passando o contato pra ela.
+
+    Se o plugin nao tava ok, roda o lado else
+    this.failCallback(resumeEvent.pendingResult.result);
+
+    Segue abaixo a função successCallback 
+
+    Ela também atribui o contato à nossa variável global.
+    Essa atribuição é a que funciona de fato.
+    
+    Aí tem uns alerts pra vc acompanhar... 
+
+    #+NAME successCallback : function(contact){
+    #+BEGIN_SRC javascript
+     successCallback : function(contact){
+        alert("successCallback : function(contact){..."+ contact);
+
+        alert("alert(contact);");
+        alert(contact);
+                
+        app.selectedContact = contact;
+
+        alert("alert(JSON.stringify(contact));");
+        alert(JSON.stringify(contact));
+
+        alert("alert(app.selectedContact);");
+        alert(app.selectedContact);
+    },
+    #+END_SRC
+
+    
+    Bom, com o contato selecionado a tribuido a nossa variavel global,
+    podemos mostrar ele.
+    Pra isso temos a função que mostra o contato
+
+    #+BEGIN_SRC javascript
+     showSelectedContact: function(){
+        alert(" ## showSelectedContact: function(){...");
+        document.getElementById("contactName").innerHTML = app.getSelectedContactName();
+        document.getElementById("contactImg").src = app.getSelectedContactImgSrc();
+    },
+    
+    #+END_SRC
+
+
+
+    Essa função tem só duas linhas
+
+    A primeira coloca o nome do contato no span "contactName"
+    document.getElementById("contactName").innerHTML =
+    app.getSelectedContactName();
+
+    A segunda coloca a imagem na tag img com id "contactImg"
+    document.getElementById("contactImg").src = app.getSelectedContactImgSrc();
+
+    Mas eu tenho certeza que vc percebeu que o valor que é atribuído é
+    o retorno das respectivas funções...
+
+    Segue as funções...
+
+    #+BEGIN_SRC javascript
+      getSelectedContactImgSrc : function(){
+        let c = app.selectedContact;
+        if(c.photos && c.photos.length) {
+	        return c.photos[0].value;
+	}
+        return "";
+    },
+    getSelectedContactName : function(){
+ 	let cN = app.selectedContact.displayName;
+	if(!cN || cN === "") {
+	    if(cN.name.formatted){
+                return cN.name.formatted;
+            }
+	    if(cN.name.givenName && cN.name.familyName) {
+                return cN.name.givenName +" "+c.name.familyName;
+            }
+	    return "Nome Nao Informado";
+	}
+	return cN;
+    }    
+    #+END_SRC
+
+    Observe que pra lidar com o contato selecionado as funções fazem
+    uso da variável global...
 
 * Exercicios e Atividades de Reflexão/Fixação
-* Avaliação
-* Referencias
+  Mostrar para o professor a aplicação rodando no seu celular 
+  Enviar o link do seu git hub com o seu código...
 
+* Avaliação
+  Será avaliado
+  Cumprimento de prazo
+  sua assiduidade na tarefa
+  sua capacidade de colaboração com os demais colegas para chegar ao
+  resultado final solicitado no exercício.
+
+
+* Referencias
+  https://github.com/apache/cordova-plugin-contacts
 
 
 
