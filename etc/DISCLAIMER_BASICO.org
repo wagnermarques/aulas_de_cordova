@@ -1,0 +1,12 @@
+#+Title: Disclaimer Básico
+#+Subtitle:
+
+* Disclaimer
+  Pessoal, estes procedimentos foram realizados na minha máquina para
+  os propósitos espefificados neste texto. Nem sempre é possível que o
+  seu ambiente seja exatamente igual ao meu, e neste caso, ao
+  reproduzir os procedimentos descritos neste texto você assume total
+  responsabilidade pelos riscos.
+  
+
+  

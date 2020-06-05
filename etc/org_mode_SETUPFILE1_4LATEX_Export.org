@@ -1,0 +1,98 @@
+
+
+* Latex export options
+  #+OPTIONS: tex:imagemagick
+
+  -------------------------------------------------------------------------
+  http://orgmode.org/worg/org-contrib/babel/examples/article-class.html
+  -------------------------------------------------------------------------
+  --#+LaTeX_CLASS: bjmarticle
+  --#+LaTeX_CLASS: org-article
+  --#+LaTeX_CLASS_OPTIONS: [article,letterpaper,times,12pt,listings-bw,microtype]
+  #+LATEX_CLASS: abntex2
+  #+LATEX_CLASS_OPTIONS: [article,11pt,oneside,a4paper,english,brazil,sumario=tradicional]
+  --#+LATEX_HEADER: \usepackage{xyz}
+
+  % ---
+  % Pacotes fundamentais 
+  % ---
+  \usepackage{lmodern}			% Usa a fonte Latin Modern
+  
+  \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+  \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+  \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+  \usepackage{nomencl} 			% Lista de simbolos
+  \usepackage{color}				% Controle das cores
+  \usepackage{graphicx}			% Inclusão de gráficos
+  \usepackage{microtype} 			% para melhorias de justificação
+  % ---
+
+  \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+  % ---
+  
+  % ---
+  % Informações de dados para CAPA e FOLHA DE ROSTO
+  % ---
+  \titulo{Modelo Canônico de\\ Artigo científico com \abnTeX}
+  \autor{Equipe \abnTeX\thanks{\url{http://www.abntex.net.br/}} \and Lauro
+  César
+  Araujo\thanks{laurocesar@laurocesar.com}}
+  \local{Brasil}
+  \data{2015, v-1.9.6}
+  % ---
+
+
+  
+  #+LATEX_HEADER:
+  
+[fn:emacsmanuals] https://www.gnu.org/software/emacs/manual/
+[fn:org-mode-manual] https://www.gnu.org/software/emacs/manual/org.html
+
+
+
+
+
+
+* LATEX EXPORT OPTIONS
+  #+OPTIONS: tex:imagemagick
+
+  -------------------------------------------------------------------------
+  http://orgmode.org/worg/org-contrib/babel/examples/article-class.html
+  -------------------------------------------------------------------------
+  --#+LaTeX_CLASS: bjmarticle
+  --#+LaTeX_CLASS: org-article
+  --#+LaTeX_CLASS_OPTIONS: [article,letterpaper,times,12pt,listings-bw,microtype]
+  --#+LATEX_CLASS: [article]abntex2
+  #+LATEX_CLASS_OPTIONS: [article,11pt,oneside,a4paper,english,brazil,sumario=tradicional]
+  --#+LATEX_HEADER: \usepackage{xyz}
+
+  % ---
+  % Pacotes fundamentais 
+  % ---
+  \usepackage{lmodern}			% Usa a fonte Latin Modern
+  
+  \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+  \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+  \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+  \usepackage{nomencl} 			% Lista de simbolos
+  \usepackage{color}				% Controle das cores
+  \usepackage{graphicx}			% Inclusão de gráficos
+  \usepackage{microtype} 			% para melhorias de justificação
+  % ---
+
+  \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+  % ---
+  
+  % ---
+  % Informações de dados para CAPA e FOLHA DE ROSTO
+  % ---
+  \titulo{Modelo Canônico de\\ Artigo científico com \abnTeX}
+  \autor{Equipe \abnTeX\thanks{\url{http://www.abntex.net.br/}} \and Lauro
+  César
+  Araujo\thanks{laurocesar@laurocesar.com}}
+  \local{Brasil}
+  \data{2015, v-1.9.6}
+  % ---
+  
+ 
+

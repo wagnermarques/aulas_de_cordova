@@ -1,0 +1,305 @@
+/*
+Adapted from...
+http://www.star.bris.ac.uk/bjm/css/bjm.css
+thanks
+*/
+
+img,
+embed,
+object,
+video {
+    max-width: 100%;
+}
+
+
+body {        
+    /*
+    font-family: 'Great Vibes', cursive;
+    font-family: 'Pinyon Script', cursive;
+    font-family: 'Rancho', cursive;
+    font-family: 'Italianno', cursive;
+    font-family: 'Sacramento', cursive;
+    font-family: 'Lovers Quarrel', cursive;
+    font-family: 'Londrina Shadow', cursive;
+    font-family: 'Hanalei', cursive;    
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Marck Script', cursive;
+    font-family: 'Molle', cursive;
+    font-family: 'Hanalei', cursive;
+    font-family: 'Molle', cursive;
+    font-family: 'Monsieur La Doulaise', cursive;
+    font-family: 'Tangerine', serif;    
+   */
+    font-family: "Times New Roman", Times, serif;   
+    width: 95%;
+    margin: 0 auto;
+}
+
+/*
+#page {
+    background-color:green;
+    width:600px;
+    margin:50px auto;
+    padding:20px 150px 20px 50px;
+    min-height:600px;
+    border:2px solid #fff;
+    outline:1px solid #ccc;
+    text-align:left;
+}
+*/
+
+
+h1, h2, h3 {
+    font-weight:normal;
+}
+ 
+h1 {
+    font-family: 'Fredericka the Great', cursive;
+    text-align: center;
+    font-size:xx-large;
+    text-decoration: underline;
+    overflow: hidden;             /* don't crowd the menu */
+    padding: 0;
+    white-space: nowrap;
+}
+.section-number-2 {
+   font-family: 'Courgette', cursive;
+}
+
+h2 {
+    max-width: 100%;
+    color:red;
+    font-size:x-large;
+    border-bottom: solid 2px #708090; /* slate gray */
+    margin-top: 1em;
+    margin-bottom: .5em;
+    margin-right: 15px;
+    overflow: hidden;             /* don't crowd the menu */
+}
+
+h3 {
+    max-width: 100%;
+    border-bottom: solid 1px #708090; /* slate gray */
+    border-right: solid 2px #E5E5E5;  /* gainsboro */
+    font-size: large;
+    margin-top: 1em;
+    margin-bottom: .5em;
+    margin-right: 15px;
+    overflow: hidden;             /* don't crowd the menu */
+    padding-right: 6px;
+}
+
+h4 {
+    max-width: 100%;
+    border-bottom: dashed 1px #BEBEBE;    /* light gray */
+    border-right: solid 2px #E5E5E5;      /* gainsboro */
+    margin-top: 1.5em;
+    margin-bottom: .7em;
+    overflow: hidden;             /* don't crowd the menu */
+    padding-right: 6px;
+}
+.title {
+    max-width: 100%;
+    color:red;
+}
+.less {
+	color:#999;
+	font-size:12px;
+}
+
+a {
+	color:#295c72;
+}
+
+a:link.top, a:visited.top {
+  color: #F5DEB3;               /* wheat */
+  line-height: 90%;
+  position: relative;
+  text-decoration: none;
+  top: -13px;
+}
+
+a:link:hover, a:visited:hover {
+  background-color: #F5F5F5;    /* white smoke */
+}
+
+h1 a:link:hover, h1 a:visited:hover {
+  background-color: #708090;    /* slate gray */
+}
+
+a:visited {
+  color: #556B2F;               /* dark olive green */
+}
+
+a:link {
+  color: #0000CD;               /* blue */
+}
+
+blockquote {
+  border-left: 2px solid #CCCCCC; /* gray80 */
+  padding: 5px;
+  font-style: italic;
+  margin: 5px 20px;
+}
+
+dt {
+  margin-top: .5em;
+  padding: 0px;
+  max-width: 100%;
+}
+
+/**************************************************************************/
+/* org-mode postamble                                                     */
+/**************************************************************************/
+#postamble {
+    font-family: 'Italianno', cursive;
+    padding-top: 5dpx;
+    padding-bottom: 10px;
+    font-size: 1.75em;
+    text-align: right;
+    float: right;
+}
+
+/* Menu */
+.menu {
+  background-color: #CDCDCD;    /* gray/gainsboro */
+  border: 1px solid black;
+  display: inline;
+  float: right;
+  clear: both;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  padding: 3px;
+}
+
+.menuitem {
+  background-color: #E5E5E5;    /* gainsboro */
+  margin: 0;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  padding-left: 2px;
+  padding-right: 2px;
+  text-align: left;
+}
+
+.menuitem a:link, .menuitem a:visited {
+  color: #0000CD;               /* blue */
+  display: block;
+  margin: 0;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.menuitem a:link:hover, .menuitem a:visited:hover {
+  background-color: #F5F5F5;    /* white smoke */
+}
+
+.menuother {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+#tooltipbox {
+  float: right;
+  visibility: hidden;
+}
+
+#tooltip {
+  color: #006400;               /* dark green */
+}
+
+
+/**************************************************************************/
+/* images formatting                                                       */
+/**************************************************************************/
+
+	
+
+/**************************************************************************/
+/* table formatting                                                       */
+/**************************************************************************/
+
+table {
+    max-width: 100%;
+    width: 100%;
+    border: 3px solid #B0B0B0;
+}
+tbody {
+    max-width: 100%;
+    /* Kind of irrelevant unless your .css is alreadt doing something else */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+thead {
+    max-width: 100%;
+    text-align: left;
+}
+thead th {
+    max-width: 100%;
+    background: -moz-linear-gradient(top, #F0F0F0 0, #DBDBDB 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F0F0F0), color-stop(100%, #DBDBDB));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F0F0F0', endColorstr='#DBDBDB', GradientType=0);
+    border: 1px solid #B0B0B0;
+    color: #444;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 3px 10px;
+}
+td {
+    max-width: 100%;
+    padding: 3px 10px;
+    border: 1px solid #B0B0B0;
+}
+tr:nth-child(even) {
+    background: #F2F2F2;
+}
+
+    
+/* Smartphone em modo retrato */
+/* 320 pixels - Smartphones no modo retrato.*/
+@media only screen and (max-width : 320px) {
+    h1 {        
+        font-size: 1.0em;
+    }
+}
+@media only screen and (max-width : 360px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    #postamble {
+        font-family: 'Italianno', cursive;
+        padding-top: 5dpx;
+        padding-bottom: 10px;
+        font-size: 1.0em;
+        text-align: center;
+    }            
+}
+
+/*480 pixels - Smartphones no modo paisagem.*/
+@media only screen and (max-width : 480px) {
+      /* estilos */
+}
+/*   600 pixels - Tablets pequenos. Ex: Amazon Kindle (600×800)*/
+@media only screen and (max-width : 600px) {
+      /* estilos */
+}
+/*    768 pixels - Tablets maiores em modo retrato. Ex: iPad (768×1024)*/
+@media only screen and (max-width : 768px) {
+      /* estilos */
+}
+/*1024 pixels - Tablets maiores em modo paisagem, monitores antigos.*/
+@media only screen and (max-width : 1024px) {
+      /* estilos */
+}
+/*Monitores wide*/
+@media only screen and (max-width : 1200px) {
+      /* estilos */
+}
+

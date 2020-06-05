@@ -1,0 +1,54 @@
+
+* HTML                                                             :noexport:
+  #+HTML_DOCTYPE: <!DOCTYPE html>
+  #+HTML_DOCTYPE: xhtml-strict
+  #+HTML_CONTAINER: div
+  
+** HTML_HEAD                                                       :noexport:
+*** CSS
+    #+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1">
+    #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../etc/styles/org-mode-tutorials-css-style.css" />
+    #+HTML_HEAD: <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700|Droid+Sans|Tangerine" rel="stylesheet" type="text/css" />
+    #+HTML_HEAD: <link href="https://fonts.googleapis.com/css?family=Courgette|Fredericka+the+Great|Great+Vibes|Hanalei|Indie+Flower|Italianno|Londrina+Shadow|Lovers+Quarrel|Marck+Script|Molle:400i|Monsieur+La+Doulaise|Pinyon+Script|Rancho|Sacramento|Tangerine" rel="stylesheet">
+
+  http://orgmode.org/manual/JavaScript-support.html
+  http://orgmode.org/worg/code/org-info-js/org-info-src.js
+  #+INFOJS_OPT: view:info toc:nil
+    +OPTIONS: html-link-use-abs-url:nil html-postamble:auto
+  +OPTIONS: html-preamble:t html-scripts:t html-style:t
+  +OPTIONS: html5-fancy:nil tex:t
+  
+  #+KEYWORDS:
+  
+  #+HTML_LINK_HOME:
+  #+HTML_LINK_UP:
+  #+HTML_MATHJAX:
+
+  #+HTML_HEAD_EXTRA:
+  
+  
+
+** Math Formatting                                                 :noexport:
+  +HTML_MATHJAX: align:"left" mathml:t path:"/MathJax/MathJax.js"
+
+
+** Images in HTML Exports                                          :noexport:
+
+
+#+STYLE: <style type="text/css">
+#+STYLE:<!--/*--><![CDATA[/*><!--*/
+#+STYLE: div.figure { float:left; }
+#+STYLE: div.figure { padding: 0.5em; }
+#+STYLE: div.figure p { text-align: center; }
+#+STYLE: body { background-color: red; }
+#+STYLE: /*]]>*/-->
+#+STYLE: </style>
+
+  
+[fn:emacsmanuals] https://www.gnu.org/software/emacs/manual/
+[fn:org-mode-manual] https://www.gnu.org/software/emacs/manual/org.html
+
+
+
+
+ FROM org_mode_SETUPFILE.org

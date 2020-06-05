@@ -1,0 +1,43 @@
+#+TITLE: Projeto Google Maps
+#+SUBTITLE: 
+#+DESCRIPTION:
+#+KEYWORDS:
+#+EXPORT_FILE_NAME:
+#+LANGUAGE: pt-BR
+#+EXCLUDE_TAGS: noexport
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+AUTHOR:    wagner
+#+EMAIL:     wagner.marques3@etec.sp.gov.br
+#+DATE:
+
+
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:https://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+
+#+LINK_UP:
+#+LINK_HOME:
+
+#+OPTIONS: H:2 toc:t
+
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+LATEX_HEADER: \usepackage[margin=0.5in]{geometry}
+
+
+
+* Obtendo a chave da api web
+  https://developers.google.com/maps/web?hl=pt_BR
+  https://developers.google.com/maps/gmp-get-started?hl=pt_BR
+
+  https://developers.google.com/maps/billing-credits?hl=pt_BR
+  https://developers.google.com/maps/documentation/javascript/tutorial
+
+
+  1- Locar no console
+  https://console.cloud.google.com/google/maps-apis/overview?hl=pt_BR
+
+  2- credenciais -> Ctas de Servico -> Clicar no projeto -> Criar
+  Chave
+
+
+

@@ -1,0 +1,174 @@
+https://www.gnu.org/software/emacs/manual/html_mono/org.html#Exporting
+http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html
+http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+
+
+* BASIC EXPORT SETUP                                               :noexport:
+   
+** TOC                                                             :noexport:
+   #+TOC: headlines [currentsection]
+   +OPTIONS: ':nil 
+   +OPTIONS: toc:nil
+   +OPTIONS: num:t
+   +OPTIONS: *:t -:t ::t &lt;:t \n:nil ^:t arch:headline  c:nil
+
+
+** Headings and sections                                           :noexport:
+   Headlines become frames when their level is equal to org-beamer-frame-level or H value in an OPTIONS line
+   +OPTIONS: H:3   
+
+
+** Paragraphs, line breaks, and quoting                            :noexport:
+   "Paragraphs are separated by at least one empty line. 
+   If you need to enforce a line break within a paragraph, use '\\' at the end of a line.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* LATEX BEAMER SPECIFICS OPTIONS                                   :noexport:
+  
+  +BEAMER_THEME: Rochester [height=20pt]
+  +BEAMER_COLOR_THEME: spruce
+
+
+
+
+** Horizontal rules                                                :noexport:
+   A line consisting of only dashes, 
+   and at least 5 of them, will be exported as a horizontal line.
+
+
+from https://github.com/fniessen/orgmk
+allow #+BIND to define local variable values for export
+#+BIND: org-export-allow-bind-keywords t
+
+insert a time stamp into the exported file
+#+BIND: org-export-time-stamp-file t
+
+activate smart quotes during export (convert " to \og, \fg in French) curly quotes in HTML
+#+BIND: org-export-with-smart-quotes t
+
+interpret "_" and "^" for export when braces are used
+#+BIND:org-export-with-sub-superscripts '{}
+
+
+:CABECALHO:
+# # desabilita o superscrito/subscrito  | não exporta programação
+#+OPTIONS: ^:nil p:nil
+
+#+OPTIONS: tags:nil
+#+STARTUP: showeverything
+
+insert a time stamp into the exported file
+#+BIND: org-export-time-stamp-file t
+
+activate smart quotes during export (convert " to \og, \fg in French) curly quotes in HTML
+#+BIND: org-export-with-smart-quotes t
+
+interpret "_" and "^" for export when braces are used
+#+BIND:org-export-with-sub-superscripts '{}
+
+
+
+
+* HTML
+  #+HTML_DOCTYPE: <!DOCTYPE html>
+  #+HTML_DOCTYPE: xhtml-strict
+  #+HTML_CONTAINER: div
+  
+** HTML_HEAD   
+*** CSS
+    #+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1">
+    #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../etc/styles/org-mode-tutorials-css-style.css" />
+                 <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700|Droid+Sans|Tangerine" rel="stylesheet" type="text/css" />
+    #+HTML_HEAD: <link href="https://fonts.googleapis.com/css?family=Courgette|Fredericka+the+Great|Great+Vibes|Hanalei|Indie+Flower|Italianno|Londrina+Shadow|Lovers+Quarrel|Marck+Script|Molle:400i|Monsieur+La+Doulaise|Pinyon+Script|Rancho|Sacramento|Tangerine" rel="stylesheet">
+
+  http://orgmode.org/manual/JavaScript-support.html
+  http://orgmode.org/worg/code/org-info-js/org-info-src.js
+  #+INFOJS_OPT: view:info toc:nil
+  
+  
+  +OPTIONS: html-link-use-abs-url:nil html-postamble:auto
+  +OPTIONS: html-preamble:t html-scripts:t html-style:t
+  +OPTIONS: html5-fancy:nil tex:t
+  
+  #+KEYWORDS:
+  
+  #+HTML_LINK_HOME:
+  #+HTML_LINK_UP:
+  #+HTML_MATHJAX:
+
+  #+HTML_HEAD_EXTRA:
+  
+  
+
+** Math Formatting
+  +HTML_MATHJAX: align:"left" mathml:t path:"/MathJax/MathJax.js"
+
+
+** Images in HTML Exports  
+
+
+* Latex export options
+  #+OPTIONS: tex:imagemagick
+
+  -------------------------------------------------------------------------
+  http://orgmode.org/worg/org-contrib/babel/examples/article-class.html
+  -------------------------------------------------------------------------
+  --#+LaTeX_CLASS: bjmarticle
+  --#+LaTeX_CLASS: org-article
+  --#+LaTeX_CLASS_OPTIONS: [article,letterpaper,times,12pt,listings-bw,microtype]
+  #+LATEX_CLASS: abntex2
+  #+LATEX_CLASS_OPTIONS: [article,11pt,oneside,a4paper,english,brazil,sumario=tradicional]
+  --#+LATEX_HEADER: \usepackage{xyz}
+
+  % ---
+  % Pacotes fundamentais 
+  % ---
+  \usepackage{lmodern}			% Usa a fonte Latin Modern
+  
+  \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+  \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+  \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+  \usepackage{nomencl} 			% Lista de simbolos
+  \usepackage{color}				% Controle das cores
+  \usepackage{graphicx}			% Inclusão de gráficos
+  \usepackage{microtype} 			% para melhorias de justificação
+  % ---
+
+  \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+  % ---
+  
+  % ---
+  % Informações de dados para CAPA e FOLHA DE ROSTO
+  % ---
+  \titulo{Modelo Canônico de\\ Artigo científico com \abnTeX}
+  \autor{Equipe \abnTeX\thanks{\url{http://www.abntex.net.br/}} \and Lauro
+  César
+  Araujo\thanks{laurocesar@laurocesar.com}}
+  \local{Brasil}
+  \data{2015, v-1.9.6}
+  % ---
+
+
+  
+  #+LATEX_HEADER:
+  
+[fn:emacsmanuals] https://www.gnu.org/software/emacs/manual/
+[fn:org-mode-manual] https://www.gnu.org/software/emacs/manual/org.html
+
+
+
+
+

@@ -1,0 +1,7 @@
+
+https://www.gnu.org/software/emacs/manual/html_mono/org.html#Exporting
+http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html
+usar esta sintaxe para linguagens: http://www.i18nguy.com/unicode/language-identifiers.html
+#+LANGUAGE: pt-BR 
+
+
