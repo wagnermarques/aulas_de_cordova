@@ -85,6 +85,7 @@
    #+attr_latex: :width 500px
   [[./imgs/firebase/f2.png]]
 
+
 * firebase: Download do arquivo de configuracao
   https://support.google.com/firebase/answer/7015592
 
@@ -134,8 +135,7 @@
 
 
 * Ativiar o login via email  
-[[
-./imgs/firebase/f6.png]]
+  [[./imgs/firebase/f6.png]
 
 
 * Criar uma conta baseada em senha

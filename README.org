@@ -1,14 +1,61 @@
-* noexports                                                       :noexports:
-  # -*- org-export-babel-evaluate: nil -*-
-  #+BEGIN_SRC emacs-lisp
-    (setq rg-export-babel-evaluate nil)
-    (message "desabilita execução dos códigos durante a exportação")
-  #+END_SRC
+#+SETUPFILE: ../etc/org_mode_SETUPFILE.org
 
-  #+RESULTS:
-  : desabilita execução dos códigos durante a exportação
+#+Title: Aulas de Cordova
+#+Subtitle: como utilizar este repositorio para aprender apache cordova
+#+EXPORT_FILE_NAME: README3.html
+#+LANGUAGE: pt-BR
+#+EXCLUDE_TAGS: noexport
 
+#+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
+#+OPTIONS: html-preamble:t html-scripts:t html-style:t
+#+OPTIONS: html5-fancy:nil tex:t
+#+HTML_DOCTYPE: xhtml-strict
+#+HTML_CONTAINER: div
+#+DESCRIPTION:
+#+KEYWORDS:
+#+HTML_LINK_HOME:
+#+HTML_LINK_UP:
+#+HTML_MATHJAX:
+#+HTML_HEAD:
+#+HTML_HEAD_EXTRA:
+#+INFOJS_OPT:
+#+CREATOR: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.1 (<a href="https://orgmode.org">Org</a> mode 9.1.9)
+#+LATEX_HEADER:
 
+* noexport
+  :PROPERTIES:
+  :COLUMNS:  2
+  :END:
+
+  
+   #+NAME: org export project                    
+   #+BEGIN_SRC elisp :session s1 :results output :exports code
+   ;;https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html
+      (require 'ox-publish)
+      (setq org-publish-project-alist
+        '(("org-notes"
+             :base-directory "/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova"
+             :base-extension "org"
+             :publishing-directory "/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/public_html/"
+             :recursive t
+             :publishing-function org-html-publish-to-html
+             :headline-levels 4             ; Just the default for this project.
+             :auto-preamble t
+             )
+           ("org-static"
+             :base-directory "/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova"
+             :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+             :publishing-directory "/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/public_html/public_html/"
+             :recursive t
+             :publishing-function org-publish-attachment
+             )
+             ))
+        ("org" :components ("org-notes" "org-static"))
+   #+END_SRC
+
+   C-c C-e # (org-export-dispatch)
+
+    
 * Repositório para Aulas De Cordova
   Este repositório tem por finalidade prover subsidios às aulas de mobile
   utilizando o Apache Cordova.
@@ -17,23 +64,41 @@
 * Como utilizar este repositório
    Bom, vc pode seguir o tutorial desse README.org ou pode clonar o
    projeto e estudá-los.
-   Pra fazer o clone: git clone
-   https://github.com/wagnermarques/aulas_de_cordova.git
+   Pra fazer o clone: git clone https://github.com/wagnermarques/aulas_de_cordova.git
 
-   Este repositório term vários projetos, que vão levando você das
+   Este repositório tem vários projetos, que vão levando você das
    tarefas mais simples às mais complexas. Bom esse é o objetivo. Na
    verdade ainda não tem tantos projetos assim, mas é por aí que vamos
    caminhas em nossas aulas.
       
-
+   
 * Apresentação dos projetos cordova deste repositório
   Dentro da pasta "projetos" tem os projetos de exemplo para estudo e
   para as aulas.
   A medida que os projetos de exemplo vao sendo criados eu vou
   colocando uma apresentação de cada um aqui.
 
+  Na pasta projetos vc vai encontrar os seguintes projetos que vamos
+  estudar.
+  + jquerymob_menu
+    Esse e um projeto que vamos criar do zero pra vc ter uma
+    introducao sobre como se cria um projeto com cordova e utiliza
+    jquery pra fazer um menu basico
 
-* O projeto jquerymob_menu and pages
+  + cordovafirebase_emailauth
+    
+  + cordovacomsqlite1
+    Acesse o material sobre essa aula neste link: [[file:cordova_sqlite3.org][cordova_sqlite3]]
+    
+  + cordova_proj4_contatos
+
+  + cordova_proj3_geo
+
+  + cordova_proj2_camera
+
+  
+
+** O projeto jquerymob_menu and pages
    O primeiro projeto é o jquerymob_menu que é criado desde o zero no
    mais à frente neste README.
 
@@ -45,18 +110,18 @@
      http://demos.jquerymobile.com/1.2.1/docs/pages/multipage-template.html
 
 
-* [jquerymob_menu] Criando nosso primeiro projeto Com Jquery Mobile
-  https://cordova.apache.org/docs/en/latest/guide/cli/
+* Criando nosso primeiro projeto Com Jquery Mobile
+    https://cordova.apache.org/docs/en/latest/guide/cli/
 
-  Apesar deste projeto jquerymob_menu já vir na clonagem do
-  repositório, vamos mostrar como criar esse projeto do zero. Se eu
-  fosse vc eu seguiria esse tutorial direitinho pra aprender como
-  se faz...
-     
-  Vá até o diretório onde vc quer criar o projeto e use o comando  cordova create
+    Apesar deste projeto jquerymob_menu já vir na clonagem do
+    repositório, vamos mostrar como criar esse projeto do zero. Se eu
+    fosse vc eu seguiria esse tutorial direitinho pra aprender como
+    se faz...
+    
+    Vá até o diretório onde vc quer criar o projeto e use o comando  cordova create
   
      #+Name:create project
-     #+BEGIN_SRC sh :exports both :results output
+     #+BEGIN_SRC sh :exports code :results output
      cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos
      rm -rf jquerymob_menu
      cordova create jquerymob_menu br.edu.eteczl "JqueryMob Menu"
@@ -81,14 +146,14 @@
      : drwxrwxr-x. 2 wagner wagner 4096 fev 11 22:58 plugins
      : drwxrwxr-x. 4 wagner wagner 4096 fev 11 22:58 res
      : drwxrwxr-x. 5 wagner wagner 4096 fev 11 22:58 www
+   
 
-     
 * Conhecendo a estrutura de um projeto do cordova
-      O arquivo config.xml tem o conteúdo abaixo. Por enquanto a gente
-      não vai precisar mecher nele porque conforme a gente vai utilizando
-      os plugins do cordova o cordova modifica esse arquivo pra gente.
-      
-      #+include:/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/config.xml :src xml
+  O arquivo config.xml tem o conteúdo abaixo. Por enquanto a gente
+  não vai precisar mecher nele porque conforme a gente vai utilizando
+  os plugins do cordova o cordova modifica esse arquivo pra gente.
+  
+      #+include:/home/wagner/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/config.xml :src xml
 
       hooks é um diretório, e server pra customizar, automatizar o
       cordova. Por enquanto não vamos trabalhar com esse recurso.
@@ -99,7 +164,7 @@ e para instalá-los automaticamente com o comando npm install (tem que
 estar no diretório do projeto)
 
       esse é o conteúdo do nosso package.json
-      #+include:/home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/package.json :src json
+      #+include:/home/wagner/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/package.json :src json
 
      
       platforms é um diretório. É aqui que vai ficar as plataformas
@@ -116,7 +181,7 @@ estar no diretório do projeto)
 
 
       #+NAME: platforms add android
-     #+BEGIN_SRC sh :exports bouth  :results output
+     #+BEGIN_SRC sh :exports code  :results output
        cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/       
        cordova platform add android
      #+END_SRC
@@ -180,7 +245,7 @@ estar no diretório do projeto)
 
 
 
-* Diretorio res
+** Diretorio res
      O diretório res é onde vc vai colocar images e demais recursos
 que o seu projeto vai precisar. Por exemplo em
 https://cordova.apache.org/docs/en/3.3.0/config_ref/images.html mostra
@@ -203,7 +268,7 @@ como mudar o ícone da palicação.
      html, javascript e css.
 
 
-* diretório www
+** diretório www
 
      Vamos dar uma olhada no conteúdo do nosso diretório www
       #+NAME: ls www
@@ -221,12 +286,12 @@ como mudar o ícone da palicação.
 
      Segue abaixo o conteúdo do nosso index.html pra gente estudar
      juntos...
-     #+Include: /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/www/index.html :src html
+     #+Include: /home/wagner/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/www/index.html :src html
      
      Segue também o conteúdo do nosso index.js pra gente estudar
      juntos... lembrando que nosso index.js fica dentro d pasta js
      
-     #+Include: /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/www/js/index.js :src js
+     #+Include: /home/wagner/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/www/js/index.js :src js
 
      Tem que comprendeder bem essa função de callback...
      #+BEGIN_SRC js
@@ -318,7 +383,7 @@ como mudar o ícone da palicação.
       isso?
       
       #+NAME: cordova build android
-      #+BEGIN_SRC sh :exports both :results output
+      #+BEGIN_SRC sh :exports code :results output
        cd /home/wagner/wagnerdocri@gmail.com3/envs/env-dev/sources/aulas_de_cordova/projetos/jquerymob_menu/
        cordova build android
       #+END_SRC
@@ -617,7 +682,7 @@ como mudar o ícone da palicação.
     Pra cada variável de ambiente, obviamente vc tem que ter feito a
     download e instalação das respectivas ferramentas
       #+NAME conf android sdk path                    
-      #+BEGIN_SRC shell :session s1 :results output :exports both
+      #+BEGIN_SRC shell :session s1 :results output :exports code
          #starts code
             export GRADLE_HOME=/home/wagner/wagnerdocri@gmail.com3/fzlbpms/fzlStudio/integrated/build/gradle-5.1.1
             export ANDROID_SDK_ROOT=/home/wagner/PROGSATIVOS/androidSdk && \
@@ -659,8 +724,7 @@ como mudar o ícone da palicação.
       Pela saída acima dá pra ver que agora tá funcionando os comandos
       do ambiente de desenvolvimento do android que é o adb,
       sdkmanager, o gradle e o emulator.
-        
-      
+              
 ** O Android SDK
 
       É bom sempre fazer o update do sdkmanager que é a ferramenta que
@@ -671,7 +735,7 @@ como mudar o ícone da palicação.
       
 
       #+NAME: sdkmanager --update
-      #+BEGIN_SRC shell :session s1 :exports both :results output
+      #+BEGIN_SRC shell :session s1 :exports code :results output
       #yes | sudo sdkmanager --licenses   
       echo y | sdkmanager --update
       #+END_SRC
@@ -687,7 +751,7 @@ como mudar o ícone da palicação.
       Pra listar os pacotes que vc já tem instalado faça o seguinte
       
       #+NAME: sdkmanager --list
-      #+BEGIN_SRC sh :exports both :results output
+      #+BEGIN_SRC sh :exports code :results output
         sdkmanager --list
       #+END_SRC
 
@@ -962,7 +1026,7 @@ como mudar o ícone da palicação.
       equipamento a sugestão é você instalar o seguinte pacote 
 
       #+NAME:sdkmanager "platform-tools" "platforms;android-26"
-      #+BEGIN_SRC sh :exports both :results output
+      #+BEGIN_SRC sh :exports code :results output
          sdkmanager "platform-tools" "platforms;android-26"
       #+END_SRC
 
@@ -980,5 +1044,45 @@ como mudar o ícone da palicação.
       
 
 
+  
+* Vamos configurar o jquery mobile    
+  
+  A configuracao do jquery mobile e feita no seu index.html
+
+  Qdo vc cria um projeto do cordova o index.html que o cordova cria é
+  como esse abaixo
+
+  
+   #+NAME: index.html original do cordova
+   #+BEGIN_SRC html :session s1 :results output :exports code  
+        <!DOCTYPE html>
+ <html>
+    <head>
+        <meta http-equiv="Content-Security-Policy"
+              content="default-src 'self' 
+                          data: gap: https://ssl.gstatic.com 'unsafe-eval'; 
+                          style-src 'self' 'unsafe-inline'; 
+                          media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
+   #+END_SRC
+
+
 * Refs
-  [fn:w3schoolsHanbMenu] https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_mobile_navbar
+[fn:w3schoolsHanbMenu] https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_mobile_navbar
