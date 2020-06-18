@@ -46,6 +46,4 @@ let deviceDiagnostic = {
         console.log("errorCallbackForrequestLocationAuthorization: function(err){...");
         console.log(err);
     }
-
-
 }
