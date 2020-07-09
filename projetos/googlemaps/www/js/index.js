@@ -12,8 +12,8 @@ var app = {
         //precisamos saber quando o dispositivo fica on line ou offline
         //isso e importante pra saber se podemos fazer operacoes no mapa
         //que vao depender de internet
-        document.addEventListener("offline", networkController.onOffline, false);
-        document.addEventListener("online", networkController.onOnline, false);
+        document.addEventListener("offline", NetworkController.onOffline, false);
+        document.addEventListener("online", NetworkController.onOnline, false);
 
 
         //Aqui no on resume e no on pause
@@ -21,27 +21,27 @@ var app = {
         //deixou nosso app em segundo plano e quando nosso
         //app volta pro primeiro plano (resume)
         //https://cordova.apache.org/docs/en/latest/cordova/events/events.html
-        document.addEventListener("resume", activityLifeCicleController.onResume, false);
-        document.addEventListener("pause", activityLifeCicleController.onPause, false);
+        document.addEventListener("resume", ActivityLifeCicleController.onResume, false);
+        document.addEventListener("pause", ActivityLifeCicleController.onPause, false);
 
 
         //A N D R O  I D   B U T T O N S
-        document.addEventListener("searchbutton", deviceButtonsController.onSearchKeyDown, false);
-        document.addEventListener("backbutton", deviceButtonsController.onBackKeyDown, false);
+        document.addEventListener("searchbutton", DeviceButtonsController.onSearchKeyDown, false);
+        document.addEventListener("backbutton", DeviceButtonsController.onBackKeyDown, false);
         
         //The event fires when the user presses the menu button.
         //Applying an event handler overrides the default menu button behavior.
-        document.addEventListener("menubutton", deviceButtonsController.onMenuKeyDown, false);
+        document.addEventListener("menubutton", DeviceButtonsController.onMenuKeyDown, false);
 
         //The event fires when the user presses the volume down button.
         //If you need to override the default volume down behavior you can register an event listener for the volumedownbutton event.
-        document.addEventListener("volumedownbutton", deviceButtonsController.onVolumeDownKeyDown, false);
+        document.addEventListener("volumedownbutton", DeviceButtonsController.onVolumeDownKeyDown, false);
 
         //The event fires when the user presses the volume up button.
         //If you need to override the default volume up behavior you can register an event listener for the volumeupbutton event.
-        document.addEventListener("volumeupbutton", deviceButtonsController.onVolumeUpKeyDown, false);
+        document.addEventListener("volumeupbutton", DeviceButtonsController.onVolumeUpKeyDown, false);
 
-        networkController.getNetworkInfoAndTryLoadMap();
+        NetworkController.getNetworkInfoAndTryLoadMap();
     }
 };
  

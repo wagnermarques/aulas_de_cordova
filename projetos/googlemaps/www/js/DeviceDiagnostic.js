@@ -1,4 +1,4 @@
-let deviceDiagnostic = {
+let DeviceDiagnostic = {
 
 
     //https://cordova.apache.org/docs/en/9.x/reference/cordova-plugin-network-information/index.html

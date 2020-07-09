@@ -1,4 +1,4 @@
-let deviceButtonsController = {
+let DeviceButtonsController = {
 
     //A N D R O  I D   B U T T O N S
     onSearchKeyDown: function () {

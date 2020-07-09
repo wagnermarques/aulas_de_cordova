@@ -1,4 +1,4 @@
-let appUtils = {
+let HtmlUtils = {
 
      carregaScript : function (scriptSrc){
         var scriptElem = document.createElement('script');

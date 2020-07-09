@@ -1,4 +1,4 @@
-let mapController = {
+let MapController = {
 
     
     _map : null,
@@ -10,7 +10,7 @@ let mapController = {
 
     mapInitizalization : function(centerLocation){
         console.log( " $$$ mapInitizalization : function(centerLocation){ ...");
-        mapController._map = new google.maps.Map(document.getElementById('map'), {
+        MapController._map = new google.maps.Map(document.getElementById('map'), {
             center: new google.maps.LatLng(centerLocation.lat, centerLocation.lng),
             zoom: 13
         })
@@ -19,7 +19,7 @@ let mapController = {
     //Um dos marquers especiais e o da propria copanhia
     //Quando clicamos nele abre-se um info window com dados da empresa
     setCompanyMarker : function(){
-        if(! mapController._map){
+        if(! MapController._map){
             console.log("Erro: setCompanyMarker : function(){... nao da pra setar o marker da companhina com o mapa ainda nao inicializado...");
             return;
         }
@@ -47,12 +47,12 @@ let mapController = {
     
         let markerCompany = new google.maps.Marker({
             position: geoLoc.LatLngCompany,
-            map: mapController._map
+            map: MapController._map
         });
 
         markerCompany.setIcon('img/icon/currenteDeviceLocationIcon.jpg');
         markerCompany.addListener('click', function() {
-            infowindow.open,(mapController._map, markerCompany);
+            infowindow.open,(MapController._map, markerCompany);
         });
     },
 
@@ -74,8 +74,8 @@ let mapController = {
         }
 
         //https://developers.google.com/maps/documentation/javascript/tutorial?hl=pt-br
-        //appUtils.carregaScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBc9930yEzp9USRenvVVY5S8LLsl9rrmL4&callback=initMap");
-        appUtils.carregaScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBc9930yEzp9USRenvVVY5S8LLsl9rrmL4");
+        //HtmlUtils.carregaScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBc9930yEzp9USRenvVVY5S8LLsl9rrmL4&callback=initMap");
+        HtmlUtils.carregaScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBc9930yEzp9USRenvVVY5S8LLsl9rrmL4");
             
     },//function loadMapsApi () {
 
