@@ -32,11 +32,11 @@ let MapController = {
             '<table>'+
             '<tr>'+
             '<td> <img src="./img/logo.jpg"></td>'+
-            '<td id= "addressIPGG"> Praça Padre Aleixo Monteiro Mafra, 34 - São Miguel Paulista</td>'+
+            '<td id= "addressIPGG"> PraÃ§a Padre Aleixo Monteiro Mafra, 34 - SÃ£o Miguel Paulista</td>'+
             '</tr>'+
             '</table>'+
             '<a href="http://www.saude.sp.gov.br/instituto-paulista-de-geriatria-e-gerontologia-ipgg-jose-ermirio-de-moraes/">http://www.saude.sp.gov.br/instituto-paulista-de-geriatria-e-gerontologia-ipgg-jose-ermirio-de-moraes/</a>'+
-			'<button onclick="setSearchBox1(LatLngIpgg)">Definir como saída</button>'+
+			'<button onclick="setSearchBox1(LatLngIpgg)">Definir como saÃ­da</button>'+
 			'<button onclick="setSearchBox2(LatLngIpgg)">Definir como chegada</button>'+
             '</div>'+
             '</div>';
@@ -74,8 +74,8 @@ let MapController = {
         }
 
         //https://developers.google.com/maps/documentation/javascript/tutorial?hl=pt-br
-        //HtmlUtils.carregaScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBc9930yEzp9USRenvVVY5S8LLsl9rrmL4&callback=initMap");
-        HtmlUtils.carregaScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBc9930yEzp9USRenvVVY5S8LLsl9rrmL4");
+        //HtmlUtils.carregaScript("https://maps.googleapis.com/maps/api/js?key=TheKey=initMap");
+        HtmlUtils.carregaScript("https://maps.googleapis.com/maps/api/js?key=TheKey");
             
     },//function loadMapsApi () {
 
