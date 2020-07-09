@@ -2,7 +2,7 @@
 // TODO: Replace with your project's customized code snippet
 // Initialize Firebase
 var fbConfig = {
-    apiKey: "AIzaSyAnD5vtoX3N38SNP5iHfVJQd0nxsULw94c",
+    apiKey: "TheKey",
     authDomain: "aulas-de-cordova.firebaseapp.com",
     databaseURL: "https://aulas-de-cordova.firebaseio.com",
     projectId: "aulas-de-cordova",
