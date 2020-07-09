@@ -1,4 +1,4 @@
-let networkController = {
+let NetworkController = {
     
     //https://www.tutorialspoint.com/cordova/cordova_network.htm
     getNetworkInfoAndTryLoadMap: function () {
@@ -21,7 +21,7 @@ let networkController = {
             //offline e o usuario habilita a conexao ai sim a funcao onOnline roda
             //mas com esse teste a gente sabe que o cell ta on line e podemos rodar
             //a funcao onOnline pro app usar a internet
-            networkController.onOnline();
+            NetworkController.onOnline();
         }
     },
     
@@ -59,16 +59,16 @@ let networkController = {
         //app.loadMapsApi();
         //sera invocada no onGeolocationSuccess
 
-        mapController.loadMapsApi();
+        MapController.loadMapsApi();
 
-        geolocalizacao.getDeviceCurrentLocation(function(deviceCurrentLocation){            
+        Geolocalizacao.getDeviceCurrentLocation(function(deviceCurrentLocation){            
             console.log(" @@@ geolocalizacao.getDeviceCurrentLocation completa!");
             console.log(" @@@ he seguro carregar o mapa agora!");
             console.log(" @@@ deviceCurrentLocation: "+deviceCurrentLocation);
             console.log(" @@@ deviceCurrentLocation.lat = "+ deviceCurrentLocation.lat);
             console.log(" @@@ deviceCurrentLocation.lng = "+ deviceCurrentLocation.lng);
             
-            mapController.mapInitizalization(deviceCurrentLocation);
+            MapController.mapInitizalization(deviceCurrentLocation);
         },function(){
             console.log(" %%% ERRO: geolocalizacao.getDeviceCurrentLocation!");
         });

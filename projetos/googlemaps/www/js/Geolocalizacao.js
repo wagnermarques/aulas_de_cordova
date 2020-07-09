@@ -6,7 +6,7 @@
   Ela usa o plugin do cordova para obter a geolocalizacao do 
   dispositivo 
 */
-let geolocalizacao = {
+let Geolocalizacao = {
 
     _geocoder : null,
     _companyLocation :  {lat: undefined, lng: undefined},
@@ -41,12 +41,12 @@ let geolocalizacao = {
         }
 
 
-        geolocalizacao._User_onGeolocationSuccess = successCallback;
-        geolocalizacao._User_onGeolocationError = errCallback;
+        Geolocalizacao._User_onGeolocationSuccess = successCallback;
+        Geolocalizacao._User_onGeolocationError = errCallback;
 
         navigator.geolocation.getCurrentPosition(
-            geolocalizacao._onGeolocationSuccess,
-            geolocalizacao._onGeolocationError,
+            Geolocalizacao._onGeolocationSuccess,
+            Geolocalizacao._onGeolocationError,
             { enableHighAccuracy: true });
 
         
@@ -59,7 +59,7 @@ let geolocalizacao = {
     
     getCompanyLocation : function(){
         if( ! this.companyLocation ) {
-            geolocalizacao.companyLocation = {lat: undefined, lng: undefined};
+            Geolocalizacao.companyLocation = {lat: undefined, lng: undefined};
         }
 
         return this.deviceCurrentLocation;        
@@ -71,19 +71,19 @@ let geolocalizacao = {
         
         console.log("onGeolocationSuccess: function(position) {...");
         
-        geolocalizacao._deviceCurrentLocation.lat = position.coords.latitude;
+        Geolocalizacao._deviceCurrentLocation.lat = position.coords.latitude;
         console.log("### geolocalizador._deviceCurrentLocation.lat = position.coords.latitude = "+ position.coords.latitude);
         
-        geolocalizacao._deviceCurrentLocation.lng = position.coords.longitude;
+        Geolocalizacao._deviceCurrentLocation.lng = position.coords.longitude;
         console.log("geolocalizador._deviceCurrentLocation.lng="+position.coords.longitude);
         
-        geolocalizacao._deviceCurrentLocation.altitude  = position.coords.altitude;
+        Geolocalizacao._deviceCurrentLocation.altitude  = position.coords.altitude;
         console.log("geolocalizador._deviceCurrentLocation.altitude="+position.coords.altitude);
         
-        geolocalizacao._deviceCurrentLocation.accuracy = position.coords.accuracy;
+        Geolocalizacao._deviceCurrentLocation.accuracy = position.coords.accuracy;
         console.log("geolocalizador._deviceCurrentLocation.accuracy="+position.coords.accuracy);
 
-        geolocalizacao._deviceCurrentLocation.altitudeAccuracy = position.coords.altitudeAccuracy;
+        Geolocalizacao._deviceCurrentLocation.altitudeAccuracy = position.coords.altitudeAccuracy;
         console.log("geolocalizador._deviceCurrentLocation.altitudeAccuracy="+position.coords.altitudeAccuracy);
 
         /*
@@ -102,20 +102,20 @@ let geolocalizacao = {
           Caso o dispositivo nao tenha suporte a essa propriedade,
           o valor obtido sera null.
         */
-        geolocalizacao._deviceCurrentLocation.heading = position.coords.heading;
+        Geolocalizacao._deviceCurrentLocation.heading = position.coords.heading;
         console.log("geolocalizador._deviceCurrentLocation=.heading"+position.coords.heading);
         
-        geolocalizacao._deviceCurrentLocation.speed = position.coords.speed;
+        Geolocalizacao._deviceCurrentLocation.speed = position.coords.speed;
         console.log("geolocalizador._deviceCurrentLocation.speed="+position.coords.speed);
         
-        geolocalizacao._deviceCurrentLocation.timestamp = position.timestamp;
+        Geolocalizacao._deviceCurrentLocation.timestamp = position.timestamp;
         console.log("geolocalizador._deviceCurrentLocation.timestamp="+position.timestamp);
 
         
         try{
-            geolocalizacao._User_onGeolocationSuccess(geolocalizacao._deviceCurrentLocation);
+            Geolocalizacao._User_onGeolocationSuccess(geolocalizacao._deviceCurrentLocation);
         }catch(err){
-            geolocalizacao._User_onGeolocationSuccess = undefined;
+            Geolocalizacao._User_onGeolocationSuccess = undefined;
         }
 
     },
@@ -127,9 +127,9 @@ let geolocalizacao = {
               'message: ' + error.message + '\n');
         
         try{
-            geolocalizacao._User_onGeolocationError();
+            Geolocalizacao._User_onGeolocationError();
         }catch(err){
-            geolocalizacao._User_onGeolocationError = undefined;
+            Geolocalizacao._User_onGeolocationError = undefined;
         }
     }
 
