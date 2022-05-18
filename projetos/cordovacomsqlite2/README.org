@@ -1,0 +1,7 @@
+#+Title: Projeto Demo Plugin Sqlite no Cordova
+
+
+* instalar plugin do sqlite
+  cordova plugin add https://github.com/litehelpers/Cordova-sqlite-storage
+
+* 
